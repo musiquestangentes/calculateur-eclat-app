@@ -257,7 +257,7 @@ elif module == "Vérifier son nombre d'heures annuelles":
         return heures_profs, total_annuels
 
     # Lecture backend depuis github
-    DATA_FILE = "data/heures_tous_profs.txt"
+    DATA_FILE = "heures_25-26"
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         contenu = f.read()
 
