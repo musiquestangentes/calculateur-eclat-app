@@ -4,7 +4,7 @@ from datetime import datetime
 st.set_page_config(page_title="Musiques Tangentes - Simulateur simplifié", page_icon="🎵")
 
 st.sidebar.title("Musiques Tangentes")
-st.logo(size="medium", link="logo_2025_celine_queguiner.png")
+st.logo(LOGO_MUSTANG,size="medium",link="logo_2025_celine_queguiner.png")
 page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes"])
 
 valeur_point = 7.01
