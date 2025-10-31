@@ -94,7 +94,7 @@ elif module == "Heures lissées":
 elif module == "Primes":
     st.title("Calcul des primes")
     date_entree = st.date_input(
-        "Date d'entrée dans l'école :", min_value=date(1980,1,1), max_value=date.today(), d.strftime("%d/%m/%Y")
+        "Date d'entrée dans l'école :", min_value=date(1980,1,1), max_value=date.today()
     )
     heures_lissees = st.number_input("Heures hebdomadaires lissées :", min_value=0.0, step=0.5)
     valeur_point = 7.15
