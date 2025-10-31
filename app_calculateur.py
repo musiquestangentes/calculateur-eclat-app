@@ -22,22 +22,22 @@ module = st.radio("Navigation", (
 ))
 
 # PAGE 1 : COEFFICIENT ET SALAIRE DE BASE
-if page == "Coefficient et salaire de base":
+if module == "Coefficient et salaire de base":
     st.title("Coefficient et salaire de base")
-    page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
+    module = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
 
     url_grille = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000048471347#KALIARTI000048471347"
-    st.info("**Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT 1518, composée de groupes nommés par des lettres correspondant chacune à un coefficient et à une catégorie socioprofessionnelle.\n\n" \
+    st.info("**Coefficient :** Renvoie à la grille de clsassification de la convention collective ECLAT 1518, composée de groupes nommés par des lettres correspondant chacune à un coefficient et à une catégorie socioprofessionnelle.\n\n" \
     "Les professeur·e·s sont rattaché·e·s par défaut au groupe A de niveau 1 (Ouvriers et employés), qui correspond au coefficient 247. Musiques Tangentes rattache ses profs au **groupe D** (Techniciens, agents de maîtrise), **coefficient 300**, dont le salaire de base est plus élevé.\n")
     st.markdown("Nb : Le coefficient conventionnel de base, indiqué sur les bulletins de paie, est de 300 mais le coefficient réel sur lequel est indexé les paies des profs de Musiques Tangentes est de 362,03 (voir « prime différentielle » dans l'onglet \"Primes\"). Il est donc plus élevé que le coefficient maximal de la catégorie Techniciens et agents de maîtrise et s'approche de la catégorie Cadres.")
     st.markdown("[>> Lien Légifrance - Grille de classification](%s)" % url_grille)
     st.divider()
     st.info("Le **salaire de base conventionnel** est obtenu en multipliant le coefficient par la valeur du point d'indice (voir page \"Primes\").")
-
+s
 # PAGE 2 : HEURES LISSEES ET ETP
-if page == "Heures lissées":
+if module == "Heures lissées":
     st.title("Calcul des heures lissées")
-    page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
+    module = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
 
     heures_annuelles = st.number_input("Heures annuelles réellement effectuées (de septembre à août):", min_value=0.0, step=0.5)
 
@@ -65,9 +65,9 @@ if page == "Heures lissées":
 
 
 # PAGE 3 : PRIMES
-elif page == "Primes":
+elif module == "Primes":
     st.title("Calcul des primes")
-    page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
+    module = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
 
     date_entree = st.date_input(
     "Date d'entrée dans l'école :",
@@ -110,9 +110,9 @@ elif page == "Primes":
 
 
 # PAGE 4 : SIMULATEUR COMPLET
-elif page == "Simulateur complet":
+elif module == "Simulateur complet":
     st.title("Simulateur complet")
-    page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
+    module = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
 
     heures_annuelles = st.number_input("Heures annuelles réellement effectuées (de septembre à août):", min_value=0.0, step=0.5)
     date_entree = st.date_input(
