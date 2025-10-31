@@ -104,24 +104,17 @@ elif page == "Simulateur complet":
         heures_hebdo = heures_mensuelles / (52/12)
         heures_mensuelles_etp = (heures_hebdo * ((35 * 52)/12)) / 24
 
-        heures_lissees = st.number_input("Heures hebdomadaires lissées :", min_value=0.0, step=0.5)
         valeur_point = 7.15
         today = datetime.today().date()
         anciennete = today.year - date_entree.year - ((today.month, today.day) < (date_entree.month, date_entree.day))
 
+        prime_anciennete = heures_lissees * valeur_point * (anciennete * 2) / 24
+        prime_diff = max(0, (62.03 - (anciennete * 2))) * valeur_point * heures_lissees / 24
+
         st.markdown("### Résultats")
-        st.write(f"- Heures annuelles + 10% de congés payés (CP) : **{heures_avec_cp:.2f} h**")
         st.write(f"- Heures mensuelles lissées : **{heures_mensuelles:.2f} h/mois**")
         st.write(f"- Heures hebdomadaires lissées : **{heures_hebdo:.2f} h/semaine**")
         st.write(f"- Heures mensuelles ETP (affichées sur la fiche de paie) : **{heures_mensuelles_etp:.2f} h**")
-
-        if heures_lissees > 0:
-            prime_anciennete = heures_lissees * valeur_point * (anciennete * 2) / 24
-            prime_diff = max(0, (62.03 - (anciennete * 2))) * valeur_point * heures_lissees / 24
-
-            st.write(f"- Ancienneté calculée : **{anciennete} ans**")
-            st.write(f"- Prime d’ancienneté : **{prime_anciennete:.2f}**")
-            st.write(f"- Prime différentielle : **{prime_diff:.2f}**")
-
-        else:
-            st.warning("Veuillez entrer vos heures lissées pour afficher le calcul.")
+        st.write(f"- Ancienneté calculée : **{anciennete} ans**")
+        st.write(f"- Prime d’ancienneté : **{prime_anciennete:.2f}**")
+        st.write(f"- Prime différentielle : **{prime_diff:.2f}**")
