@@ -1,5 +1,5 @@
 import streamlit as st
-from datetime import datetime
+from datetime import datetime, date
 
 st.set_page_config(page_title="Musiques Tangentes - Simulateur simplifié", page_icon="🎵")
 
@@ -50,8 +50,8 @@ elif page == "Primes":
 
     date_entree = st.date_input(
     "Date d'entrée dans l'école :",
-    min_value=datetime.date(1900, 1, 1),
-    max_value=datetime.date.today()
+    min_value=date(1900, 1, 1),
+    max_value=date.today()
     )
     heures_lissees = st.number_input("Heures hebdomadaires lissées :", min_value=0.0, step=0.5)
     valeur_point = st.number_input("Valeur du point d’indice (€) :", value=7.01, step=0.01)
