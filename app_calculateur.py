@@ -67,9 +67,9 @@ elif page == "Primes":
         prime_diff = max(0, (62.03 - (anciennete * 2))) * valeur_point * heures_lissees / 24
 
         st.markdown("### Résultats")
-        st.write(f"- Ancienneté calculée : **{anciennete} an(s)**")
-        st.write(f"- Prime d’ancienneté : **{prime_anciennete:.2f} €**")
-        st.write(f"- Prime différentielle : **{prime_diff:.2f} €**")
+        st.write(f"- Ancienneté calculée : **{anciennete} ans**")
+        st.write(f"- Prime d’ancienneté : **{prime_anciennete:.2f}**")
+        st.write(f"- Prime différentielle : **{prime_diff:.2f}**")
 
         st.info("La prime d’ancienneté démarre à partir de la 2ème année (N+1).")
         st.info("La prime différentielle a été mise en place afin que tou·te·s les salarié·e·s soient sur un pied d'égalité en termes de rémunération, quelle que soit leur ancienneté.")
