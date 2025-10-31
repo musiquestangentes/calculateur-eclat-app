@@ -56,8 +56,8 @@ elif page == "Primes":
     heures_lissees = st.number_input("Heures hebdomadaires lissées :", min_value=0.0, step=0.5)
     valeur_point = 7.01
     url_valpoint = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000048452551#KALIARTI000048452551"
-    st.write("Valeur du point d'indice au 1er janvier 2024 (€) : 7.01")
-    st.markdown("[Lien Légifrance](%s)" % url_valpoint)
+    st.write("Valeur du point d'indice au 1er janvier 2024 (€) : 7,01.")
+    st.markdown("[>> Lien Légifrance](%s)" % url_valpoint)
 
     today = datetime.today().date()
     anciennete = today.year - date_entree.year - ((today.month, today.day) < (date_entree.month, date_entree.day))
