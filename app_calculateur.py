@@ -10,7 +10,7 @@ valeur_point = 7.01
 
 # PAGE 1 : HEURES LISSEES
 if page == "Heures lissées":
-    st.title("⏱️ Calcul des heures lissées")
+    st.title("Calcul des heures lissées")
 
     heures_annuelles = st.number_input("Heures annuelles réellement effectuées :", min_value=0.0, step=0.5)
 
@@ -20,13 +20,13 @@ if page == "Heures lissées":
         heures_hebdo = heures_mensuelles / (52/12)
 
         st.markdown("### Résultats")
-        st.write(f"- Heures annuelles + 10% CP : **{heures_avec_cp:.2f} h**")
+        st.write(f"- Heures annuelles + 10% de congés payés (CP) : **{heures_avec_cp:.2f} h**")
         st.write(f"- Heures mensuelles lissées : **{heures_mensuelles:.2f} h/mois**")
         st.write(f"- Heures hebdomadaires lissées : **{heures_hebdo:.2f} h/semaine**")
 
         st.info("Le lissage permet de compenser le creux d'heures pendant les vacances scolaires.")
-        st.markdown("Calculs :")
-        st.latex("\\text{Heures mensuelles lissées} = \\frac{\\text{Total heures de sept à août réellement effectuées} + 10% CP}{(12)}")
+        st.markdown("Formules :")
+        st.latex("\\text{Heures mensuelles lissées} = \\frac{\\text{Total heures de sept à août réellement effectuées + 10% CP}{(12)}")
         st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
 
 # PAGE 2 : PRIMES
