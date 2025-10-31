@@ -4,11 +4,18 @@ from datetime import datetime
 st.set_page_config(page_title="Musiques Tangentes - Simulateur simplifié", page_icon="🎵")
 
 st.sidebar.title("Musiques Tangentes")
-page = st.sidebar.radio("Choisir un module :", ["Heures lissées", "Primes"])
+st.logo(size="medium", link="logo_2025_celine_queguiner.png")
+page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes"])
 
 valeur_point = 7.01
 
-# PAGE 1 : HEURES LISSEES
+# PAGE 1 : COEFFICIENT ET SALAIRE DE BASE
+if page == "Coefficient et salaire de base":
+    st.title("Coefficient et salaire de base")
+
+    
+
+# PAGE 2 : HEURES LISSEES ET ETP
 if page == "Heures lissées":
     st.title("Calcul des heures lissées")
 
@@ -18,6 +25,7 @@ if page == "Heures lissées":
         heures_avec_cp = heures_annuelles * 1.10
         heures_mensuelles = heures_avec_cp / 12
         heures_hebdo = heures_mensuelles / (52/12)
+        heures_mensuelles_etp = (heures_hebdo * ((35 * 52)/12)) / 24
 
         st.markdown("### Résultats")
         st.write(f"- Heures annuelles + 10% de congés payés (CP) : **{heures_avec_cp:.2f} h**")
@@ -29,14 +37,20 @@ if page == "Heures lissées":
         st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
         st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
 
-# PAGE 2 : PRIMES
+        st.info("L'équivalent temps plein (ETP) permet de comparer les heures des profs (temps plein à 24h/semaine d'après la convention collective ECLAT) à un temps plein classique (35h/semaine).")
+        st.write(f"- Heures mensuelles ETP (affichées sur la fiche de paie) : **{heures_mensuelles_etp:.2f} h**")
+        st.markdown("*Formule :*")
+        st.latex("\\text{Heures mensuelles ETP} = \\frac{(\\text{Heures hebdo lissées} \\times \\text{ 151,67})}{24}")
+
+
+# PAGE 3 : PRIMES
 elif page == "Primes":
     st.title("Calcul des primes")
 
     date_entree = st.date_input(
     "Date d'entrée dans l'école :",
-    min_value=date(1900, 1, 1),
-    max_value=date.today()
+    min_value=datetime.date(1900, 1, 1),
+    max_value=datetime.date.today()
     )
     heures_lissees = st.number_input("Heures hebdomadaires lissées :", min_value=0.0, step=0.5)
     valeur_point = st.number_input("Valeur du point d’indice (€) :", value=7.01, step=0.01)
