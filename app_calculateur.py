@@ -26,14 +26,18 @@ if page == "Heures lissées":
 
         st.info("Le lissage permet de compenser le creux d'heures pendant les vacances scolaires.")
         st.markdown("*Formules :*")
-        st.latex("\\text{Heures mensuelles lissées} = \\frac{\\text{Heures mensuelles lissées + 10% CP}}{(12)}")
+        st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
         st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
 
 # PAGE 2 : PRIMES
 elif page == "Primes":
     st.title("Calcul des primes")
 
-    date_entree = st.date_input("Date d’entrée dans l’école :")
+    date_entree = st.date_input(
+    "Date d'entrée dans l'école :",
+    min_value=date(1900, 1, 1),
+    max_value=date.today()
+    )
     heures_lissees = st.number_input("Heures hebdomadaires lissées :", min_value=0.0, step=0.5)
     valeur_point = st.number_input("Valeur du point d’indice (€) :", value=7.01, step=0.01)
 
@@ -51,8 +55,10 @@ elif page == "Primes":
 
         st.info("La prime d’ancienneté démarre à partir de la 2ème année (N+1).")
         st.markdown("*Formule :*")
-        st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{heures hebdo lissées} \\times {valeur du point d'indice} \\times {(nombre d'années d'ancienneté \\times 2}{(24)}")
+        st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{nombre d'années d'ancienneté} \\times 2)}{24}")
+
         st.info("La prime différentielle a été mise en place afin que tou·te·s les salarié·e·s soient sur un pied d'égalité en termes de rémunération, quelle que soit leur ancienneté.")
-        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur maximale entre 0 et (62,03 - (années d'ancienneté \\times 2))}{(52 / 12)}")
+        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et (62,03 -(années d'ancienneté x2))} \\times \\text{valeur du point d'indice} \\times (\\text{heures hebdo lissées})}{24}")
+
     else:
         st.warning("Veuillez entrer vos heures lissées pour afficher le calcul.")
