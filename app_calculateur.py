@@ -72,12 +72,17 @@ elif module == "Heures lissées":
         st.write(f"- Heures annuelles + 10% CP : **{heures_avec_cp:.2f} h**")
         st.write(f"- Heures mensuelles lissées : **{heures_mensuelles:.2f} h/mois**")
         st.write(f"- Heures hebdomadaires lissées : **{heures_hebdo:.2f} h/semaine**")
-        st.write(f"- Heures mensuelles ETP : **{heures_mensuelles_etp:.2f} h**")
 
         st.info("Le lissage compense le creux d'heures pendant les vacances scolaires.")
         st.markdown("*Formules :*")
         st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
         st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
+
+        st.divider()
+        st.info("L'équivalent temps plein - ETP - permet de comparer les heures des profs (temps plein fixée à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
+        st.write(f"- Heures mensuelles ETP : **{heures_mensuelles_etp:.2f} h**")
+        st.markdown("*Formule :*")
+        st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{{Heures hebdo lissées} \\times \\text{151,67}}}{(24)}")
 
 
 # PAGE 3: PRIMES
