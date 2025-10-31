@@ -1,5 +1,9 @@
 import streamlit as st
 from datetime import datetime, date
+from io import BytesIO
+from reportlab.lib.pagesizes import A4
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
 
 # Config de la page
 st.set_page_config(page_title="Simulateur ECLAT", page_icon="🎵", layout="wide")
@@ -55,19 +59,19 @@ elif module == "Coefficient et salaire de base":
     "plus élevé que le coefficient maximal de la catégorie Techniciens et agents de maîtrise et s'approche de la catégorie Cadres.")
     st.markdown(f"[>> Lien Légifrance - Grille de classification]({url_grille})")
     st.divider()
-    st.info("Le **salaire de base conventionnel** est obtenu en multipliant le coefficient par la valeur du point d'indice.")
-
+    st.info("Le **salaire de base conventionnel** est obtenu en multipliant les heures hebdomadaires lissées par le coefficient et la valeur du point d'indice, puis en divisant le tout par 24 (ETP profs).")
+    st.latex("\\text{Salaire de base} = \\frac{heures\\ hebdo\\ lissées \\times valeur\\ du\\ point \\times coefficient}{24}")
 
 # PAGE 2: HEURES LISSEES
 
 elif module == "Heures lissées":
     st.title("Calcul des heures lissées")
-    heures_annuelles = st.number_input(
+    heures_annuelles_reelles = st.number_input(
         "Heures annuelles réellement effectuées (de septembre à août) :", min_value=0.0, step=0.5
     )
 
-    if heures_annuelles > 0:
-        heures_avec_cp = heures_annuelles * 1.10
+    if heures_annuelles_reelles > 0:
+        heures_avec_cp = heures_annuelles_reelles * 1.10
         heures_mensuelles = heures_avec_cp / 12
         heures_hebdo = heures_mensuelles / (52/12)
         heures_mensuelles_etp = (heures_hebdo * ((35 * 52)/12)) / 24
@@ -138,6 +142,15 @@ elif module == "Simulateur complet":
         prime_anciennete = heures_hebdo * valeur_point * (anciennete * 2) / 24
         prime_diff = max(0, (62.03 - (anciennete * 2))) * valeur_point * heures_hebdo / 24
 
+        # Salaire brut
+        salaire_base = (heures_hebdo * valeur_point * 300) / 24
+        salaire_brut_total = salaire_base + prime_anciennete + prime_diff
+
+        # Heures réelles mensuelles
+        coef_etp_par_heure_reelle = 1.36
+        heures_mensuelles_reelles = heures_mensuelles_etp / coef_etp_par_heure_reelle
+        taux_horaire_brut_reel = salaire_brut_total / heures_mensuelles_reelles
+
         st.markdown("### Résultats")
         st.write(f"- Heures mensuelles lissées : **{heures_mensuelles:.2f} h/mois**")
         st.write(f"- Heures hebdomadaires lissées : **{heures_hebdo:.2f} h/semaine**")
@@ -145,3 +158,37 @@ elif module == "Simulateur complet":
         st.write(f"- Ancienneté : **{anciennete} ans**")
         st.write(f"- Prime d’ancienneté : **{prime_anciennete:.2f} €**")
         st.write(f"- Prime différentielle : **{prime_diff:.2f} €**")
+        st.write(f"- Salaire brut total estimé : **{salaire_brut_total:.2f} €**")
+        st.write(f"- Taux horaire brut réel : **{taux_horaire_brut_reel:.2f} €/h**")
+
+        # Export PDF
+        buffer = BytesIO()
+        doc = SimpleDocTemplate(buffer, pagesize=A4)
+        styles = getSampleStyleSheet()
+        story = []
+
+        story.append(Paragraph("Simulation de salaire - Convention ECLAT", styles["Title"]))
+        story.append(Spacer(1, 12))
+        story.append(Paragraph(f"Heures annuelles réelles : {heures_annuelles:.2f} h", styles["Normal"]))
+        story.append(Paragraph(f"Heures mensuelles lissées : {heures_mensuelles:.2f} h/mois", styles["Normal"]))
+        story.append(Paragraph(f"Heures hebdomadaires lissées : {heures_hebdo:.2f} h/semaine", styles["Normal"]))
+        story.append(Paragraph(f"Heures mensuelles ETP : {heures_mensuelles_etp:.2f} h", styles["Normal"]))
+        story.append(Paragraph(f"Heures mensuelles réelles (équivalentes) : {heures_mensuelles_reelles:.2f} h", styles["Normal"]))
+        story.append(Paragraph(f"Ancienneté : {anciennete} ans", styles["Normal"]))
+        story.append(Spacer(1, 12))
+        story.append(Paragraph(f"Salaire de base : {salaire_base:.2f} €", styles["Normal"]))
+        story.append(Paragraph(f"Prime d’ancienneté : {prime_anciennete:.2f} €", styles["Normal"]))
+        story.append(Paragraph(f"Prime différentielle : {prime_diff:.2f} €", styles["Normal"]))
+        story.append(Paragraph(f"<b>Salaire brut total : {salaire_brut_total:.2f} €</b>", styles["Heading2"]))
+        story.append(Spacer(1, 12))
+        story.append(Paragraph(f"Taux horaire brut réel : {taux_horaire_brut_reel:.2f} €/h", styles["Normal"]))
+
+        doc.build(story)
+        pdf_data = buffer.getvalue()
+
+        st.download_button(
+            label="📄 Télécharger le PDF récapitulatif",
+            data=pdf_data,
+            file_name="simulation_eclat.pdf",
+            mime="application/pdf"
+        )
