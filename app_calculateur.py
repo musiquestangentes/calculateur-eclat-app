@@ -1,6 +1,5 @@
 import streamlit as st
 from datetime import datetime, date
-from streamlit_datepicker import datepicker
 
 # Config de la page
 st.set_page_config(page_title="Simulateur ECLAT", page_icon="🎵", layout="wide")
@@ -94,10 +93,8 @@ elif module == "Heures lissées":
 
 elif module == "Primes":
     st.title("Calcul des primes")
-    date_entree = datepicker(
-    label="Date d'entrée dans l'école :",
-    format="DD/MM/YYYY",
-    locale="fr"
+    date_entree = st.date_input(
+        "Date d'entrée dans l'école :", min_value=date(1980,1,1), max_value=date.today(), d.strftime("%d/%m/%Y")
     )
     heures_lissees = st.number_input("Heures hebdomadaires lissées :", min_value=0.0, step=0.5)
     valeur_point = 7.15
