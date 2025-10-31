@@ -258,7 +258,7 @@ elif module == "Vérifier son nombre d'heures annuelles":
 
     # Lecture backend depuis github
     DATA_FILE = "heures_2526.txt"
-    with open(DATA_FILE, "r", encoding="utf-8") as f:
+    with open(DATA_FILE, "r", encoding="cp1252") as f:
         contenu = f.read()
 
     heures_profs, total_annuels = parse_fichier_multi_profs(contenu)
