@@ -25,7 +25,7 @@ if page == "Coefficient et salaire de base":
 if page == "Heures lissées":
     st.title("Calcul des heures lissées")
 
-    heures_annuelles = st.number_input("Heures annuelles réellement effectuées :", min_value=0.0, step=0.5)
+    heures_annuelles = st.number_input("Heures annuelles réellement effectuées (de septembre à août):", min_value=0.0, step=0.5)
 
     if heures_annuelles > 0:
         heures_avec_cp = heures_annuelles * 1.10
@@ -44,7 +44,7 @@ if page == "Heures lissées":
         st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
 
         st.divider()
-        st.info("L'équivalent temps plein (ETP) permet de comparer les heures des profs (temps plein à 24h/semaine d'après la convention collective ECLAT) à un temps plein classique (35h/semaine).")
+        st.info("L'équivalent temps plein - ETP - permet de comparer les heures des profs (temps plein à 24h/semaine d'après la convention collective ECLAT) à un temps plein classique (35h/semaine).")
         st.write(f"- Heures mensuelles ETP (affichées sur la fiche de paie) : **{heures_mensuelles_etp:.2f} h**")
         st.markdown("*Formule :*")
         st.latex("\\text{Heures mensuelles ETP} = \\frac{(\\text{Heures hebdo lissées} \\times \\text{ 151,67})}{24}")
@@ -81,7 +81,7 @@ elif page == "Primes":
         st.info("La prime différentielle a été mise en place afin que tou·te·s les salarié·e·s soient sur un pied d'égalité en termes de rémunération, quelle que soit leur ancienneté.")
         st.markdown("*Formules :*")
         st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{nombre d'années d'ancienneté} \\times 2)}{24}")
-        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et (62,03 -({années d'ancienneté} \\times 2))} \\times \\text{valeur du point d'indice} \\times (\\text{heures hebdo lissées})}{24}")
+        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et (62,03 - (\\text{nombre d'années d'ancienneté} \\times 2))} \\times \\text{valeur du point d'indice} \\times (\\text{heures hebdo lissées})}{24}")
 
     else:
         st.warning("Veuillez entrer vos heures lissées pour afficher le calcul.")
