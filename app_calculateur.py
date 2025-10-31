@@ -1,5 +1,6 @@
 import streamlit as st
 from datetime import datetime, date
+from streamlit_datepicker import datepicker
 
 # Config de la page
 st.set_page_config(page_title="Simulateur ECLAT", page_icon="🎵", layout="wide")
@@ -24,7 +25,7 @@ module = st.sidebar.radio("Navigation", modules, index=0)
 # ACCUEIL
 
 if module == "Accueil":
-    st.title("Bienvenue sur le simulateur de paie - Musiques Tangentes")
+    st.title("Simulateur de paie - Musiques Tangentes")
     st.write("""
     Cet outil vous permet de comprendre les éléments de votre fiche de paie et de calculer vos heures et primes.
     
@@ -46,9 +47,13 @@ elif module == "Coefficient et salaire de base":
     
     st.info("""
     **Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT.  
-    Les professeur·e·s sont rattaché·e·s par défaut au groupe A de niveau 1, mais Musiques Tangentes rattache ses profs au **groupe D (coefficient 300)**.
+    Les professeur·e·s sont rattaché·e·s par défaut au groupe A de niveau 1 (Ouvriers et employés), 
+    qui correspond au coefficient 247. Musiques Tangentes rattache ses profs au **groupe D (Techniciens, agents de maîtrise), 
+    coefficient 300**, dont le salaire de base est plus élevé.
     """)
-    st.markdown("Nb : Le coefficient réel utilisé pour les paies des profs est de 362,03 (voir prime différentielle).")
+    st.markdown("Nb : Le coefficient conventionnel de base, indiqué sur les bulletins de paie, est de 300 mais le coefficient réel sur " \
+    "lequel est indexé les paies des profs de Musiques Tangentes est de 362,03 (voir \"prime différentielle\"). Il est donc " \
+    "plus élevé que le coefficient maximal de la catégorie Techniciens et agents de maîtrise et s'approche de la catégorie Cadres.")
     st.markdown(f"[>> Lien Légifrance - Grille de classification]({url_grille})")
     st.divider()
     st.info("Le **salaire de base conventionnel** est obtenu en multipliant le coefficient par la valeur du point d'indice.")
@@ -73,13 +78,13 @@ elif module == "Heures lissées":
         st.write(f"- Heures mensuelles lissées : **{heures_mensuelles:.2f} h/mois**")
         st.write(f"- Heures hebdomadaires lissées : **{heures_hebdo:.2f} h/semaine**")
 
-        st.info("Le lissage compense le creux d'heures pendant les vacances scolaires.")
+        st.info("Le lissage permet de compenser le creux d'heures pendant les vacances scolaires.")
         st.markdown("*Formules :*")
         st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
         st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
 
         st.divider()
-        st.info("L'équivalent temps plein - ETP - permet de comparer les heures des profs (temps plein fixée à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
+        st.info("L'équivalent temps plein - ETP - permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
         st.write(f"- Heures mensuelles ETP : **{heures_mensuelles_etp:.2f} h**")
         st.markdown("*Formule :*")
         st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{{Heures hebdo lissées} \\times \\text{151,67}}}{(24)}")
@@ -89,8 +94,10 @@ elif module == "Heures lissées":
 
 elif module == "Primes":
     st.title("Calcul des primes")
-    date_entree = st.date_input(
-        "Date d'entrée dans l'école :", min_value=date(1980,1,1), max_value=date.today()
+    date_entree = datepicker(
+    label="Date d'entrée dans l'école :",
+    format="DD/MM/YYYY",
+    locale="fr"
     )
     heures_lissees = st.number_input("Heures hebdomadaires lissées :", min_value=0.0, step=0.5)
     valeur_point = 7.15
