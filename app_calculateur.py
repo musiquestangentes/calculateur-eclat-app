@@ -81,7 +81,14 @@ elif page == "Primes":
         st.info("La prime différentielle a été mise en place afin que tou·te·s les salarié·e·s soient sur un pied d'égalité en termes de rémunération, quelle que soit leur ancienneté.")
         st.markdown("*Formules :*")
         st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{nombre d'années d'ancienneté} \\times 2)}{24}")
-        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62,03 - }(\\text{nombre d'années d'ancienneté} \\times 2]} \\times \\text{valeur du point d'indice} \\times (\\text{heures hebdo lissées})}{24}")
+        st.latex("""
+        \\text{Prime différentielle} = 
+        \\frac{
+        \\max\\Big(0, 62,03 - (\\text{nombre d'années d'ancienneté} \\times 2)\\Big)
+        \\times \\text{valeur du point d'indice} 
+        \\times (\\text{heures hebdo lissées})
+        }{24}
+        """)
 
     else:
         st.warning("Veuillez entrer vos heures lissées pour afficher le calcul.")
@@ -108,8 +115,8 @@ elif page == "Simulateur complet":
         today = datetime.today().date()
         anciennete = today.year - date_entree.year - ((today.month, today.day) < (date_entree.month, date_entree.day))
 
-        prime_anciennete = heures_lissees * valeur_point * (anciennete * 2) / 24
-        prime_diff = max(0, (62.03 - (anciennete * 2))) * valeur_point * heures_lissees / 24
+        prime_anciennete = heures_hebdo * valeur_point * (anciennete * 2) / 24
+        prime_diff = max(0, (62.03 - (anciennete * 2))) * valeur_point * heures_hebdo / 24
 
         st.markdown("### Résultats")
         st.write(f"- Heures mensuelles lissées : **{heures_mensuelles:.2f} h/mois**")
