@@ -67,7 +67,7 @@ elif module == "Coefficient et salaire de base":
 elif module == "Heures lissées":
     st.title("Calcul des heures lissées")
 
-    st.info("Le lissage permet de compenser le creux d'heures pendant les vacances scolaires.")
+    st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
     st.markdown("*Formules :*")
     st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
     st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
@@ -101,12 +101,12 @@ elif module == "Heures lissées":
 elif module == "Primes":
     st.title("Calcul des primes")
 
-    st.info("La prime d'ancienneté est calculée sur la base du nombre d'années d'ancienneté. Elle commence à N+1. On compte 2 points par année d'ancienneté.")
-    st.info("La prime différentielle a été mise en place afin que tou·te·s les salarié·e·s soient sur un pied d'égalité en termes de " \
+    st.info("La **prime d'ancienneté** est calculée sur la base du nombre d'années d'ancienneté. Elle commence à N+1. On compte 2 points par année d'ancienneté.")
+    st.info("La **prime différentielle** a été mise en place afin que tou·te·s les salarié·e·s soient sur un pied d'égalité en termes de " \
     "rémunération, quelle que soit leur ancienneté.")
     st.markdown("*Formules :*")
     st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
-    st.latex("\\text{Prime différentielle} = \\frac{\\max(0, 62,03 - (\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
+    st.latex("\\text{Prime différentielle} = \\frac{\\valeur max entre 0 et (62.03 - (\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
     
     st.divider()
     st.write("**Calculateur :**")
