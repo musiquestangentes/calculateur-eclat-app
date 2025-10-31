@@ -5,7 +5,7 @@ st.set_page_config(page_title="Musiques Tangentes - Simulateur simplifié", page
 st.sidebar.title("Musiques Tangentes")
 logo_url = "https://raw.githubusercontent.com/musiquestangentes/calculateur-eclat-app/refs/heads/main/logo_2025_celine_queguiner.png"
 st.image(logo_url, width=500)
-page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes"])
+page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
 
 valeur_point = 7.01
 
@@ -17,6 +17,8 @@ if page == "Coefficient et salaire de base":
     st.info("**Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT 1518, composée de groupes nommés par des lettres correspondant chacune à un coefficient et à une catégorie socioprofessionnelle.\n\n" \
     "Les professeur·e·s sont rattaché·e·s par défaut au groupe A de niveau 1 (Ouvriers et employés), qui correspond au coefficient 247. Musiques Tangentes rattache ses profs au **groupe D** (Techniciens, agents de maîtrise), **coefficient 300**, dont le salaire de base est plus élevé.\n")
     st.markdown("Nb : Le coefficient conventionnel de base, indiqué sur les bulletins de paie, est de 300 mais le coefficient réel sur lequel est indexé les paies des profs de Musiques Tangentes est de 362,03 (voir « prime différentielle » dans l'onglet \"Primes\"). Il est donc plus élevé que le coefficient maximal de la catégorie Techniciens et agents de maîtrise et s'approche de la catégorie Cadres.")
+    st.markdown("[>> Lien Légifrance - Grille de classification](%s)" % url_grille)
+    st.divider()
     st.info("Le **salaire de base conventionnel** est obtenu en multipliant le coefficient par la valeur du point d'indice (voir page \"Primes\").")
 
 # PAGE 2 : HEURES LISSEES ET ETP
@@ -41,6 +43,7 @@ if page == "Heures lissées":
         st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
         st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
 
+        st.divider()
         st.info("L'équivalent temps plein (ETP) permet de comparer les heures des profs (temps plein à 24h/semaine d'après la convention collective ECLAT) à un temps plein classique (35h/semaine).")
         st.write(f"- Heures mensuelles ETP (affichées sur la fiche de paie) : **{heures_mensuelles_etp:.2f} h**")
         st.markdown("*Formule :*")
@@ -60,7 +63,7 @@ elif page == "Primes":
     valeur_point = 7.15
     url_valpoint = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000050362519#KALIARTI000050362519"
     st.write("Valeur du point d'indice au 1er janvier 2025 : 7,15 €.")
-    st.markdown("[>> Lien Légifrance](%s)" % url_valpoint)
+    st.markdown("[>> Lien Légifrance - Valeur du point d'indice](%s)" % url_valpoint)
 
     today = datetime.today().date()
     anciennete = today.year - date_entree.year - ((today.month, today.day) < (date_entree.month, date_entree.day))
@@ -85,3 +88,5 @@ elif page == "Primes":
 
 
 # PAGE 4 : SIMULATEUR COMPLET
+elif page == "Simulateur complet":
+    st.title("Simulateur complet")
