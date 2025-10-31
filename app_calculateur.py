@@ -59,13 +59,25 @@ elif module == "Coefficient et salaire de base":
     "plus élevé que le coefficient maximal de la catégorie Techniciens et agents de maîtrise et s'approche de la catégorie Cadres.")
     st.markdown(f"[>> Lien Légifrance - Grille de classification]({url_grille})")
     st.divider()
-    st.info("Le **salaire de base conventionnel** correspond à la rémunération d’un·e professeur·e à temps plein ECLAT. Il est calculé en multipliant les heures hebdomadaires lissées par la valeur du point d’indice et le coefficient, puis en divisant le résultat par 24 afin de ramener le résultat à la quotité ETP, c’est-à-dire la fraction du temps plein effectuée.")
+    st.info("Le **salaire de base conventionnel** correspond à la rémunération d’un·e professeur·e à temps plein ECLAT. Il est calculé en multipliant les heures hebdomadaires lissées par la valeur du point d’indice et le coefficient, puis en divisant le tout par 24 afin de ramener le résultat à la quotité ETP, c’est-à-dire la fraction du temps plein effectuée.")
     st.latex("\\text{Salaire de base} = \\frac{heures\\ hebdo\\ lissées \\times valeur\\ du\\ point \\times coefficient}{24}")
 
 # PAGE 2: HEURES LISSEES
 
 elif module == "Heures lissées":
     st.title("Calcul des heures lissées")
+
+    st.info("Le lissage permet de compenser le creux d'heures pendant les vacances scolaires.")
+    st.markdown("*Formules :*")
+    st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
+    st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
+
+    st.divider()
+    st.info("L'équivalent temps plein - ETP - permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
+    st.write(f"- Heures mensuelles ETP : **{heures_mensuelles_etp:.2f} h**")
+    st.markdown("*Formule :*")
+    st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{{Heures hebdo lissées} \\times \\text{151,67}}}{(24)}")
+    
     heures_annuelles_reelles = st.number_input(
         "Heures annuelles réellement effectuées (de septembre à août) :", min_value=0.0, step=0.5
     )
@@ -81,22 +93,19 @@ elif module == "Heures lissées":
         st.write(f"- Heures mensuelles lissées : **{heures_mensuelles:.2f} h/mois**")
         st.write(f"- Heures hebdomadaires lissées : **{heures_hebdo:.2f} h/semaine**")
 
-        st.info("Le lissage permet de compenser le creux d'heures pendant les vacances scolaires.")
-        st.markdown("*Formules :*")
-        st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
-        st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
-
-        st.divider()
-        st.info("L'équivalent temps plein - ETP - permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
-        st.write(f"- Heures mensuelles ETP : **{heures_mensuelles_etp:.2f} h**")
-        st.markdown("*Formule :*")
-        st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{{Heures hebdo lissées} \\times \\text{151,67}}}{(24)}")
-
 
 # PAGE 3: PRIMES
 
 elif module == "Primes":
     st.title("Calcul des primes")
+
+    st.info("La prime d'ancienneté est calculée sur la base du nombre d'années d'ancienneté. Elle commence à N+1. On compte 2 points par année d'ancienneté.")
+    st.info("La prime différentielle a été mise en place afin que tou·te·s les salarié·e·s soient sur un pied d'égalité en termes de " \
+    "rémunération, quelle que soit leur ancienneté.")
+    st.markdown("*Formules :*")
+    st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
+    st.latex("\\text{Prime différentielle} = \\frac{\\max(0, 62.03 - (\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
+    
     date_entree = st.date_input(
         "Date d'entrée dans l'école :", min_value=date(1980,1,1), max_value=date.today()
     )
@@ -116,10 +125,6 @@ elif module == "Primes":
         st.write(f"- Ancienneté calculée : **{anciennete} ans**")
         st.write(f"- Prime d’ancienneté : **{prime_anciennete:.2f} €**")
         st.write(f"- Prime différentielle : **{prime_diff:.2f} €**")
-
-        st.markdown("*Formules :*")
-        st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
-        st.latex("\\text{Prime différentielle} = \\frac{\\max(0, 62.03 - (\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
 
 # PAGE 4: SIMULATEUR COMPLET
 
