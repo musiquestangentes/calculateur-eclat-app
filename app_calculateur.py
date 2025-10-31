@@ -7,6 +7,7 @@ from io import BytesIO
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
+from pathlib import Path
 
 # Config de la page
 st.set_page_config(page_title="Simulateur ECLAT", page_icon="🎵", layout="wide")
@@ -218,12 +219,11 @@ elif module == "Vérifier son nombre d'heures annuelles":
     def parse_fichier_multi_profs(fichier_txt):
         """
         Retourne :
-        heures_profs = { "Nom Prof": [heures_par_semaine], ... }
-        total_annuels = { "Nom Prof": total_annee, ... }
+        heures_profs = { "Prénom NOM": [heures_par_semaine], ... }
+        total_annuels = { "Prénom NOM": total_annee, ... }
         """
         heures_profs = {}
         total_annuels = {}
-
         lines = fichier_txt.splitlines()
         current_prof = None
         heures_courantes = []
@@ -232,23 +232,24 @@ elif module == "Vérifier son nombre d'heures annuelles":
             line = line.strip()
             if not line:
                 continue
-            # Nouvelle ligne de prof
-            if re.match(r'^[A-Z][a-z]+ [A-Z][a-z]+$', line):
+
+            if not re.match(r"\d{2}-\d{2}-\d{4}", line) and not line.startswith("Total"):
                 if current_prof is not None:
                     heures_profs[current_prof] = heures_courantes
                     total_annuels[current_prof] = sum(heures_courantes)
                 current_prof = line
                 heures_courantes = []
+
             elif re.match(r"\d{2}-\d{2}-\d{4}\s+total jour\s*:\s*\d{2}:\d{2}", line):
                 hhmm = line.split("total jour :")[1].strip()
                 heures_courantes.append(hhmm_to_decimal(hhmm))
+
             elif line.startswith("Total Période"):
                 match = re.search(r"([\d,\.]+)", line)
                 if match:
                     total_annuel = float(match.group(1).replace(",", "."))
                     total_annuels[current_prof] = total_annuel
 
-        # dernier prof
         if current_prof is not None:
             heures_profs[current_prof] = heures_courantes
             if current_prof not in total_annuels:
@@ -256,14 +257,15 @@ elif module == "Vérifier son nombre d'heures annuelles":
 
         return heures_profs, total_annuels
 
-    # Lecture backend depuis github
-    DATA_FILE = "heures_2526.txt"
-    with open(DATA_FILE, "r", encoding="cp1252") as f:
+    # Lecture backend
+    DATA_FILE = Path(__file__).parent / "heures_2526.txt"
+
+    with open(DATA_FILE, "r", encoding="utf-8", errors="replace") as f:
         contenu = f.read()
 
     heures_profs, total_annuels = parse_fichier_multi_profs(contenu)
 
-    st.title("Calculateur heures annuelles réelles")
+    st.title("Calculateur heures annuelles - Musiques Tangentes")
 
     prof_selectionne = st.selectbox("Sélectionnez votre nom :", list(heures_profs.keys()))
 
@@ -278,7 +280,7 @@ elif module == "Vérifier son nombre d'heures annuelles":
         df_heures = pd.DataFrame({"Semaine": semaines, "Heures": heures_semaine})
         st.dataframe(df_heures, use_container_width=True)
 
-        # Graphique Altair
+        # Graphique
         chart = alt.Chart(df_heures).mark_bar(color="#c2005c").encode(
             x='Semaine',
             y='Heures',
