@@ -78,7 +78,7 @@ elif module == "Heures lissées":
     st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo lissées} \\times \\text{151,67}}{(24)}")
     
     st.divider()
-    st.write("Calculateur :")
+    st.write("**Calculateur :**")
     heures_annuelles_reelles = st.number_input(
         "Heures annuelles réellement effectuées (de septembre à août) :", min_value=0.0, step=0.5
     )
@@ -105,11 +105,11 @@ elif module == "Primes":
     st.info("La prime différentielle a été mise en place afin que tou·te·s les salarié·e·s soient sur un pied d'égalité en termes de " \
     "rémunération, quelle que soit leur ancienneté.")
     st.markdown("*Formules :*")
-    st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
-    st.latex("\\text{Prime différentielle} = \\frac{\\max(0, 62.03 - (\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
+    st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
+    st.latex("\\text{Prime différentielle} = \\frac{\\max(0, 62,03 - (\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
     
     st.divider()
-    st.write("Calculateur :")
+    st.write("**Calculateur :**")
     date_entree = st.date_input(
         "Date d'entrée dans l'école :", min_value=date(1980,1,1), max_value=date.today()
     )
