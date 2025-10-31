@@ -1,13 +1,17 @@
 import streamlit as st
 from datetime import datetime, date
 
-st.set_page_config(page_title="Musiques Tangentes - Simulateur simplifié", page_icon="🎵", layout="wide")
+st.set_page_config(page_title="Simulateur ECLAT", page_icon="🎵", layout="wide")
 st.sidebar.title("Musiques Tangentes")
 logo_url = "https://raw.githubusercontent.com/musiquestangentes/calculateur-eclat-app/refs/heads/main/logo_2025_celine_queguiner.png"
 st.image(logo_url, width=500)
 page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
 
-valeur_point = 7.01
+# ACCUEIL
+st.header("Simulateur de paie - Musiques Tangentes")
+st.write("""
+Cet outil vous permet de comprendre les éléments de votre fiche de paie et de calculer vos heures et primes. :
+""")
 
 # PAGE 1 : COEFFICIENT ET SALAIRE DE BASE
 if page == "Coefficient et salaire de base":
