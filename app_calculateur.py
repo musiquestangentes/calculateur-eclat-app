@@ -1,5 +1,8 @@
 import streamlit as st
 from datetime import datetime, date
+import pandas as pd
+import altair as alt
+import re
 from io import BytesIO
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
@@ -20,7 +23,7 @@ modules = [
     "Heures lissées",
     "Primes",
     "Simulateur complet",
-    "Saisie des heures par semaine"
+    "Vérifier son nombre d'heures annuelles"
 ]
 module = st.sidebar.radio("Navigation", modules, index=0)
 
@@ -199,5 +202,110 @@ elif module == "Simulateur complet":
             label="📄 Télécharger le PDF récapitulatif",
             data=pdf_data,
             file_name="simulation_eclat.pdf",
+            mime="application/pdf"
+        )
+
+
+# PAGE 5: VERIFICATEUR HEURES ANNUELLES
+
+elif module == "Vérifier son nombre d'heures annuelles":
+    
+    def hhmm_to_decimal(hhmm):
+        """Convertit '03:30' en nombre décimal d’heures"""
+        hh, mm = hhmm.strip().split(":")
+        return int(hh) + int(mm)/60
+
+    def parse_fichier_multi_profs(fichier_txt):
+        """
+        Retourne :
+        heures_profs = { "Nom Prof": [heures_par_semaine], ... }
+        total_annuels = { "Nom Prof": total_annee, ... }
+        """
+        heures_profs = {}
+        total_annuels = {}
+
+        lines = fichier_txt.splitlines()
+        current_prof = None
+        heures_courantes = []
+
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+            # Nouvelle ligne de prof
+            if re.match(r'^[A-Z][a-z]+ [A-Z][a-z]+$', line):
+                if current_prof is not None:
+                    heures_profs[current_prof] = heures_courantes
+                    total_annuels[current_prof] = sum(heures_courantes)
+                current_prof = line
+                heures_courantes = []
+            elif re.match(r"\d{2}-\d{2}-\d{4}\s+total jour\s*:\s*\d{2}:\d{2}", line):
+                hhmm = line.split("total jour :")[1].strip()
+                heures_courantes.append(hhmm_to_decimal(hhmm))
+            elif line.startswith("Total Période"):
+                match = re.search(r"([\d,\.]+)", line)
+                if match:
+                    total_annuel = float(match.group(1).replace(",", "."))
+                    total_annuels[current_prof] = total_annuel
+
+        # dernier prof
+        if current_prof is not None:
+            heures_profs[current_prof] = heures_courantes
+            if current_prof not in total_annuels:
+                total_annuels[current_prof] = sum(heures_courantes)
+
+        return heures_profs, total_annuels
+
+    # Lecture backend depuis github
+    DATA_FILE = "data/heures_tous_profs.txt"
+    with open(DATA_FILE, "r", encoding="utf-8") as f:
+        contenu = f.read()
+
+    heures_profs, total_annuels = parse_fichier_multi_profs(contenu)
+
+    st.title("Calculateur heures annuelles réelles")
+
+    prof_selectionne = st.selectbox("Sélectionnez votre nom :", list(heures_profs.keys()))
+
+    if prof_selectionne:
+        heures_semaine = heures_profs[prof_selectionne]
+        total_annuel = total_annuels[prof_selectionne]
+
+        st.markdown(f"### Total annuel : **{total_annuel:.2f} h**")
+
+        # Tableau semaine par semaine
+        semaines = [f"Semaine {i+1}" for i in range(len(heures_semaine))]
+        df_heures = pd.DataFrame({"Semaine": semaines, "Heures": heures_semaine})
+        st.dataframe(df_heures, use_container_width=True)
+
+        # Graphique Altair
+        chart = alt.Chart(df_heures).mark_bar(color="#c2005c").encode(
+            x='Semaine',
+            y='Heures',
+            tooltip=['Semaine', 'Heures']
+        ).properties(width=800, height=300)
+        st.altair_chart(chart)
+
+        # Export PDF
+        buffer = BytesIO()
+        doc = SimpleDocTemplate(buffer, pagesize=A4)
+        styles = getSampleStyleSheet()
+        story = []
+
+        story.append(Paragraph(f"Relevé heures annuelles - {prof_selectionne}", styles["Title"]))
+        story.append(Spacer(1,12))
+        story.append(Paragraph(f"Total annuel : {total_annuel:.2f} h", styles["Normal"]))
+        story.append(Spacer(1,12))
+
+        for i, h in enumerate(heures_semaine):
+            story.append(Paragraph(f"Semaine {i+1} : {h:.2f} h", styles["Normal"]))
+
+        doc.build(story)
+        pdf_data = buffer.getvalue()
+
+        st.download_button(
+            label="Télécharger le PDF récapitulatif",
+            data=pdf_data,
+            file_name=f"heures_{prof_selectionne.replace(' ','_')}.pdf",
             mime="application/pdf"
         )
