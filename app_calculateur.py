@@ -106,7 +106,7 @@ elif module == "Primes":
     "rémunération, quelle que soit leur ancienneté.")
     st.markdown("*Formules :*")
     st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
-    st.latex("\\text{Prime différentielle} = \\frac{\\valeur max entre 0 et (62.03 - (\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
+    st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62.03 - (}\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
     
     st.divider()
     st.write("**Calculateur :**")
