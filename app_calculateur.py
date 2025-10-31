@@ -15,9 +15,10 @@ if page == "Coefficient et salaire de base":
     st.title("Coefficient et salaire de base")
 
     url_grille = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000048471347#KALIARTI000048471347"
-    st.write("**Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT 1518, composée de groupes nommés par des lettres correspondant chacune à un coefficient et à une catégorie socioprofessionnelle. Les professeur·e·s sont rattaché·e·s par défaut au groupe A de niveau 1 (Ouvriers et employés), qui correspond au coefficient 247. Musiques Tangentes rattache ses profs au groupe D (Techniciens, agents de maîtrise), coefficient 300, dont le salaire de base est plus élevé.")
-    st.write("Le salaire de base conventionnel est obtenu en multipliant le coefficient par la valeur du point d'indice (voir page \"Primes\").")
-    st.markdown("Nb : le coefficient conventionnel de base, indiqué sur les bulletins de paie, est de 300 mais le coefficient réel sur lequel est indexé les paies des profs de Musiques Tangentes est de 362,03 (voir « prime différentielle » plus bas). Il est donc plus élevé que le coefficient maximal de la catégorie Techniciens et agents de maîtrise et s'approche de la catégorie Cadres.")
+    st.info("**Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT 1518, composée de groupes nommés par des lettres correspondant chacune à un coefficient et à une catégorie socioprofessionnelle.\n" \
+    "Les professeur·e·s sont rattaché·e·s par défaut au groupe A de niveau 1 (Ouvriers et employés), qui correspond au coefficient 247. Musiques Tangentes rattache ses profs au **groupe D** (Techniciens, agents de maîtrise), **coefficient 300**, dont le salaire de base est plus élevé.\n")
+    st.info("Le **salaire de base conventionnel** est obtenu en multipliant le coefficient par la valeur du point d'indice (voir page \"Primes\").")
+    st.markdown("Nb : Le coefficient conventionnel de base, indiqué sur les bulletins de paie, est de 300 mais le coefficient réel sur lequel est indexé les paies des profs de Musiques Tangentes est de 362,03 (voir « prime différentielle » dans l'onglet \"Primes\"). Il est donc plus élevé que le coefficient maximal de la catégorie Techniciens et agents de maîtrise et s'approche de la catégorie Cadres.")
 
 # PAGE 2 : HEURES LISSEES ET ETP
 if page == "Heures lissées":
