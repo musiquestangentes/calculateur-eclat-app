@@ -5,7 +5,6 @@ st.set_page_config(page_title="Simulateur ECLAT", page_icon="🎵", layout="wide
 st.sidebar.title("Musiques Tangentes")
 logo_url = "https://raw.githubusercontent.com/musiquestangentes/calculateur-eclat-app/refs/heads/main/logo_2025_celine_queguiner.png"
 st.image(logo_url, width=500)
-page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
 
 # ACCUEIL
 st.header("Simulateur de paie - Musiques Tangentes")
@@ -13,9 +12,19 @@ st.write("""
 Cet outil vous permet de comprendre les éléments de votre fiche de paie et de calculer vos heures et primes. :
 """)
 
+# Menu principal
+module = st.radio("Navigation", (
+    "Coefficient et salaire de base",
+    "Heures lissées",
+    "Primes",
+    "Simulateur complet",
+    "Saisie des heures par semaine"
+))
+
 # PAGE 1 : COEFFICIENT ET SALAIRE DE BASE
 if page == "Coefficient et salaire de base":
     st.title("Coefficient et salaire de base")
+    page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
 
     url_grille = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000048471347#KALIARTI000048471347"
     st.info("**Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT 1518, composée de groupes nommés par des lettres correspondant chacune à un coefficient et à une catégorie socioprofessionnelle.\n\n" \
@@ -28,6 +37,7 @@ if page == "Coefficient et salaire de base":
 # PAGE 2 : HEURES LISSEES ET ETP
 if page == "Heures lissées":
     st.title("Calcul des heures lissées")
+    page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
 
     heures_annuelles = st.number_input("Heures annuelles réellement effectuées (de septembre à août):", min_value=0.0, step=0.5)
 
@@ -57,6 +67,7 @@ if page == "Heures lissées":
 # PAGE 3 : PRIMES
 elif page == "Primes":
     st.title("Calcul des primes")
+    page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
 
     date_entree = st.date_input(
     "Date d'entrée dans l'école :",
@@ -101,6 +112,7 @@ elif page == "Primes":
 # PAGE 4 : SIMULATEUR COMPLET
 elif page == "Simulateur complet":
     st.title("Simulateur complet")
+    page = st.sidebar.radio("Choisir un module :", ["Coefficient et salaire de base", "Heures lissées", "Primes", "Simulateur complet"])
 
     heures_annuelles = st.number_input("Heures annuelles réellement effectuées (de septembre à août):", min_value=0.0, step=0.5)
     date_entree = st.date_input(
