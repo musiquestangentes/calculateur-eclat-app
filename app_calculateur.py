@@ -201,7 +201,7 @@ elif module == "Heures lissées":
         st.markdown("""
         Certaines écoles associatives de musique, dont Musiques Tangentes, pratiquent un **lissage de la rémunération sur 12 mois**.  
 
-        Concrètement, vos heures réelles sont calculées à l’année, en excluant les périodes de vacances scolaires, puis réparties mensuellement de manière uniforme. Cela signifie que vous percevez le même salaire chaque mois, même lorsque vous ne travaillez pas, en période de vacances scolaires.  
+        Concrètement, vos heures réelles sont calculées à l’année, en excluant les périodes de vacances scolaires, puis réparties mensuellement de manière uniforme. Cela signifie que vous percevez le même salaire chaque mois, même lors des mois non travaillés.  
 
         ##### Pourquoi ce lissage existe
 
