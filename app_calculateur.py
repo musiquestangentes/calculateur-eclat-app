@@ -36,11 +36,11 @@ if module == "Accueil":
     Cet outil vous permet de comprendre les éléments de votre fiche de paie et de calculer vos heures et primes.
     
     Utilisez le menu à gauche pour naviguer entre les différents modules :
-    - Coefficient et salaire de base  
+    - Coefficient, valeur du point d'indice et salaire de base  
     - Heures lissées  
     - Primes  
     - Simulateur complet  
-    - Saisie des heures par semaine
+    - Vérification de son nombre d'heures réelles annuelles
     """)
     st.image(logo_url, width=400)
 
@@ -63,7 +63,10 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     "plus élevé que le coefficient maximal de la catégorie Techniciens et agents de maîtrise et s'approche de la catégorie Cadres.")
     st.caption(f"[Lien Légifrance - Grille de classification]({url_grille})")
     st.divider()
-    st.info("**Valeur du point d'indice** : Valeur fixée par la convention collective ECLAT.\n\n Au 1er janvier 2025, la valeur du point d'indice est de 7,15€.")
+    st.info("""
+    **Valeur du point d'indice** : Valeur fixée par la convention collective ECLAT.
+    Au 1er janvier 2025, la valeur du point d'indice est de 7,15€."
+    """)
     st.caption(f"[Lien Légifrance - Valeur du point d'indice]({url_valpoint})")
     st.divider()
     st.info("Le **salaire de base conventionnel** correspond à la rémunération d’un·e professeur·e à temps plein ECLAT. Il est calculé en multipliant les heures hebdomadaires lissées par la valeur du point d’indice et le coefficient, puis en divisant le tout par 24 afin de ramener le résultat à la quotité ETP, c’est-à-dire la fraction du temps plein effectuée.")
