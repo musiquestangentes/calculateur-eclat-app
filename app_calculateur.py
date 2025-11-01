@@ -56,94 +56,117 @@ elif module == "Lire sa fiche de paie":
 
     # Schéma interactif fiche de paie
     html_code = """
-    <svg width="800" height="500" style="border:1px solid #ccc; font-family:sans-serif;">
+    <svg width="900" height="600" style="border:1px solid #ccc; font-family:sans-serif;">
     <style>
-        .cell { fill: #f0f0f0; stroke: #333; stroke-width:1; cursor: pointer; }
-        .cell:hover { fill: #d0eaff; }
-        .header { fill: #87CEFA; stroke: #333; stroke-width:1; font-weight: bold; }
-        .tooltip { font-size: 14px; pointer-events: none; }
-        .text { font-size: 14px; }
+        .header { font-size:20px; font-weight:bold; }
+        .subheader { font-size:16px; fill:#333; }
+        .block { fill:#f0f0f0; stroke:#333; stroke-width:1; cursor:pointer; }
+        .block:hover { fill:#d0eaff; }
+        .cell { fill:#ffffff; stroke:#333; stroke-width:1; cursor:pointer; }
+        .cell:hover { fill:#f1faff; }
+        .text { font-size:14px; }
+        .tooltip { font-size:14px; pointer-events:none; }
     </style>
 
-    <!-- Entêtes -->
-    <rect x="50" y="20" width="700" height="30" class="header"/>
-    <text x="400" y="40" text-anchor="middle" alignment-baseline="middle" class="text">FICHE DE PAIE</text>
+    <!-- Titre et période -->
+    <text x="450" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
+    <text x="450" y="55" text-anchor="middle" class="subheader">Période : 01/09/2025 - 30/09/2025</text>
 
-    <!-- Lignes / colonnes -->
-    <!-- Salaire de base -->
-    <rect x="50" y="70" width="500" height="30" class="cell" id="base"/>
-    <text x="55" y="90" alignment-baseline="middle">Salaire de base</text>
-    <text x="600" y="90" alignment-baseline="middle">2500 €</text>
+    <!-- Blocs gauche -->
+    <rect x="50" y="80" width="200" height="30" class="block" id="employeur"/>
+    <text x="55" y="100" class="text">Employeur</text>
 
-    <!-- Primes -->
-    <rect x="50" y="110" width="500" height="30" class="cell" id="primes"/>
-    <text x="55" y="130" alignment-baseline="middle">Primes</text>
-    <text x="600" y="130" alignment-baseline="middle">250 €</text>
+    <rect x="50" y="120" width="200" height="30" class="block" id="convention"/>
+    <text x="55" y="140" class="text">Convention collective</text>
 
-    <!-- Heures supplémentaires -->
-    <rect x="50" y="150" width="500" height="30" class="cell" id="heures"/>
-    <text x="55" y="170" alignment-baseline="middle">Heures supplémentaires</text>
-    <text x="600" y="170" alignment-baseline="middle">100 €</text>
+    <rect x="50" y="160" width="200" height="30" class="block" id="qualification"/>
+    <text x="55" y="180" class="text">Qualification - coefficient</text>
 
-    <!-- Cotisations -->
-    <rect x="50" y="190" width="500" height="30" class="cell" id="cotisations"/>
-    <text x="55" y="210" alignment-baseline="middle">Cotisations sociales</text>
-    <text x="600" y="210" alignment-baseline="middle">- 500 €</text>
+    <rect x="50" y="200" width="200" height="30" class="block" id="ss"/>
+    <text x="55" y="220" class="text">N° SS & Ancienneté</text>
 
-    <!-- Net à payer -->
-    <rect x="50" y="230" width="500" height="30" class="cell" id="net"/>
-    <text x="55" y="250" alignment-baseline="middle">Net à payer</text>
-    <text x="600" y="250" alignment-baseline="middle">2350 €</text>
+    <!-- Blocs droite -->
+    <rect x="300" y="80" width="200" height="30" class="block" id="emploi"/>
+    <text x="305" y="100" class="text">Emploi</text>
+
+    <rect x="300" y="120" width="200" height="30" class="block" id="salarie"/>
+    <text x="305" y="140" class="text">Salarié-e</text>
+
+    <!-- Tableau -->
+    <text x="50" y="260" class="text" font-weight="bold">Désignation</text>
+    <text x="300" y="260" class="text" font-weight="bold">Base</text>
+    <text x="400" y="260" class="text" font-weight="bold">Taux</text>
+    <text x="500" y="260" class="text" font-weight="bold">Montant salarié</text>
+    <text x="650" y="260" class="text" font-weight="bold">Montant employeur</text>
+
+    <!-- Lignes du tableau -->
+    <!-- Ligne 1 -->
+    <rect x="50" y="270" width="600" height="30" class="cell" id="ligne_base"/>
+    <text x="55" y="290" class="text">Salaire de base</text>
+    <text x="300" y="290" class="text">2500 €</text>
+    <text x="400" y="290" class="text">100%</text>
+    <text x="500" y="290" class="text">2500 €</text>
+    <text x="650" y="290" class="text">2500 €</text>
+
+    <!-- Ligne 2 -->
+    <rect x="50" y="310" width="600" height="30" class="cell" id="ligne_prime"/>
+    <text x="55" y="330" class="text">Prime ancienneté</text>
+    <text x="300" y="330" class="text">2500 €</text>
+    <text x="400" y="330" class="text">2%</text>
+    <text x="500" y="330" class="text">250 €</text>
+    <text x="650" y="330" class="text">250 €</text>
+
+    <!-- Ligne 3 -->
+    <rect x="50" y="350" width="600" height="30" class="cell" id="ligne_cotis"/>
+    <text x="55" y="370" class="text">Cotisations sociales</text>
+    <text x="300" y="370" class="text">-</text>
+    <text x="400" y="370" class="text">-</text>
+    <text x="500" y="370" class="text">-500 €</text>
+    <text x="650" y="370" class="text">-500 €</text>
 
     <!-- Tooltip -->
-    <text id="tooltip" x="50" y="300" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+    <text id="tooltip" x="50" y="420" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
 
     <script>
         const tooltip = document.getElementById('tooltip');
 
-        function showTooltip(msg) {
+        function showTooltip(msg){
         tooltip.textContent = msg;
         }
 
-        document.getElementById('base').addEventListener('mouseover', () => {
-        showTooltip('Salaire de base : montant avant primes et cotisations.');
-        });
-        document.getElementById('base').addEventListener('mouseout', () => {
-        showTooltip('Passez la souris sur un élément pour voir le détail');
+        // Hover blocks gauche/droite
+        const blocks = {
+        "employeur": "Nom de l'employeur",
+        "convention": "Convention collective applicable",
+        "qualification": "Qualification et coefficient du salarié",
+        "ss": "Numéro de sécurité sociale et ancienneté",
+        "emploi": "Poste occupé par le salarié",
+        "salarie": "Nom du salarié"
+        };
+
+        Object.keys(blocks).forEach(id => {
+        const elem = document.getElementById(id);
+        elem.addEventListener('mouseover', () => showTooltip(blocks[id]));
+        elem.addEventListener('mouseout', () => showTooltip('Passez la souris sur un élément pour voir le détail'));
         });
 
-        document.getElementById('primes').addEventListener('mouseover', () => {
-        showTooltip('Primes : ancienneté, performance, prime d’objectif...');
-        });
-        document.getElementById('primes').addEventListener('mouseout', () => {
-        showTooltip('Passez la souris sur un élément pour voir le détail');
-        });
+        // Hover lignes tableau
+        const lignes = {
+        "ligne_base": "Salaire de base : montant avant primes et cotisations",
+        "ligne_prime": "Prime d'ancienneté : calcul = salaire x taux x ancienneté",
+        "ligne_cotis": "Cotisations : sécurité sociale, retraite, chômage, etc."
+        };
 
-        document.getElementById('heures').addEventListener('mouseover', () => {
-        showTooltip('Heures supplémentaires : heures travaillées au-delà du temps plein.');
-        });
-        document.getElementById('heures').addEventListener('mouseout', () => {
-        showTooltip('Passez la souris sur un élément pour voir le détail');
-        });
-
-        document.getElementById('cotisations').addEventListener('mouseover', () => {
-        showTooltip('Cotisations sociales : sécurité sociale, retraite, chômage…');
-        });
-        document.getElementById('cotisations').addEventListener('mouseout', () => {
-        showTooltip('Passez la souris sur un élément pour voir le détail');
-        });
-
-        document.getElementById('net').addEventListener('mouseover', () => {
-        showTooltip('Net à payer : ce que le salarié reçoit réellement.');
-        });
-        document.getElementById('net').addEventListener('mouseout', () => {
-        showTooltip('Passez la souris sur un élément pour voir le détail');
+        Object.keys(lignes).forEach(id => {
+        const elem = document.getElementById(id);
+        elem.addEventListener('mouseover', () => showTooltip(lignes[id]));
+        elem.addEventListener('mouseout', () => showTooltip('Passez la souris sur un élément pour voir le détail'));
         });
     </script>
     </svg>
     """
 
-    components.html(html_code, height=400)
+    components.html(html_code, height=500)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
