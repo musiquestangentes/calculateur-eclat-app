@@ -54,37 +54,51 @@ if module == "Accueil":
 elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
-    st.markdown("**Période : 01/09/2025 - 30/09/2025**")    
-    # --- Blocs gauche / droite ---
+    st.markdown("**Période : JJ/MM/AAAA - JJ/MM/AAAA**")
+    
     col1, col2 = st.columns([1,1])
+
+    style_bloc = """
+        <div style='
+            background-color:#f0f0f0;
+            padding:10px;
+            margin-bottom:5px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            cursor:pointer;
+        ' onmouseover="this.style.backgroundColor='#d0eaff';" 
+          onmouseout="this.style.backgroundColor='#f0f0f0';">{}</div>
+    """
+
+    blocs_gauche = [
+        ("EMPLOYEUR : MUSIQUES TANGENTES", "Coefficient, valeur du point d'indice et salaire de base"),
+        ("CONVENTION COLLECTIVE : N° 3246 - ECLAT (Animation)", "Coefficient, valeur du point d'indice et salaire de base"),
+        ("QUALIFICATION - COEFFICIENT", "Coefficient, valeur du point d'indice et salaire de base"),
+        ("N° SS - ANCIENNETÉ", "Heures lissées")
+    ]
+
+    blocs_droite = [
+        ("EMPLOI", "Primes"),
+        ("SALARIÉ·E", "🧮 Simulateur complet")
+    ]
 
     with col1:
         st.subheader("Bloc gauche")
-        if st.button("Employeur : Association XYZ"):
-            st.session_state.module_actif = "Coefficient, valeur du point d'indice et salaire de base"
-            st.experimental_rerun()
-        if st.button("Convention collective : ECLAT"):
-            st.session_state.module_actif = "Coefficient, valeur du point d'indice et salaire de base"
-            st.experimental_rerun()
-        if st.button("Qualification - coefficient"):
-            st.session_state.module_actif = "Coefficient, valeur du point d'indice et salaire de base"
-            st.experimental_rerun()
-        if st.button("N° SS & Ancienneté"):
-            st.session_state.module_actif = "Heures lissées"
-            st.experimental_rerun()
+        for label, module_target in blocs_gauche:
+            if st.button(label):
+                st.session_state.module_actif = module_target
+                st.experimental_rerun()
 
     with col2:
         st.subheader("Bloc droite")
-        if st.button("Emploi"):
-            st.session_state.module_actif = "Primes"
-            st.experimental_rerun()
-        if st.button("Salarié-e"):
-            st.session_state.module_actif = "🧮 Simulateur complet"
-            st.experimental_rerun()
+        for label, module_target in blocs_droite:
+            if st.button(label):
+                st.session_state.module_actif = module_target
+                st.experimental_rerun()
 
     st.markdown("---")
-        
-    # --- Tableau de paie ---
+
+    # --- Tableau de paie stylisé ---
     st.markdown("**Détails de la paie :**")
     df_paie = pd.DataFrame({
         "Désignation": ["Salaire de base", "Prime ancienneté", "Cotisations sociales", "Heures lissées", "Net à payer"],
@@ -94,12 +108,11 @@ elif module == "Lire sa fiche de paie":
         "Part employeur": ["2500 €", "250 €", "-500 €", "-", "-"]
     })
 
-    # Rendre chaque ligne cliquable
+    # Créer un tableau interactif ligne par ligne
     for i, row in df_paie.iterrows():
         cols = st.columns([2,1,1,1,1])
         with cols[0]:
             if st.button(row["Désignation"]):
-                # Mapping lignes → modules
                 ligne_to_module = {
                     "Salaire de base": "Coefficient, valeur du point d'indice et salaire de base",
                     "Prime ancienneté": "Primes",
@@ -110,13 +123,13 @@ elif module == "Lire sa fiche de paie":
                 st.session_state.module_actif = ligne_to_module[row["Désignation"]]
                 st.experimental_rerun()
         with cols[1]:
-            st.write(row["Base"])
+            st.markdown(f"<div style='padding:5px'>{row['Base']}</div>", unsafe_allow_html=True)
         with cols[2]:
-            st.write(row["Taux"])
+            st.markdown(f"<div style='padding:5px'>{row['Taux']}</div>", unsafe_allow_html=True)
         with cols[3]:
-            st.write(row["Part salarié"])
+            st.markdown(f"<div style='padding:5px'>{row['Part salarié']}</div>", unsafe_allow_html=True)
         with cols[4]:
-            st.write(row["Part employeur"])
+            st.markdown(f"<div style='padding:5px'>{row['Part employeur']}</div>", unsafe_allow_html=True)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
