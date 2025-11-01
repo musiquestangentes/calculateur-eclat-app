@@ -78,21 +78,21 @@ elif module == "Lire sa fiche de paie":
     }
 
     # Styles blocs et lignes
-    st_yled.set("bloc", "background_color", "#f0f0f0")
+    st_yled.set("bloc", "background", "#f0f0f0")
     st_yled.set("bloc", "border", "2px solid #333")
     st_yled.set("bloc", "padding", "10px")
     st_yled.set("bloc", "margin", "5px")
     st_yled.set("bloc", "border_radius", "5px")
-    st_yled.set("bloc", "hover_background_color", "#d0eaff")
+    st_yled.set("bloc", "hover_background", "#d0eaff")
     st_yled.set("bloc", "cursor", "pointer")
     st_yled.set("bloc", "width", "250px")
 
-    st_yled.set("ligne", "background_color", "#ffffff")
+    st_yled.set("ligne", "background", "#ffffff")
     st_yled.set("ligne", "border", "2px solid #333")
     st_yled.set("ligne", "padding", "8px")
     st_yled.set("ligne", "margin", "3px")
     st_yled.set("ligne", "border_radius", "3px")
-    st_yled.set("ligne", "hover_background_color", "#f1faff")
+    st_yled.set("ligne", "hover_background", "#f1faff")
     st_yled.set("ligne", "cursor", "pointer")
     st_yled.set("ligne", "width", "650px")
 
