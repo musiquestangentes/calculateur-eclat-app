@@ -19,7 +19,7 @@ st.sidebar.image(logo_url, width=300)
 # Navigation principale
 modules = [
     "Accueil",
-    "Coefficient et salaire de base",
+    "Coefficient, valeur du point d'indice et salaire de base",
     "Heures lissées",
     "Primes",
     "Simulateur complet",
