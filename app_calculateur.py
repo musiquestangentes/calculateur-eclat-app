@@ -69,7 +69,11 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     """)
     st.caption(f"[Lien Légifrance - Valeur du point d'indice]({url_valpoint})")
     st.divider()
-    st.info("Le **salaire de base conventionnel** correspond à la rémunération d’un·e professeur·e à temps plein ECLAT. Il est calculé en multipliant les heures hebdomadaires lissées par la valeur du point d’indice et le coefficient, puis en divisant le tout par 24 afin de ramener le résultat à la quotité ETP, c’est-à-dire la fraction du temps plein effectuée.")
+    st.info("""
+    Le **salaire de base conventionnel** correspond à la rémunération d’un·e professeur·e à temps plein ECLAT.  
+    Il est calculé en multipliant les heures hebdomadaires lissées par la valeur du point d’indice et le coefficient, puis en divisant 
+    le tout par 24 afin de ramener le résultat à la quotité ETP, c’est-à-dire la fraction du temps plein effectuée.
+    """)
     st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
 
 # PAGE 2: HEURES LISSEES
