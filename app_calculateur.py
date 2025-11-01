@@ -20,7 +20,7 @@ st.sidebar.image(logo_url, width=300)
 # Navigation principale
 modules = [
     "Accueil",
-    "Lire sa fiche de paie"
+    "Lire sa fiche de paie",
     "Coefficient, valeur du point d'indice et salaire de base",
     "Heures lissées",
     "Primes",
