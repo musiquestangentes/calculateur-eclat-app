@@ -8,6 +8,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 from pathlib import Path
 import streamlit.components.v1 as components
+from streamlit_javascript import st_javascript
 
 # Config de la page
 st.set_page_config(page_title="Simulateur ECLAT", page_icon="🎵", layout="wide")
@@ -30,6 +31,13 @@ modules = [
 ]
 module = st.sidebar.radio("Navigation", modules, index=0)
 
+clicked_module = st_javascript("window.addEventListener('message', e => e.data.func==='selectModule' ? e.data.module : null)")
+if clicked_module:
+    st.session_state.module_actif = clicked_module
+    st.experimental_rerun()
+
+if "module_actif" not in st.session_state:
+    st.session_state.module_actif = None
 
 # ACCUEIL
 
@@ -53,6 +61,8 @@ if module == "Accueil":
 # PAGE 1: LIRE SA FICHE DE PAIE
 elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
+
+    module_actif = st.session_state.module_actif
 
     html_code = """
     <svg width="900" height="700" style="font-family:sans-serif;">
@@ -136,46 +146,32 @@ elif module == "Lire sa fiche de paie":
     <text x="500" y="490" class="text">2350 €</text>
     <text x="650" y="490" class="text">-</text>
 
-    <!-- Tooltip -->
     <text id="tooltip" x="50" y="530" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
 
     <script>
         const tooltip = document.getElementById('tooltip');
         function showTooltip(msg){ tooltip.textContent = msg; }
 
-        // Blocs gauche/droite
-        const blocks = {
-            "employeur": "Nom de l'employeur. <a href='#'>🧾 Module employeur</a>",
-            "convention": "Convention collective ECLAT. <a href='#'>🔗 Coefficient, valeur du point d'indice et salaire de base</a>",
-            "qualification": "Qualification et coefficient. <a href='#'>🧾 Module qualification</a>",
-            "ss": "Numéro SS & ancienneté. <a href='#'>🔗 Heures lissées</a>",
-            "emploi": "Emploi occupé. <a href='#'>🧾 Module emploi</a>",
-            "salarie": "Nom du salarié. <a href='#'>🧾 Informations salarié</a>"
+        const mapping = {
+            "employeur":"Coefficient, valeur du point d'indice et salaire de base",
+            "convention":"Coefficient, valeur du point d'indice et salaire de base",
+            "qualification":"Coefficient, valeur du point d'indice et salaire de base",
+            "ss":"Heures lissées",
+            "emploi":"Primes",
+            "salarie":"🧮 Simulateur complet",
+            "ligne_base":"Coefficient, valeur du point d'indice et salaire de base",
+            "ligne_prime":"Primes",
+            "ligne_cotis":"🔗 Liens utiles",
+            "ligne_heures":"Vérificateur d'heures",
+            "ligne_net":"🧮 Simulateur complet"
         };
-        Object.keys(blocks).forEach(id => {
-            const elem = document.getElementById(id);
-            elem.addEventListener('mouseover', ()=>showTooltip(blocks[id]));
-            elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
-            elem.addEventListener('click', ()=>{
-                // Changer module via URL ou signal (à gérer dans Streamlit)
-                alert("Module cible : " + blocks[id]);
-            });
-        });
 
-        // Lignes tableau
-        const lignes = {
-            "ligne_base":"Salaire de base. <a href='#'>Coefficient, valeur du point d'indice et salaire de base</a>",
-            "ligne_prime":"Prime ancienneté / différentielle. <a href='#'>Primes - ancienneté et différentielle</a>",
-            "ligne_cotis":"Cotisations sociales. <a href='#'>🔗 Liens utiles</a>",
-            "ligne_heures":"Heures lissées. <a href='#'>Vérificateur d'heures</a>",
-            "ligne_net":"Net à payer final. <a href='#'>🧮 Simulateur complet</a>"
-        };
-        Object.keys(lignes).forEach(id => {
+        Object.keys(mapping).forEach(id=>{
             const elem = document.getElementById(id);
-            elem.addEventListener('mouseover', ()=>showTooltip(lignes[id]));
+            elem.addEventListener('mouseover', ()=>showTooltip(mapping[id]));
             elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
             elem.addEventListener('click', ()=>{
-                alert("Module cible : " + lignes[id]);
+                window.parent.postMessage({func:'selectModule', module: mapping[id]}, '*');
             });
         });
     </script>
