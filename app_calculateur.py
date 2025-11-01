@@ -60,7 +60,7 @@ elif module == "Coefficient et salaire de base":
     st.success("Nb : Le coefficient conventionnel de base, indiqué sur les bulletins de paie, est de 300 mais le coefficient réel sur " \
     "lequel est indexé les paies des profs de Musiques Tangentes est de 362,03 (voir \"prime différentielle\"). Il est donc " \
     "plus élevé que le coefficient maximal de la catégorie Techniciens et agents de maîtrise et s'approche de la catégorie Cadres.")
-    st.markdown(f"[>> Lien Légifrance - Grille de classification]({url_grille})")
+    st.caption(f"[Lien Légifrance - Grille de classification]({url_grille})")
     st.divider()
     st.info("Le **salaire de base conventionnel** correspond à la rémunération d’un·e professeur·e à temps plein ECLAT. Il est calculé en multipliant les heures hebdomadaires lissées par la valeur du point d’indice et le coefficient, puis en divisant le tout par 24 afin de ramener le résultat à la quotité ETP, c’est-à-dire la fraction du temps plein effectuée.")
     st.latex("\\text{Salaire de base} = \\frac{heures\\ hebdo\\ lissées \\times valeur\\ du\\ point \\times coefficient}{24}")
