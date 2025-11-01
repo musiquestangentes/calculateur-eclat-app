@@ -63,12 +63,10 @@ if module == "Accueil":
 elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
-    st.write("Passez la souris sur les blocs pour plus d'infos et cliquez pour naviguer.")
-
     svg_code = """
     <svg width="900" height="700" style="font-family:sans-serif;">
     <style>
-        .block { fill:#f9f9f9; stroke:#333; stroke-width:1; cursor:pointer; }
+        .block { fill:#eef3fd; stroke:#5c9cc4; stroke-width:1; cursor:pointer; }
         .block:hover { fill:#cce6ff; }
         .text { font-size:14px; }
         .header { font-size:20px; font-weight:bold; }
@@ -78,24 +76,24 @@ elif module == "Lire sa fiche de paie":
 
     <!-- Titre -->
     <text x="450" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
-    <text x="450" y="55" text-anchor="middle" class="subheader">Période : 01/09/2025 - 30/09/2025</text>
+    <text x="450" y="55" text-anchor="middle" class="subheader">Période</text>
 
     <!-- Blocs gauche -->
     <rect x="50" y="80" width="200" height="40" class="block" id="bloc_employeur"/>
-    <text x="55" y="105" class="text">Employeur : Association XYZ</text>
+    <text x="55" y="105" class="text">EMPLOYEUR : MUSIQUES TANGENTES</text>
 
     <rect x="50" y="130" width="200" height="40" class="block" id="bloc_convention"/>
-    <text x="55" y="155" class="text">Convention collective : ECLAT</text>
+    <text x="55" y="155" class="text">CONVENTION COLLECTIVE : N° 3246 - E.C.L.A.T (Animation)</text>
 
     <rect x="50" y="180" width="200" height="40" class="block" id="bloc_qualification"/>
-    <text x="55" y="205" class="text">Qualification - coefficient</text>
+    <text x="55" y="205" class="text">QUALIFICATION-COEFFICIENT : Echelon Groupe D, Coefficient 305, Catégorie Agent de Maîtrise</text>
 
     <!-- Blocs droite -->
     <rect x="300" y="80" width="200" height="40" class="block" id="bloc_emploi"/>
-    <text x="305" y="105" class="text">Emploi</text>
+    <text x="305" y="105" class="text">EMPLOI</text>
 
     <rect x="300" y="130" width="200" height="40" class="block" id="bloc_salarie"/>
-    <text x="305" y="155" class="text">Salarié-e</text>
+    <text x="305" y="155" class="text">SALARIÉ·E</text>
 
     <!-- Tableau salaire -->
     <text x="50" y="250" class="text" font-weight="bold">Désignation</text>
@@ -107,26 +105,26 @@ elif module == "Lire sa fiche de paie":
 
     <rect x="50" y="260" width="500" height="30" class="block" id="ligne_base"/>
     <text x="55" y="280" class="text">Salaire de base</text>
-    <text x="300" y="280" class="text">2500 €</text>
+    <text x="300" y="280" class="text">34,7</text>
     <text x="400" y="280" class="text">100%</text>
-    <text x="500" y="280" class="text">2500 €</text>
-    <text x="650" y="280" class="text">2500 €</text>
+    <text x="500" y="280" class="text">34,7</text>
+    <text x="650" y="280" class="text">34,7</text>
 
     <rect x="50" y="300" width="500" height="30" class="block" id="ligne_prime"/>
     <text x="55" y="320" class="text">Prime ancienneté</text>
-    <text x="300" y="320" class="text">250 €</text>
+    <text x="300" y="320" class="text">250</text>
     <text x="400" y="320" class="text">2%</text>
-    <text x="500" y="320" class="text">250 €</text>
-    <text x="650" y="320" class="text">250 €</text>
+    <text x="500" y="320" class="text">250</text>
+    <text x="650" y="320" class="text">250</text>
 
     <rect x="50" y="340" width="500" height="30" class="block" id="ligne_cotis"/>
     <text x="55" y="360" class="text">Cotisations sociales</text>
-    <text x="500" y="360" class="text">-500 €</text>
-    <text x="650" y="360" class="text">-500 €</text>
+    <text x="500" y="360" class="text">500</text>
+    <text x="650" y="360" class="text">500</text>
 
     <rect x="50" y="380" width="500" height="30" class="block" id="ligne_net"/>
     <text x="55" y="400" class="text">Net à payer</text>
-    <text x="500" y="400" class="text">2350 €</text>
+    <text x="500" y="400" class="text">350</text>
 
     <text id="tooltip" x="50" y="450" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
 
