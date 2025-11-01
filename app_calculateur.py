@@ -111,14 +111,14 @@ elif module == "Lire sa fiche de paie":
         <text x="75%" y="260" class="subheader">Montant</text>
 
         <text x="5.5%" y="290" class="text">Salaire de base</text>
-        <text x="55%" y="290" class="text">34,7</text>
-        <text x="65%" y="290" class="text">100%</text>
-        <text x="75%" y="290" class="text">34,7</text>
+        <text x="55%" y="290" class="text">19,70</text>
+        <text x="65%" y="290" class="text">14,2453</text>
+        <text x="75%" y="290" class="text">19,70</text>
 
         <text x="5.5%" y="315" class="text">Prime d'ancienneté</text>
-        <text x="55%" y="315" class="text">250</text>
-        <text x="65%" y="315" class="text">2%</text>
-        <text x="75%" y="315" class="text">250</text>
+        <text x="55%" y="315" class="text">8</text>
+        <text x="65%" y="315" class="text">5,3113</text>
+        <text x="75%" y="315" class="text">42,49</text>
 
         <!-- Tableau Cotisations -->
         <rect x="5%" y="340" width="100%" height="28" class="block"/>
