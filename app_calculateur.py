@@ -68,7 +68,7 @@ elif module == "Lire sa fiche de paie":
     <style>
         .block { fill:#eef3fd; cursor:pointer; }
         .block:hover { fill:#cce6ff; }
-        .text { font-size:12px; color:#5c9cc4; }
+        .text { font-size:12px; fill:#5c9cc4; }
         .header { font-size:20px; font-weight:bold; }
         .subheader { font-size:14px; fill:#333; }
         .tooltip { font-size:14px; pointer-events:none; fill:#333; }
@@ -76,23 +76,22 @@ elif module == "Lire sa fiche de paie":
 
     <!-- Titre -->
     <text x="450" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
-    <text x="450" y="55" text-anchor="middle" class="subheader">Période</text>
 
     <!-- Blocs gauche -->
-    <rect x="50" y="80" width="200" height="40" class="block" id="bloc_employeur"/>
+    <rect x="50" y="80" width="300" height="40" class="block" id="bloc_employeur"/>
     <text x="55" y="105" class="text">EMPLOYEUR : MUSIQUES TANGENTES</text>
 
-    <rect x="50" y="130" width="200" height="40" class="block" id="bloc_convention"/>
+    <rect x="50" y="130" width="300" height="40" class="block" id="bloc_convention"/>
     <text x="55" y="155" class="text">CONVENTION COLLECTIVE : N° 3246 - E.C.L.A.T (Animation)</text>
 
-    <rect x="50" y="180" width="200" height="40" class="block" id="bloc_qualification"/>
+    <rect x="50" y="180" width="300" height="40" class="block" id="bloc_qualification"/>
     <text x="55" y="205" class="text">QUALIFICATION-COEFFICIENT : Echelon Groupe D, Coefficient 305, Catégorie Agent de Maîtrise</text>
 
     <!-- Blocs droite -->
-    <rect x="300" y="80" width="200" height="40" class="block" id="bloc_emploi"/>
+    <rect x="300" y="80" width="300" height="40" class="block" id="bloc_emploi"/>
     <text x="305" y="105" class="text">EMPLOI</text>
 
-    <rect x="300" y="130" width="200" height="40" class="block" id="bloc_salarie"/>
+    <rect x="300" y="130" width="300" height="40" class="block" id="bloc_salarie"/>
     <text x="305" y="155" class="text">SALARIÉ·E</text>
 
     <!-- Tableau salaire -->
