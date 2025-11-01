@@ -56,44 +56,47 @@ elif module == "Lire sa fiche de paie":
 
     # Schéma interactif fiche de paie
     html_code = """
-    <svg width="800" height="400" style="border:1px solid #ccc; font-family:sans-serif;">
+    <svg width="800" height="500" style="border:1px solid #ccc; font-family:sans-serif;">
     <style>
-        .box { fill: lightblue; stroke: black; stroke-width: 2; cursor: pointer; }
-        .box:hover { fill: #87CEFA; }
-        .tooltip {
-        font-size: 14px; 
-        font-family: sans-serif;
-        pointer-events: none;
-        }
+        .cell { fill: #f0f0f0; stroke: #333; stroke-width:1; cursor: pointer; }
+        .cell:hover { fill: #d0eaff; }
+        .header { fill: #87CEFA; stroke: #333; stroke-width:1; font-weight: bold; }
+        .tooltip { font-size: 14px; pointer-events: none; }
+        .text { font-size: 14px; }
     </style>
 
-    <!-- Boîtes -->
-    <rect class="box" x="50" y="50" width="180" height="60" id="base"/>
-    <text x="140" y="85" text-anchor="middle" font-weight="bold">Salaire de base</text>
+    <!-- Entêtes -->
+    <rect x="50" y="20" width="700" height="30" class="header"/>
+    <text x="400" y="40" text-anchor="middle" alignment-baseline="middle" class="text">FICHE DE PAIE</text>
 
-    <rect class="box" x="300" y="50" width="180" height="60" id="primes"/>
-    <text x="390" y="85" text-anchor="middle" font-weight="bold">Primes</text>
+    <!-- Lignes / colonnes -->
+    <!-- Salaire de base -->
+    <rect x="50" y="70" width="500" height="30" class="cell" id="base"/>
+    <text x="55" y="90" alignment-baseline="middle">Salaire de base</text>
+    <text x="600" y="90" alignment-baseline="middle">2500 €</text>
 
-    <rect class="box" x="550" y="50" width="180" height="60" id="cotisations"/>
-    <text x="640" y="85" text-anchor="middle" font-weight="bold">Cotisations</text>
+    <!-- Primes -->
+    <rect x="50" y="110" width="500" height="30" class="cell" id="primes"/>
+    <text x="55" y="130" alignment-baseline="middle">Primes</text>
+    <text x="600" y="130" alignment-baseline="middle">250 €</text>
 
-    <rect class="box" x="300" y="150" width="180" height="60" id="net"/>
-    <text x="390" y="185" text-anchor="middle" font-weight="bold">Net à payer</text>
+    <!-- Heures supplémentaires -->
+    <rect x="50" y="150" width="500" height="30" class="cell" id="heures"/>
+    <text x="55" y="170" alignment-baseline="middle">Heures supplémentaires</text>
+    <text x="600" y="170" alignment-baseline="middle">100 €</text>
 
-    <!-- Flèches -->
-    <line x1="230" y1="80" x2="300" y2="80" style="stroke:black;stroke-width:2;marker-end:url(#arrow)"/>
-    <line x1="480" y1="80" x2="550" y2="80" style="stroke:black;stroke-width:2;marker-end:url(#arrow)"/>
-    <line x1="390" y1="110" x2="390" y2="150" style="stroke:black;stroke-width:2;marker-end:url(#arrow)"/>
+    <!-- Cotisations -->
+    <rect x="50" y="190" width="500" height="30" class="cell" id="cotisations"/>
+    <text x="55" y="210" alignment-baseline="middle">Cotisations sociales</text>
+    <text x="600" y="210" alignment-baseline="middle">- 500 €</text>
 
-    <!-- Flèche -->
-    <defs>
-        <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-        <path d="M0,0 L10,5 L0,10 Z" fill="black"/>
-        </marker>
-    </defs>
+    <!-- Net à payer -->
+    <rect x="50" y="230" width="500" height="30" class="cell" id="net"/>
+    <text x="55" y="250" alignment-baseline="middle">Net à payer</text>
+    <text x="600" y="250" alignment-baseline="middle">2350 €</text>
 
-    <!-- Texte dynamique -->
-    <text id="tooltip" class="tooltip" x="50" y="350">Passez la souris sur un élément pour voir le détail</text>
+    <!-- Tooltip -->
+    <text id="tooltip" x="50" y="300" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
 
     <script>
         const tooltip = document.getElementById('tooltip');
@@ -110,9 +113,16 @@ elif module == "Lire sa fiche de paie":
         });
 
         document.getElementById('primes').addEventListener('mouseover', () => {
-        showTooltip('Primes : ancienneté, performance, prime d’objectif, etc.');
+        showTooltip('Primes : ancienneté, performance, prime d’objectif...');
         });
         document.getElementById('primes').addEventListener('mouseout', () => {
+        showTooltip('Passez la souris sur un élément pour voir le détail');
+        });
+
+        document.getElementById('heures').addEventListener('mouseover', () => {
+        showTooltip('Heures supplémentaires : heures travaillées au-delà du temps plein.');
+        });
+        document.getElementById('heures').addEventListener('mouseout', () => {
         showTooltip('Passez la souris sur un élément pour voir le détail');
         });
 
@@ -133,7 +143,6 @@ elif module == "Lire sa fiche de paie":
     </svg>
     """
 
-    # Affichage du composant HTML dans Streamlit
     components.html(html_code, height=400)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
