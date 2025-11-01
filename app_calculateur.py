@@ -79,27 +79,27 @@ elif module == "Lire sa fiche de paie":
         <text x="50%" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
 
         <!-- Informations employeur et salarié -->
-        <rect x="5%" y="70" width="45%" height="15" class="block"/>
+        <rect x="5%" y="68" width="45%" height="15" class="block"/>
         <text x="5.5%" y="80" class="subheader">EMPLOYEUR</text>
         <text x="5.5%" y="95" class="bold">MUSIQUES TANGENTES</text>
 
-        <rect x="5%" y="110" width="45%" height="15" class="block"/>
+        <rect x="5%" y="108" width="45%" height="15" class="block"/>
         <text x="5.5%" y="120" class="subheader">CONVENTION COLLECTIVE</text>
         <text x="5.5%" y="135" class="bold">N° 3246 - E.C.L.A.T (Animation)</text>
 
-        <rect x="5%" y="150" width="45%" height="15" class="block"/>
+        <rect x="5%" y="148" width="45%" height="15" class="block"/>
         <text x="5.5%" y="160" class="subheader">QUALIFICATION-COEFFICIENT</text>
         <text x="5.5%" y="175" class="bold">Echelon Groupe D, Coefficient 305, Catégorie Agent de Maîtrise</text>
 
-        <rect x="5%" y="190" width="45%" height="15" class="block"/>
+        <rect x="5%" y="188" width="45%" height="15" class="block"/>
         <text x="5.5%" y="200" class="subheader">N° SS ET ANCIENNETÉ</text>
         <text x="5.5%" y="215" class="bold">123 45 6789 012 - 3 ans</text>
 
-        <rect x="55%" y="70" width="45%" height="15" class="block"/>
+        <rect x="55%" y="68" width="45%" height="15" class="block"/>
         <text x="55.5%" y="80" class="subheader">EMPLOI</text>
         <text x="55.5%" y="95" class="bold">Artiste-Enseignant</text>
 
-        <rect x="55%" y="110" width="45%" height="15" class="block"/>
+        <rect x="55%" y="108" width="45%" height="15" class="block"/>
         <text x="55.5%" y="120" class="subheader">SALARIÉ·E</text>
         <text x="55.5%" y="135" class="bold">Prénom Nom</text>
 
