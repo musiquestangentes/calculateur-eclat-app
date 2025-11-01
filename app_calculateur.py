@@ -64,8 +64,8 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     st.caption(f"[Lien Légifrance - Grille de classification]({url_grille})")
     st.divider()
     st.info("""
-    **Valeur du point d'indice** : Valeur fixée par la convention collective ECLAT.
-    Au 1er janvier 2025, la valeur du point d'indice est de 7,15€."
+    **Valeur du point d'indice** : Valeur fixée par la convention collective ECLAT.  
+    Au 1er janvier 2025, la valeur du point d'indice est de 7,15€.
     """)
     st.caption(f"[Lien Légifrance - Valeur du point d'indice]({url_valpoint})")
     st.divider()
