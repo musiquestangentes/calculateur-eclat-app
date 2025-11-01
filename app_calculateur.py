@@ -198,30 +198,32 @@ elif module == "Heures lissées":
 
     st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
     with st.expander("**Comprendre le lissage de votre salaire**"):
-        st.markdown("""
+        st.write("""
         Certaines écoles associatives de musique, dont Musiques Tangentes, pratiquent un **lissage de la rémunération sur 12 mois**.  
 
         Concrètement, vos heures réelles sont calculées à l’année, en excluant les périodes de vacances scolaires, puis réparties mensuellement de manière uniforme. Cela signifie que vous percevez le même salaire chaque mois, même lors des mois non travaillés.  
 
-        ##### Pourquoi ce lissage existe
+        ###### Pourquoi ce lissage existe  
 
-        Le lissage n’est pas une obligation légale pour les enseignants artistiques dans les écoles associatives régies par la convention collective **IDCC 1518 – ECLAT**. Selon les recommandations de la SNAM-CGT :  
+        Le lissage n’est pas une obligation légale pour les enseignant·e·s artistiques dans les écoles associatives régies par la convention collective IDCC 1518 – ECLAT.  
+
+        Selon les recommandations de la SNAM-CGT :  
 
         > « La rémunération est due, pour chaque mois et 12 mois sur 12, dès lors que le salarié effectue l’horaire de service contractuel pendant les semaines de fonctionnement de l’activité. En aucun cas le salaire ne peut être annualisé ou lissé sur douze mois. »  
-        > Source : SNAM-CGT – Bulletin de paie et contrats enseignants  
 
-        Cependant, certaines écoles choisissent d’appliquer le lissage pour ne pas pénaliser les enseignants pendant les périodes de vacances scolaires. Cela permet :  
+        Source : SNAM-CGT – Bulletin de paie et contrats enseignants  
 
-        - de garantir un revenu stable chaque mois  
-        - d’éviter des variations importantes de salaire  
-        - de simplifier la gestion administrative pour l’école et les enseignant·e·s  
+        Cette phrase décrit la rémunération légale minimale et indique que l’école doit payer les heures réellement effectuées chaque mois. Elle **n’empêche pas** une école associative de mettre en place un lissage volontaire pour stabiliser le revenu.  
 
-        ##### Comment ça fonctionne
+        Chez Musiques Tangentes :  
 
-        Les heures effectuées sur l’année sont calculées et majorées de **10 % pour les congés payés**. Ce total est divisé par 12 pour obtenir un **salaire mensuel lissé**. Le salaire versé chaque mois correspond à ce montant fixe, même si vous n’effectuez pas de cours certaines semaines.  
+        - Les heures annuelles sont calculées et majorées de 10 % pour les congés payés  
+        - Ce total est réparti sur 12 mois pour garantir un **revenu stable**, même pendant les vacances scolaires  
+        - Le lissage est donc une **pratique interne**, visant à simplifier la gestion administrative et sécuriser les revenus des enseignant·e·s  
 
-        Le lissage est donc une **pratique interne de l’école**, qui ne modifie pas votre temps de travail réel ni vos droits légaux. Vous continuez à être rémunéré·e selon vos heures effectuées, mais de manière régulière pour plus de stabilité financière.
+        Le lissage ne modifie pas votre temps de travail réel ni vos droits légaux. Vous continuez à être rémunéré·e selon vos heures effectuées, mais de manière régulière pour plus de stabilité financière.
         """)
+
 
              
     with st.expander("Formules"):
