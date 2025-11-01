@@ -70,7 +70,7 @@ elif module == "Lire sa fiche de paie":
             .text { font-size:13px; }
             .text:hover { font-weight:bold; cursor:pointer;}
             .header { font-size:20px; font-weight:bold; }
-            .subheader { font-size:14px; fill:#5c9cc4; text-align: center; }
+            .subheader { font-size:14px; fill:#5c9cc4; font-weight:bold; }
             .bold { font-size: 13px; }
             .tooltip { font-size:14px; pointer-events:none; fill:#333; }
         </style>
@@ -92,12 +92,12 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="175" class="bold">Echelon Groupe D - Coefficient 305 - Catégorie Agent de Maîtrise</text>
 
         <rect x="5%" y="187" width="45%" height="15" class="block"/>
-        <text x="5.5%" y="200" class="subheader">N° SS ET ANCIENNETÉ</text>
-        <text x="5.5%" y="215" class="bold">123 45 6789 012 - Entrée le JJ/MM/AAAA</text>
+        <text x="5.5%" y="200" class="subheader">N° SECURITE SOCIALE - ANCIENNETÉ</text>
+        <text x="5.5%" y="215" class="bold">123 45 6789 012 - Entré·e le 01/01/2015 - Ancienneté 10 ans</text>
 
         <rect x="55%" y="67" width="45%" height="15" class="block"/>
         <text x="55.5%" y="80" class="subheader">EMPLOI</text>
-        <text x="55.5%" y="95" class="bold">Artiste-Enseignant</text>
+        <text x="55.5%" y="95" class="bold">ARTISTE ENSEIGNANT</text>
 
         <rect x="55%" y="107" width="45%" height="15" class="block"/>
         <text x="55.5%" y="120" class="subheader">SALARIÉ·E</text>
@@ -112,27 +112,32 @@ elif module == "Lire sa fiche de paie":
 
         <text x="5.5%" y="290" class="text">Salaire de base</text>
         <text x="55%" y="290" class="text">19,70</text>
-        <text x="65%" y="290" class="text">14,2453</text>
-        <text x="75%" y="290" class="text">19,70</text>
+        <text x="65%" y="290" class="text">14,2454</text>
+        <text x="75%" y="290" class="text">280,63</text>
 
-        <text x="5.5%" y="315" class="text">Prime d'ancienneté</text>
-        <text x="55%" y="315" class="text">8</text>
-        <text x="65%" y="315" class="text">5,3113</text>
-        <text x="75%" y="315" class="text">42,49</text>
+        <text x="5.5%" y="315" class="text">Prime d'ancienneté CC 3246</text>
+        <text x="55%" y="315" class="text">20</text>
+        <text x="65%" y="315" class="text">0,6972</text>
+        <text x="75%" y="315" class="text">13,944</text>
+
+        <text x="5.5%" y="340" class="text">Prime différentielle compensatoire</text>
+        <text x="55%" y="340" class="text">20</text>
+        <text x="65%" y="340" class="text">0,6972</text>
+        <text x="75%" y="340" class="text">13,944</text>
 
         <!-- Tableau Cotisations -->
-        <rect x="5%" y="340" width="100%" height="28" class="block"/>
-        <text x="5.5%" y="360" class="subheader">Cotisations et contributions sociales</text>
-        <text x="55%" y="360" class="subheader">Base</text>
-        <text x="65%" y="360" class="subheader">Taux</text>
-        <text x="75%" y="360" class="subheader">Part salarié</text>
-        <text x="85%" y="360" class="subheader">Part employeur</text>
+        <rect x="5%" y="365" width="100%" height="28" class="block"/>
+        <text x="5.5%" y="385" class="subheader">Cotisations et contributions sociales</text>
+        <text x="55%" y="385" class="subheader">Base</text>
+        <text x="65%" y="385" class="subheader">Taux</text>
+        <text x="75%" y="385" class="subheader">Part salarié</text>
+        <text x="85%" y="385" class="subheader">Part employeur</text>
 
-        <text x="5.5%" y="390" class="text">Sécurité sociale - Maladie Maternité Invalidité Décès</text>
-        <text x="55%" y="390" class="text">1000</text>
-        <text x="65%" y="390" class="text">8%</text>
-        <text x="75%" y="390" class="text">80</text>
-        <text x="85%" y="390" class="text">80</text>
+        <text x="5.5%" y="410" class="text">Sécurité sociale - Maladie Maternité Invalidité Décès</text>
+        <text x="55%" y="410" class="text">1000</text>
+        <text x="65%" y="410" class="text">8%</text>
+        <text x="75%" y="410" class="text">80</text>
+        <text x="85%" y="410" class="text">80</text>
 
         <text x="5.5%" y="415" class="text">ACCIDENTS DU TRAVAIL - MALADIES PROFESSIONNELLES</text>
         <text x="55%" y="415" class="text">1000</text>
