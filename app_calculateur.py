@@ -68,9 +68,9 @@ elif module == "Lire sa fiche de paie":
     <style>
         .block { fill:#eef3fd; cursor:pointer; }
         .block:hover { fill:#cce6ff; }
-        .text { font-size:12px; fill:#5c9cc4; }
+        .text { font-size:12px; }
         .header { font-size:20px; font-weight:bold; }
-        .subheader { font-size:14px; fill:#333; }
+        .subheader { font-size:14px; fill:#5c9cc4; }
         .tooltip { font-size:14px; pointer-events:none; fill:#333; }
     </style>
 
@@ -95,12 +95,12 @@ elif module == "Lire sa fiche de paie":
     <text x="305" y="155" class="text">SALARIÉ·E</text>
 
     <!-- Tableau salaire -->
-    <text x="50" y="250" class="text" font-weight="bold">Désignation</text>
-    <text x="300" y="250" class="text" font-weight="bold">Base</text>
-    <text x="400" y="250" class="text" font-weight="bold">Taux</text>
-    <text x="500" y="250" class="text" font-weight="bold">Montant</text>
-    <text x="500" y="265" class="text">Part salarié</text>
-    <text x="650" y="265" class="text">Part employeur</text>
+    <text x="50" y="250" class="subheader" font-weight="bold">Désignation</text>
+    <text x="300" y="250" class="subheader" font-weight="bold">Base</text>
+    <text x="400" y="250" class="subheader" font-weight="bold">Taux</text>
+    <text x="500" y="250" class="subheader" font-weight="bold">Montant</text>
+    <text x="500" y="265" class="subheader">Part salarié</text>
+    <text x="650" y="265" class="subheader">Part employeur</text>
 
     <rect x="50" y="265" width="500" height="30" class="block" id="ligne_base"/>
     <text x="55" y="280" class="text">Salaire de base</text>
