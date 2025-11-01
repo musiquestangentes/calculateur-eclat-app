@@ -64,7 +64,7 @@ elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
     svg_code = """
-    <svg viewBox="0 0 1000 700" width="100%" height="100%" style="font-family:sans-serif;">
+    <svg viewBox="0 0 1000 1000" width="100%" height="100%" style="font-family:sans-serif;">
         <style>
             .block { fill:#eef3fd; cursor:pointer; }
             .block:hover { fill:#cce6ff; }
@@ -206,7 +206,7 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="720" class="subheader">NET À PAYER AU SALARIE</text>
         <text x="85%" y="720" class="subheader">350</text>
 
-        <text id="tooltip" x="5%" y="540" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+        <text id="tooltip" x="5%" y="900" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
     </svg>
     """
 
