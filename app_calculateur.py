@@ -107,7 +107,7 @@ elif module == "Primes":
     st.info("La **prime d'ancienneté** est calculée sur la base du nombre d'années d'ancienneté. Elle commence à N+1. On compte 2 points par année d'ancienneté.")
     st.info("La **prime différentielle** a été mise en place afin que tou·te·s les salarié·e·s soient sur un pied d'égalité en termes de " \
     "rémunération, quelle que soit leur ancienneté.")
-    st.write("Le coefficient différentiel a été fixé lors de la mise en place de la convention collective actuelle, en 2021. " \
+    st.caption("Le coefficient différentiel a été fixé lors de la mise en place de la convention collective actuelle, en 2021. " \
     "Est prise en compte la valeur de point d'indice en vigueur à l'époque : 6,32€.")
     st.markdown("*Formules :*")
     st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
