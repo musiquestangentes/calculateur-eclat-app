@@ -66,9 +66,9 @@ elif module == "Lire sa fiche de paie":
     svg_code = """
     <svg width="900" height="700" style="font-family:sans-serif;">
     <style>
-        .block { fill:#eef3fd; stroke:#5c9cc4; stroke-width:1; cursor:pointer; }
+        .block { fill:#eef3fd; cursor:pointer; }
         .block:hover { fill:#cce6ff; }
-        .text { font-size:14px; }
+        .text { font-size:14px; color:5c9cc4; }
         .header { font-size:20px; font-weight:bold; }
         .subheader { font-size:16px; fill:#333; }
         .tooltip { font-size:16px; pointer-events:none; fill:#333; }
