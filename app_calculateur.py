@@ -68,10 +68,10 @@ elif module == "Lire sa fiche de paie":
     <style>
         .block { fill:#eef3fd; cursor:pointer; }
         .block:hover { fill:#cce6ff; }
-        .text { font-size:14px; color:5c9cc4; }
+        .text { font-size:12px; color:#5c9cc4; }
         .header { font-size:20px; font-weight:bold; }
-        .subheader { font-size:16px; fill:#333; }
-        .tooltip { font-size:16px; pointer-events:none; fill:#333; }
+        .subheader { font-size:14px; fill:#333; }
+        .tooltip { font-size:14px; pointer-events:none; fill:#333; }
     </style>
 
     <!-- Titre -->
