@@ -2,4 +2,4 @@ streamlit>=1.24.0
 pandas
 reportlab
 streamlit-javascript
-st-st_yled
+st-styled
