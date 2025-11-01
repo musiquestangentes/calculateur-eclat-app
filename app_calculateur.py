@@ -98,11 +98,11 @@ elif module == "Lire sa fiche de paie":
     <text x="50" y="250" class="text" font-weight="bold">Désignation</text>
     <text x="300" y="250" class="text" font-weight="bold">Base</text>
     <text x="400" y="250" class="text" font-weight="bold">Taux</text>
-    <text x="500" y="235" class="text" font-weight="bold">Montant</text>
-    <text x="500" y="250" class="text">Part salarié</text>
-    <text x="650" y="250" class="text">Part employeur</text>
+    <text x="500" y="250" class="text" font-weight="bold">Montant</text>
+    <text x="500" y="265" class="text">Part salarié</text>
+    <text x="650" y="265" class="text">Part employeur</text>
 
-    <rect x="50" y="260" width="500" height="30" class="block" id="ligne_base"/>
+    <rect x="50" y="265" width="500" height="30" class="block" id="ligne_base"/>
     <text x="55" y="280" class="text">Salaire de base</text>
     <text x="300" y="280" class="text">34,7</text>
     <text x="400" y="280" class="text">100%</text>
