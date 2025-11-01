@@ -104,7 +104,7 @@ elif module == "Lire sa fiche de paie":
         <text x="55.5%" y="135" class="bold">Prénom Nom</text>
 
         <!-- Tableau Salaire -->
-        <rect x="5%" y="240" width="100%" height="20" class="block"/>
+        <rect x="5%" y="240" width="100%" height="28" class="block"/>
         <text x="5.5%" y="260" class="subheader">Désignation</text>
         <text x="45%" y="260" class="subheader">Base</text>
         <text x="55%" y="260" class="subheader">Taux</text>
@@ -121,7 +121,7 @@ elif module == "Lire sa fiche de paie":
         <text x="65%" y="315" class="text">250</text>
 
         <!-- Tableau Cotisations -->
-        <rect x="5%" y="340" width="100%" height="20" class="block"/>
+        <rect x="5%" y="340" width="100%" height="28" class="block"/>
         <text x="5.5%" y="360" class="subheader">Cotisations et contributions sociales</text>
         <text x="45%" y="360" class="subheader">Base</text>
         <text x="55%" y="360" class="subheader">Taux</text>
