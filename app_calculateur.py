@@ -145,6 +145,8 @@ elif module == "Lire sa fiche de paie":
     </svg>
     """
 
+    components.html(svg_code, height=800, scrolling=False)
+
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
 elif module == "Coefficient, valeur du point d'indice et salaire de base":
