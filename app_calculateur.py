@@ -23,7 +23,8 @@ modules = [
     "Heures lissées",
     "Primes",
     "Vérificateur d'heures",
-    "Simulateur complet"
+    "🧮 Simulateur complet",
+    "🔗 Liens utiles"
 ]
 module = st.sidebar.radio("Navigation", modules, index=0)
 
@@ -51,11 +52,12 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     st.title("Coefficient et salaire de base")
     url_grille = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000048471347#KALIARTI000048471347"
     url_valpoint = "http://legifrance.gouv.fr/conv_coll/article/KALIARTI000050362519#KALIARTI000050362519"
+    url_salaire = "https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000046098173/?idConteneur=KALICONT000005635177"
     
     st.info("""
     **Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT.  
-    Les professeur·e·s sont rattaché·e·s par défaut au groupe A de niveau 1 (Ouvriers et employés), 
-    qui correspond au coefficient 247. Musiques Tangentes rattache ses profs au **groupe D (Techniciens, agents de maîtrise), 
+    Les professeur·e·s sont rattaché·e·s par défaut au groupe B de niveau 2, 
+    qui correspond au coefficient 265. Musiques Tangentes rattache ses profs au **groupe D, 
     coefficient 300**, dont le salaire de base est plus élevé.
     """)
     st.success("Nb : Le coefficient conventionnel de base, indiqué sur les bulletins de paie, est de 300 mais le coefficient réel sur " \
@@ -81,15 +83,20 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
 elif module == "Heures lissées":
     st.title("Calcul des heures lissées")
 
+    url_modulation = "https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000027717752?idConteneur=KALICONT000005635177&origin=list"
+    url_etp = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043234742?utm_"
+
     st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
     st.markdown("*Formules :*")
     st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
     st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
+    st.caption(f"[Lien Légifrance - Modulation et annualisation]({url_modulation})")
 
     st.divider()
     st.info("L'équivalent temps plein - ETP - permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
     st.markdown("*Formule :*")
     st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo lissées} \\times \\text{151,67}}{24}")
+    st.caption(f"[Lien Légifrance - Temps plein professeur]({url_etp})")
     
     st.divider()
     st.write("**Calculateur :**")
@@ -265,8 +272,8 @@ elif module == "Vérificateur d'heures":
 
 # PAGE 5: SIMULATEUR COMPLET
 
-elif module == "Simulateur complet":
-    st.title("Simulateur complet")
+elif module == "🧮 Simulateur complet":
+    st.title("🧮 Simulateur complet")
     heures_annuelles = st.number_input("Heures annuelles réellement effectuées :", min_value=0.0, step=0.5)
     date_entree = st.date_input("Date d'entrée dans l'école :", min_value=date(1980,1,1), max_value=date.today())
 
@@ -334,3 +341,22 @@ elif module == "Simulateur complet":
             file_name="simulation_eclat.pdf",
             mime="application/pdf"
         )
+
+
+# PAGE 6: LIENS UTILES
+
+elif module == "🔗 Liens utiles":
+    st.title("🔗 Liens utiles")
+    
+    st.write("#2. Formules")
+    st.write("### Prime d’ancienneté")
+
+    with st.expander("📘 Formule du calcul"):
+        st.write("""
+        **Prime d’ancienneté = Salaire de base × (2 % × Nombre d’années d’ancienneté)**
+        
+        Exemple :
+        - Salaire de base : 2 500 €
+        - Ancienneté : 5 ans  
+        → Prime = 2 500 × (2 % × 5) = **250 €**
+        """)
