@@ -68,7 +68,7 @@ elif module == "Lire sa fiche de paie":
         <style>
             .block { fill:#eef3fd; cursor:pointer; }
             .block:hover { fill:#cce6ff; }
-            .text { font-size:12px; }
+            .text { font-size:13px; }
             .header { font-size:20px; font-weight:bold; }
             .subheader { font-size:14px; fill:#5c9cc4; font-weight:bold; }
             .bold { font-weight:bold; }
@@ -92,60 +92,60 @@ elif module == "Lire sa fiche de paie":
         <text x="5%" y="215" class="text">123 45 6789 012 - 3 ans</text>
 
         <text x="55%" y="80" class="bold">EMPLOI</text>
-        <text x="55%" y="95" class="text">Animateur</text>
+        <text x="55%" y="95" class="text">Artiste-Enseignant</text>
 
         <text x="55%" y="120" class="bold">SALARIÉ·E</text>
-        <text x="55%" y="135" class="text">Jean Dupont</text>
+        <text x="55%" y="135" class="text">Prénom Nom</text>
 
         <!-- Tableau Salaire -->
         <text x="5%" y="250" class="subheader">Désignation</text>
-        <text x="35%" y="250" class="subheader">Base</text>
-        <text x="45%" y="250" class="subheader">Taux</text>
-        <text x="55%" y="250" class="subheader">Montant</text>
+        <text x="45%" y="250" class="subheader">Base</text>
+        <text x="55%" y="250" class="subheader">Taux</text>
+        <text x="65%" y="250" class="subheader">Montant</text>
 
         <rect x="5%" y="260" width="90%" height="30" class="block"/>
         <text x="5.5%" y="280" class="text">Salaire de base</text>
-        <text x="35%" y="280" class="text">34,7</text>
-        <text x="45%" y="280" class="text">100%</text>
-        <text x="55%" y="280" class="text">34,7</text>
+        <text x="45%" y="280" class="text">34,7</text>
+        <text x="55%" y="280" class="text">100%</text>
+        <text x="65%" y="280" class="text">34,7</text>
 
         <rect x="5%" y="295" width="90%" height="30" class="block"/>
         <text x="5.5%" y="315" class="text">Prime ancienneté</text>
-        <text x="35%" y="315" class="text">250</text>
-        <text x="45%" y="315" class="text">2%</text>
-        <text x="55%" y="315" class="text">250</text>
+        <text x="45%" y="315" class="text">250</text>
+        <text x="55%" y="315" class="text">2%</text>
+        <text x="65%" y="315" class="text">250</text>
 
         <!-- Tableau Cotisations -->
-        <text x="5%" y="360" class="subheader">Désignation</text>
-        <text x="20%" y="360" class="subheader">Base</text>
-        <text x="30%" y="360" class="subheader">Taux</text>
-        <text x="40%" y="360" class="subheader">Part salarié</text>
-        <text x="50%" y="360" class="subheader">Part employeur</text>
+        <text x="5%" y="360" class="subheader">Cotisations et contributions sociales</text>
+        <text x="45%" y="360" class="subheader">Base</text>
+        <text x="55%" y="360" class="subheader">Taux</text>
+        <text x="65%" y="360" class="subheader">Part salarié</text>
+        <text x="75%" y="360" class="subheader">Part employeur</text>
 
         <rect x="5%" y="370" width="90%" height="30" class="block"/>
         <text x="5.5%" y="390" class="text">Sécurité sociale</text>
-        <text x="20%" y="390" class="text">1000</text>
-        <text x="30%" y="390" class="text">8%</text>
-        <text x="40%" y="390" class="text">80</text>
-        <text x="50%" y="390" class="text">80</text>
+        <text x="45%" y="390" class="text">1000</text>
+        <text x="55%" y="390" class="text">8%</text>
+        <text x="65%" y="390" class="text">80</text>
+        <text x="75%" y="390" class="text">80</text>
 
         <rect x="5%" y="405" width="90%" height="30" class="block"/>
         <text x="5.5%" y="425" class="text">Assurance chômage</text>
-        <text x="20%" y="425" class="text">1000</text>
-        <text x="30%" y="425" class="text">2%</text>
-        <text x="40%" y="425" class="text">20</text>
-        <text x="50%" y="425" class="text">20</text>
+        <text x="45%" y="425" class="text">1000</text>
+        <text x="55%" y="425" class="text">2%</text>
+        <text x="65%" y="425" class="text">20</text>
+        <text x="75%" y="425" class="text">20</text>
 
         <!-- Tableau Net à Payer -->
         <rect x="5%" y="470" width="90%" height="50" class="block"/>
         <text x="5.5%" y="495" class="subheader">Net à payer</text>
-        <text x="55%" y="495" class="subheader">350</text>
+        <text x="75%" y="495" class="subheader">350</text>
 
         <text id="tooltip" x="5%" y="540" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
     </svg>
     """
 
-    components.html(svg_code, height=800, scrolling=False)
+    components.html(svg_code, height=500, scrolling=False)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
