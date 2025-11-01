@@ -54,92 +54,135 @@ if module == "Accueil":
 elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
-    st.markdown("**Période : JJ/MM/AAAA - JJ/MM/AAAA**")
-    
-    col1, col2 = st.columns([1,1])
+    html_code = """
+    <svg width="900" height="700" style="font-family:sans-serif;">
+    <style>
+        .header { font-size:20px; font-weight:bold; }
+        .subheader { font-size:16px; fill:#333; }
+        .block { fill:#f0f0f0; stroke:#333; stroke-width:1; cursor:pointer; }
+        .block:hover { fill:#d0eaff; }
+        .cell { fill:#ffffff; stroke:#333; stroke-width:1; cursor:pointer; }
+        .cell:hover { fill:#f1faff; }
+        .text { font-size:14px; }
+        .tooltip { font-size:14px; pointer-events:none; }
+        a { color: blue; text-decoration: underline; }
+    </style>
 
-    style_bloc = """
-        <div style='
-            background-color:#f0f0f0;
-            padding:10px;
-            margin-bottom:5px;
-            border:1px solid #ccc;
-            border-radius:5px;
-            cursor:pointer;
-        ' onmouseover="this.style.backgroundColor='#d0eaff';" 
-          onmouseout="this.style.backgroundColor='#f0f0f0';">{}</div>
+    <!-- Titre et période -->
+    <text x="450" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
+    <text x="450" y="55" text-anchor="middle" class="subheader">Période : 01/09/2025 - 30/09/2025</text>
+
+    <!-- Blocs gauche -->
+    <rect x="50" y="80" width="200" height="40" class="block" id="employeur"/>
+    <text x="55" y="105" class="text">Employeur : Association XYZ</text>
+
+    <rect x="50" y="130" width="200" height="40" class="block" id="convention"/>
+    <text x="55" y="155" class="text">Convention collective : ECLAT</text>
+
+    <rect x="50" y="180" width="200" height="40" class="block" id="qualification"/>
+    <text x="55" y="205" class="text">Qualification - coefficient</text>
+
+    <rect x="50" y="230" width="200" height="40" class="block" id="ss"/>
+    <text x="55" y="255" class="text">N° SS & Ancienneté</text>
+
+    <!-- Blocs droite -->
+    <rect x="300" y="80" width="200" height="40" class="block" id="emploi"/>
+    <text x="305" y="105" class="text">Emploi</text>
+
+    <rect x="300" y="130" width="200" height="40" class="block" id="salarie"/>
+    <text x="305" y="155" class="text">Salarié-e</text>
+
+    <!-- Tableau -->
+    <text x="50" y="300" class="text" font-weight="bold">Désignation</text>
+    <text x="300" y="300" class="text" font-weight="bold">Base</text>
+    <text x="400" y="300" class="text" font-weight="bold">Taux</text>
+    <text x="550" y="285" class="text" font-weight="bold">Montant</text>
+    <text x="500" y="300" class="text">Part salarié</text>
+    <text x="650" y="300" class="text">Part employeur</text>
+
+    <!-- Lignes tableau -->
+    <rect x="50" y="310" width="500" height="30" class="cell" id="ligne_base"/>
+    <text x="55" y="330" class="text">Salaire de base</text>
+    <text x="300" y="330" class="text">2500 €</text>
+    <text x="400" y="330" class="text">100%</text>
+    <text x="500" y="330" class="text">2500 €</text>
+    <text x="650" y="330" class="text">2500 €</text>
+
+    <rect x="50" y="350" width="500" height="30" class="cell" id="ligne_prime"/>
+    <text x="55" y="370" class="text">Prime ancienneté</text>
+    <text x="300" y="370" class="text">2500 €</text>
+    <text x="400" y="370" class="text">2%</text>
+    <text x="500" y="370" class="text">250 €</text>
+    <text x="650" y="370" class="text">250 €</text>
+
+    <rect x="50" y="390" width="500" height="30" class="cell" id="ligne_cotis"/>
+    <text x="55" y="410" class="text">Cotisations sociales</text>
+    <text x="300" y="410" class="text">-</text>
+    <text x="400" y="410" class="text">-</text>
+    <text x="500" y="410" class="text">-500 €</text>
+    <text x="650" y="410" class="text">-500 €</text>
+
+    <rect x="50" y="430" width="500" height="30" class="cell" id="ligne_heures"/>
+    <text x="55" y="450" class="text">Heures lissées</text>
+    <text x="300" y="450" class="text">-</text>
+    <text x="400" y="450" class="text">-</text>
+    <text x="500" y="450" class="text">-</text>
+    <text x="650" y="450" class="text">-</text>
+
+    <rect x="50" y="470" width="500" height="30" class="cell" id="ligne_net"/>
+    <text x="55" y="490" class="text">Net à payer</text>
+    <text x="300" y="490" class="text">-</text>
+    <text x="400" y="490" class="text">-</text>
+    <text x="500" y="490" class="text">2350 €</text>
+    <text x="650" y="490" class="text">-</text>
+
+    <!-- Tooltip -->
+    <text id="tooltip" x="50" y="530" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+
+    <script>
+        const tooltip = document.getElementById('tooltip');
+        function showTooltip(msg){ tooltip.textContent = msg; }
+
+        // Blocs gauche/droite
+        const blocks = {
+            "employeur": "Nom de l'employeur. <a href='#'>🧾 Module employeur</a>",
+            "convention": "Convention collective ECLAT. <a href='#'>🔗 Coefficient, valeur du point d'indice et salaire de base</a>",
+            "qualification": "Qualification et coefficient. <a href='#'>🧾 Module qualification</a>",
+            "ss": "Numéro SS & ancienneté. <a href='#'>🔗 Heures lissées</a>",
+            "emploi": "Emploi occupé. <a href='#'>🧾 Module emploi</a>",
+            "salarie": "Nom du salarié. <a href='#'>🧾 Informations salarié</a>"
+        };
+        Object.keys(blocks).forEach(id => {
+            const elem = document.getElementById(id);
+            elem.addEventListener('mouseover', ()=>showTooltip(blocks[id]));
+            elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
+            elem.addEventListener('click', ()=>{
+                // Changer module via URL ou signal (à gérer dans Streamlit)
+                alert("Module cible : " + blocks[id]);
+            });
+        });
+
+        // Lignes tableau
+        const lignes = {
+            "ligne_base":"Salaire de base. <a href='#'>Coefficient, valeur du point d'indice et salaire de base</a>",
+            "ligne_prime":"Prime ancienneté / différentielle. <a href='#'>Primes - ancienneté et différentielle</a>",
+            "ligne_cotis":"Cotisations sociales. <a href='#'>🔗 Liens utiles</a>",
+            "ligne_heures":"Heures lissées. <a href='#'>Vérificateur d'heures</a>",
+            "ligne_net":"Net à payer final. <a href='#'>🧮 Simulateur complet</a>"
+        };
+        Object.keys(lignes).forEach(id => {
+            const elem = document.getElementById(id);
+            elem.addEventListener('mouseover', ()=>showTooltip(lignes[id]));
+            elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
+            elem.addEventListener('click', ()=>{
+                alert("Module cible : " + lignes[id]);
+            });
+        });
+    </script>
+    </svg>
     """
 
-    blocs_gauche = [
-        ("EMPLOYEUR : MUSIQUES TANGENTES", "Coefficient, valeur du point d'indice et salaire de base"),
-        ("CONVENTION COLLECTIVE : N° 3246 - ECLAT (Animation)", "Coefficient, valeur du point d'indice et salaire de base"),
-        ("QUALIFICATION - COEFFICIENT", "Coefficient, valeur du point d'indice et salaire de base"),
-        ("N° SS - ANCIENNETÉ", "Heures lissées")
-    ]
-
-    blocs_droite = [
-        ("EMPLOI", "Primes"),
-        ("SALARIÉ·E", "🧮 Simulateur complet")
-    ]
-
-    def styled_button(label, module_target):
-        """Créer un bouton avec style bloc"""
-        container = st.container()
-        with container:
-            if st.button(label, key=label):
-                st.session_state.module_actif = module_target
-                st.experimental_rerun()
-        # On peut ajouter une petite ligne de style visuel avec Markdown
-        st.markdown(
-            f"<div style='height:5px;'></div>", 
-            unsafe_allow_html=True
-        )
-
-    with col1:
-        st.subheader("Bloc gauche")
-        for label, module_target in blocs_gauche:
-            styled_button(label, module_target)
-
-    with col2:
-        st.subheader("Bloc droite")
-        for label, module_target in blocs_droite:
-            styled_button(label, module_target)
-
-    st.markdown("---")
-
-    # --- Tableau de paie ---
-    st.markdown("**Détails de la paie :**")
-    df_paie = pd.DataFrame({
-        "Désignation": ["Salaire de base", "Prime ancienneté", "Cotisations sociales", "Heures lissées", "Net à payer"],
-        "Base": ["2500 €", "2500 €", "-", "-", "-"],
-        "Taux": ["100%", "2%", "-", "-", "-"],
-        "Part salarié": ["2500 €", "250 €", "-500 €", "-", "2350 €"],
-        "Part employeur": ["2500 €", "250 €", "-500 €", "-", "-"]
-    })
-
-    ligne_to_module = {
-        "Salaire de base": "Coefficient, valeur du point d'indice et salaire de base",
-        "Prime ancienneté": "Primes",
-        "Cotisations sociales": "🔗 Liens utiles",
-        "Heures lissées": "Vérificateur d'heures",
-        "Net à payer": "🧮 Simulateur complet"
-    }
-
-    # Affichage du tableau ligne par ligne avec colonnes
-    for i, row in df_paie.iterrows():
-        cols = st.columns([2,1,1,1,1])
-        with cols[0]:
-            if st.button(row["Désignation"], key=f"ligne_{i}"):
-                st.session_state.module_actif = ligne_to_module[row["Désignation"]]
-                st.experimental_rerun()
-        with cols[1]:
-            st.markdown(f"**{row['Base']}**")
-        with cols[2]:
-            st.markdown(f"**{row['Taux']}**")
-        with cols[3]:
-            st.markdown(f"**{row['Part salarié']}**")
-        with cols[4]:
-            st.markdown(f"**{row['Part employeur']}**")
+    components.html(html_code, height=700)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
