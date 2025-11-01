@@ -7,6 +7,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 from pathlib import Path
+import streamlit.components.v1 as components
 
 # Config de la page
 st.set_page_config(page_title="Simulateur ECLAT", page_icon="🎵", layout="wide")
@@ -19,6 +20,7 @@ st.sidebar.image(logo_url, width=300)
 # Navigation principale
 modules = [
     "Accueil",
+    "Lire sa fiche de paie"
     "Coefficient, valeur du point d'indice et salaire de base",
     "Heures lissées",
     "Primes",
@@ -33,21 +35,108 @@ module = st.sidebar.radio("Navigation", modules, index=0)
 
 if module == "Accueil":
     st.title("Simulateur de paie - Musiques Tangentes")
+    st.image(logo_url, width=400)
     st.write("""
     **Cet outil vous permet de comprendre les éléments de votre fiche de paie et de calculer vos heures et primes.**
     
     Utilisez le menu à gauche pour naviguer entre les différents modules :
     - Définitions : Coefficient, valeur du point d'indice et salaire de base  
+    - Lire sa fiche de paie : schéma interactif  
     - Heures lissées  
     - Primes  
     - Vérification de son nombre d'heures réelles annuelles  
     - Simulateur complet   
     - Liens utiles
     """)
-    st.image(logo_url, width=400)
 
 
-# PAGE 1: COEFFICIENT ET SALAIRE DE BASE
+# PAGE 1: LIRE SA FICHE DE PAIE
+elif module == "Lire sa fiche de paie":
+    st.title("Comprendre sa fiche de paie")
+
+    # Schéma interactif fiche de paie
+    html_code = """
+    <svg width="800" height="400" style="border:1px solid #ccc; font-family:sans-serif;">
+    <style>
+        .box { fill: lightblue; stroke: black; stroke-width: 2; cursor: pointer; }
+        .box:hover { fill: #87CEFA; }
+        .tooltip {
+        font-size: 14px; 
+        font-family: sans-serif;
+        pointer-events: none;
+        }
+    </style>
+
+    <!-- Boîtes -->
+    <rect class="box" x="50" y="50" width="180" height="60" id="base"/>
+    <text x="140" y="85" text-anchor="middle" font-weight="bold">Salaire de base</text>
+
+    <rect class="box" x="300" y="50" width="180" height="60" id="primes"/>
+    <text x="390" y="85" text-anchor="middle" font-weight="bold">Primes</text>
+
+    <rect class="box" x="550" y="50" width="180" height="60" id="cotisations"/>
+    <text x="640" y="85" text-anchor="middle" font-weight="bold">Cotisations</text>
+
+    <rect class="box" x="300" y="150" width="180" height="60" id="net"/>
+    <text x="390" y="185" text-anchor="middle" font-weight="bold">Net à payer</text>
+
+    <!-- Flèches -->
+    <line x1="230" y1="80" x2="300" y2="80" style="stroke:black;stroke-width:2;marker-end:url(#arrow)"/>
+    <line x1="480" y1="80" x2="550" y2="80" style="stroke:black;stroke-width:2;marker-end:url(#arrow)"/>
+    <line x1="390" y1="110" x2="390" y2="150" style="stroke:black;stroke-width:2;marker-end:url(#arrow)"/>
+
+    <!-- Flèche -->
+    <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+        <path d="M0,0 L10,5 L0,10 Z" fill="black"/>
+        </marker>
+    </defs>
+
+    <!-- Texte dynamique -->
+    <text id="tooltip" class="tooltip" x="50" y="350">Passez la souris sur un élément pour voir le détail</text>
+
+    <script>
+        const tooltip = document.getElementById('tooltip');
+
+        function showTooltip(msg) {
+        tooltip.textContent = msg;
+        }
+
+        document.getElementById('base').addEventListener('mouseover', () => {
+        showTooltip('Salaire de base : montant avant primes et cotisations.');
+        });
+        document.getElementById('base').addEventListener('mouseout', () => {
+        showTooltip('Passez la souris sur un élément pour voir le détail');
+        });
+
+        document.getElementById('primes').addEventListener('mouseover', () => {
+        showTooltip('Primes : ancienneté, performance, prime d’objectif, etc.');
+        });
+        document.getElementById('primes').addEventListener('mouseout', () => {
+        showTooltip('Passez la souris sur un élément pour voir le détail');
+        });
+
+        document.getElementById('cotisations').addEventListener('mouseover', () => {
+        showTooltip('Cotisations sociales : sécurité sociale, retraite, chômage…');
+        });
+        document.getElementById('cotisations').addEventListener('mouseout', () => {
+        showTooltip('Passez la souris sur un élément pour voir le détail');
+        });
+
+        document.getElementById('net').addEventListener('mouseover', () => {
+        showTooltip('Net à payer : ce que le salarié reçoit réellement.');
+        });
+        document.getElementById('net').addEventListener('mouseout', () => {
+        showTooltip('Passez la souris sur un élément pour voir le détail');
+        });
+    </script>
+    </svg>
+    """
+
+    # Affichage du composant HTML dans Streamlit
+    components.html(html_code, height=400)
+
+# PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
 elif module == "Coefficient, valeur du point d'indice et salaire de base":
     st.title("Coefficient et salaire de base")
@@ -81,7 +170,7 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
         st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
     st.caption(f"[Lien Légifrance - Salaire conventionnel]({url_salaire})")
 
-# PAGE 2: HEURES LISSEES
+# PAGE 3: HEURES LISSEES
 
 elif module == "Heures lissées":
     st.title("Calcul des heures lissées")
@@ -120,7 +209,7 @@ elif module == "Heures lissées":
         st.write(f"- Heures mensuelles ETP : **{heures_mensuelles_etp:.2f} h**")
 
 
-# PAGE 3: PRIMES
+# PAGE 4: PRIMES
 
 elif module == "Primes":
     st.title("Calcul des primes")
@@ -157,7 +246,7 @@ elif module == "Primes":
         st.write(f"- Prime différentielle : **{prime_diff:.2f} €**")
 
 
-# PAGE 4: VERIFICATEUR HEURES ANNUELLES
+# PAGE 5: VERIFICATEUR HEURES ANNUELLES
 
 elif module == "Vérificateur d'heures":
     
@@ -273,7 +362,7 @@ elif module == "Vérificateur d'heures":
         )
 
 
-# PAGE 5: SIMULATEUR COMPLET
+# PAGE 6: SIMULATEUR COMPLET
 
 elif module == "🧮 Simulateur complet":
     st.title("🧮 Simulateur complet")
@@ -346,7 +435,7 @@ elif module == "🧮 Simulateur complet":
         )
 
 
-# PAGE 6: LIENS UTILES
+# PAGE 7: LIENS UTILES
 
 elif module == "🔗 Liens utiles":
     st.title("🔗 Liens utiles")
