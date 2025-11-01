@@ -57,97 +57,100 @@ elif module == "Lire sa fiche de paie":
 
     st.write("Passez la souris sur les blocs pour plus d'infos et cliquez pour naviguer.")
 
-    html_code = """
-    <div style="width:100%; overflow-x:auto;">
-    <svg width="900" height="700" style="font-family:sans-serif; max-width:100%; height:auto;">
+    svg_code = """
+    <svg width="900" height="700" style="font-family:sans-serif;">
     <style>
+        .block { fill:#f9f9f9; stroke:#333; stroke-width:1; cursor:pointer; }
+        .block:hover { fill:#cce6ff; }
+        .text { font-size:14px; }
         .header { font-size:20px; font-weight:bold; }
         .subheader { font-size:16px; fill:#333; }
-        .block { fill:#f0f0f0; stroke:#333; stroke-width:1; cursor:pointer; }
-        .block:hover { fill:#d0eaff; }
-        .cell { fill:#ffffff; stroke:#333; stroke-width:1; cursor:pointer; }
-        .cell:hover { fill:#f1faff; }
-        .text { font-size:14px; }
-        .tooltip { font-size:14px; pointer-events:none; }
-        a { color: blue; text-decoration: underline; }
+        .tooltip { font-size:16px; pointer-events:none; fill:#333; }
     </style>
 
-    <!-- Titre et période -->
+    <!-- Titre -->
     <text x="450" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
     <text x="450" y="55" text-anchor="middle" class="subheader">Période : 01/09/2025 - 30/09/2025</text>
 
     <!-- Blocs gauche -->
-    <rect x="50" y="80" width="200" height="40" class="block" id="employeur"/>
+    <rect x="50" y="80" width="200" height="40" class="block" id="bloc_employeur"/>
     <text x="55" y="105" class="text">Employeur : Association XYZ</text>
 
-    <rect x="50" y="130" width="200" height="40" class="block" id="convention"/>
+    <rect x="50" y="130" width="200" height="40" class="block" id="bloc_convention"/>
     <text x="55" y="155" class="text">Convention collective : ECLAT</text>
 
-    <rect x="50" y="180" width="200" height="40" class="block" id="qualification"/>
+    <rect x="50" y="180" width="200" height="40" class="block" id="bloc_qualification"/>
     <text x="55" y="205" class="text">Qualification - coefficient</text>
 
-    <rect x="50" y="230" width="200" height="40" class="block" id="ss"/>
-    <text x="55" y="255" class="text">N° SS & Ancienneté</text>
-
     <!-- Blocs droite -->
-    <rect x="300" y="80" width="200" height="40" class="block" id="emploi"/>
+    <rect x="300" y="80" width="200" height="40" class="block" id="bloc_emploi"/>
     <text x="305" y="105" class="text">Emploi</text>
 
-    <rect x="300" y="130" width="200" height="40" class="block" id="salarie"/>
+    <rect x="300" y="130" width="200" height="40" class="block" id="bloc_salarie"/>
     <text x="305" y="155" class="text">Salarié-e</text>
 
-    <!-- Tableau -->
-    <text x="50" y="300" class="text" font-weight="bold">Désignation</text>
-    <text x="300" y="300" class="text" font-weight="bold">Base</text>
-    <text x="400" y="300" class="text" font-weight="bold">Taux</text>
-    <text x="500" y="285" class="text" font-weight="bold">Montant</text>
-    <text x="500" y="300" class="text">Part salarié</text>
-    <text x="650" y="300" class="text">Part employeur</text>
+    <!-- Tableau salaire -->
+    <text x="50" y="250" class="text" font-weight="bold">Désignation</text>
+    <text x="300" y="250" class="text" font-weight="bold">Base</text>
+    <text x="400" y="250" class="text" font-weight="bold">Taux</text>
+    <text x="500" y="235" class="text" font-weight="bold">Montant</text>
+    <text x="500" y="250" class="text">Part salarié</text>
+    <text x="650" y="250" class="text">Part employeur</text>
 
-    <!-- Lignes tableau -->
-    <rect x="50" y="310" width="500" height="30" class="cell" id="ligne_base"/>
-    <text x="55" y="330" class="text">Salaire de base</text>
-    <text x="300" y="330" class="text">2500 €</text>
-    <text x="400" y="330" class="text">100%</text>
-    <text x="500" y="330" class="text">2500 €</text>
-    <text x="650" y="330" class="text">2500 €</text>
+    <rect x="50" y="260" width="500" height="30" class="block" id="ligne_base"/>
+    <text x="55" y="280" class="text">Salaire de base</text>
+    <text x="300" y="280" class="text">2500 €</text>
+    <text x="400" y="280" class="text">100%</text>
+    <text x="500" y="280" class="text">2500 €</text>
+    <text x="650" y="280" class="text">2500 €</text>
 
-    <rect x="50" y="350" width="500" height="30" class="cell" id="ligne_prime"/>
-    <text x="55" y="370" class="text">Prime ancienneté</text>
-    <text x="300" y="370" class="text">2500 €</text>
-    <text x="400" y="370" class="text">2%</text>
-    <text x="500" y="370" class="text">250 €</text>
-    <text x="650" y="370" class="text">250 €</text>
+    <rect x="50" y="300" width="500" height="30" class="block" id="ligne_prime"/>
+    <text x="55" y="320" class="text">Prime ancienneté</text>
+    <text x="300" y="320" class="text">250 €</text>
+    <text x="400" y="320" class="text">2%</text>
+    <text x="500" y="320" class="text">250 €</text>
+    <text x="650" y="320" class="text">250 €</text>
 
-    <text id="tooltip" x="50" y="420" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+    <rect x="50" y="340" width="500" height="30" class="block" id="ligne_cotis"/>
+    <text x="55" y="360" class="text">Cotisations sociales</text>
+    <text x="500" y="360" class="text">-500 €</text>
+    <text x="650" y="360" class="text">-500 €</text>
+
+    <rect x="50" y="380" width="500" height="30" class="block" id="ligne_net"/>
+    <text x="55" y="400" class="text">Net à payer</text>
+    <text x="500" y="400" class="text">2350 €</text>
+
+    <text id="tooltip" x="50" y="450" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
 
     <script>
         const tooltip = document.getElementById('tooltip');
         function showTooltip(msg){ tooltip.textContent = msg; }
 
         const mapping = {
-            "employeur":"Coefficient, valeur du point d'indice et salaire de base",
-            "convention":"Coefficient, valeur du point d'indice et salaire de base",
-            "qualification":"Coefficient, valeur du point d'indice et salaire de base",
-            "ss":"Heures lissées",
-            "emploi":"Primes",
-            "salarie":"🧮 Simulateur complet",
-            "ligne_base":"Coefficient, valeur du point d'indice et salaire de base",
-            "ligne_prime":"Primes"
+        "bloc_employeur":"Coefficient, valeur du point d'indice et salaire de base",
+        "bloc_convention":"Coefficient, valeur du point d'indice et salaire de base",
+        "bloc_qualification":"Coefficient, valeur du point d'indice et salaire de base",
+        "bloc_emploi":"Primes",
+        "bloc_salarie":"🧮 Simulateur complet",
+        "ligne_base":"Coefficient, valeur du point d'indice et salaire de base",
+        "ligne_prime":"Primes",
+        "ligne_cotis":"🔗 Liens utiles",
+        "ligne_net":"🧮 Simulateur complet"
         };
 
         Object.keys(mapping).forEach(id=>{
-            const elem = document.getElementById(id);
+        const elem = document.getElementById(id);
+        if(elem){
             elem.addEventListener('mouseover', ()=>showTooltip(mapping[id]));
             elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
-            elem.addEventListener('click', ()=>{ window.parent.postMessage({func:'selectModule', module: mapping[id]}, '*'); });
+            elem.addEventListener('click', ()=>window.parent.postMessage({func:'selectModule', module: mapping[id]}, '*'));
+        }
         });
     </script>
     </svg>
-    </div>
     """
 
-    components.html(html_code, height=720)
+    components.html(svg_code, height=500, scrolling=True)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
@@ -161,10 +164,10 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     **Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT.  
     Les professeur·e·s sont rattaché·e·s par défaut au groupe B de niveau 2, 
     qui correspond au coefficient 265. Musiques Tangentes rattache ses profs au **groupe D, 
-    coefficient 300**, dont le salaire de base est plus élevé.
+    coefficient 305**, dont le salaire de base est plus élevé.
     """)
-    st.success("Nb : Le coefficient conventionnel de base, indiqué sur les bulletins de paie, est de 300 mais le coefficient réel sur " \
-    "lequel est indexé les paies des profs de Musiques Tangentes est de 362,03 (voir \"prime différentielle\"). Il est donc " \
+    st.success("Nb : Le coefficient conventionnel de base, indiqué sur les bulletins de paie, est de 305 mais le coefficient réel sur " \
+    "lequel est indexé les paies des profs de Musiques Tangentes est de 367,03 (voir \"prime différentielle\"). Il est donc " \
     "plus élevé que le coefficient maximal de la catégorie Techniciens et agents de maîtrise et s'approche de la catégorie Cadres.")
     st.caption(f"[Lien Légifrance - Grille de classification]({url_grille})")
     st.divider()
