@@ -232,7 +232,7 @@ elif module == "Heures lissées":
     st.caption(f"[Lien Légifrance - Modulation et annualisation]({url_modulation})")
 
     st.divider()
-    st.info("**L'équivalent temps plein - ETP - **permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
+    st.info("**L'équivalent temps plein** - ETP - permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
     with st.expander("Formule"):
         st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo lissées} \\times \\text{151,67}}{24}")
     st.caption(f"[Lien Légifrance - Temps plein professeur]({url_etp})")
