@@ -218,8 +218,8 @@ elif module == "Heures lissées":
         ##### Comment ça fonctionne  
 
         - Les heures annuelles sont calculées et majorées de 10 % pour les congés payés  
-        - Ce total est réparti sur 12 mois pour garantir un **revenu stable**, même pendant les vacances scolaires  
-        - Le lissage est donc une **pratique interne**, visant à simplifier la gestion administrative et sécuriser les revenus des enseignant·e·s  
+        - Ce total est réparti sur 12 mois pour garantir un revenu stable, même pendant les vacances scolaires  
+        - Le lissage est donc une **pratique interne** visant à simplifier la gestion administrative et sécuriser les revenus des enseignant·e·s  
 
         Le lissage ne modifie pas votre temps de travail réel ni vos droits légaux. Vous continuez à être rémunéré·e selon vos heures effectuées, mais de manière régulière pour plus de stabilité financière.
         """)
