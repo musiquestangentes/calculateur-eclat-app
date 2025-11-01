@@ -350,6 +350,10 @@ elif module == "🧮 Simulateur complet":
 elif module == "🔗 Liens utiles":
     st.title("🔗 Liens utiles")
     
+    st.write("### 1. Textes et avenants")
+    url_eclat = "https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635177"
+    st.markdown(f"- [Convention collective ECLAT - IDCC 1518]({url_eclat})")
+
     st.write("### 2. Formules")
 
     with st.expander("Salaire de base"):
