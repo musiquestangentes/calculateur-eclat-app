@@ -203,7 +203,7 @@ elif module == "Heures lissées":
 
         Concrètement, vos heures réelles sont calculées à l’année, en excluant les périodes de vacances scolaires, puis réparties mensuellement de manière uniforme. Cela signifie que vous percevez le même salaire chaque mois, même lorsque vous ne travaillez pas, en période de vacances scolaires.  
 
-        #### Pourquoi ce lissage existe
+        ##### Pourquoi ce lissage existe
 
         Le lissage n’est pas une obligation légale pour les enseignants artistiques dans les écoles associatives régies par la convention collective **IDCC 1518 – ECLAT**. Selon les recommandations de la SNAM-CGT :  
 
@@ -216,7 +216,7 @@ elif module == "Heures lissées":
         - d’éviter des variations importantes de salaire  
         - de simplifier la gestion administrative pour l’école et les enseignant·e·s  
 
-        #### Comment ça fonctionne
+        ##### Comment ça fonctionne
 
         Les heures effectuées sur l’année sont calculées et majorées de **10 % pour les congés payés**. Ce total est divisé par 12 pour obtenir un **salaire mensuel lissé**. Le salaire versé chaque mois correspond à ce montant fixe, même si vous n’effectuez pas de cours certaines semaines.  
 
