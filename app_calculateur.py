@@ -89,11 +89,11 @@ elif module == "Lire sa fiche de paie":
 
         <rect x="5%" y="147" width="45%" height="15" class="block"/>
         <text x="5.5%" y="160" class="subheader">QUALIFICATION-COEFFICIENT</text>
-        <text x="5.5%" y="175" class="bold">Echelon : Groupe D - Coefficient : 305 - Catégorie : Agent de Maîtrise</text>
+        <text x="5.5%" y="175" class="bold">Echelon Groupe D - Coefficient 305 - Catégorie Agent de Maîtrise</text>
 
         <rect x="5%" y="187" width="45%" height="15" class="block"/>
         <text x="5.5%" y="200" class="subheader">N° SS ET ANCIENNETÉ</text>
-        <text x="5.5%" y="215" class="bold">123 45 6789 012 - Entrée le :</text>
+        <text x="5.5%" y="215" class="bold">123 45 6789 012 - Entrée le JJ/MM/AAAA</text>
 
         <rect x="55%" y="67" width="45%" height="15" class="block"/>
         <text x="55.5%" y="80" class="subheader">EMPLOI</text>
@@ -123,94 +123,94 @@ elif module == "Lire sa fiche de paie":
         <!-- Tableau Cotisations -->
         <rect x="5%" y="340" width="100%" height="28" class="block"/>
         <text x="5.5%" y="360" class="subheader">Cotisations et contributions sociales</text>
-        <text x="45%" y="360" class="subheader">Base</text>
-        <text x="55%" y="360" class="subheader">Taux</text>
-        <text x="65%" y="360" class="subheader">Part salarié</text>
-        <text x="75%" y="360" class="subheader">Part employeur</text>
+        <text x="55%" y="360" class="subheader">Base</text>
+        <text x="65%" y="360" class="subheader">Taux</text>
+        <text x="75%" y="360" class="subheader">Part salarié</text>
+        <text x="85%" y="360" class="subheader">Part employeur</text>
 
         <text x="5.5%" y="390" class="text">Sécurité sociale - Maladie Maternité Invalidité Décès</text>
-        <text x="45%" y="390" class="text">1000</text>
-        <text x="55%" y="390" class="text">8%</text>
-        <text x="65%" y="390" class="text">80</text>
+        <text x="55%" y="390" class="text">1000</text>
+        <text x="65%" y="390" class="text">8%</text>
         <text x="75%" y="390" class="text">80</text>
+        <text x="85%" y="390" class="text">80</text>
 
         <text x="5.5%" y="415" class="text">ACCIDENTS DU TRAVAIL - MALADIES PROFESSIONNELLES</text>
-        <text x="45%" y="415" class="text">1000</text>
-        <text x="55%" y="415" class="text"></text>
+        <text x="55%" y="415" class="text">1000</text>
         <text x="65%" y="415" class="text"></text>
         <text x="75%" y="415" class="text"></text>
+        <text x="85%" y="415" class="text"></text>
 
         <text x="5.5%" y="440" class="text">RETRAITE</text>
-        <text x="45%" y="440" class="text">1000</text>
-        <text x="55%" y="440" class="text"></text>
+        <text x="55%" y="440" class="text">1000</text>
         <text x="65%" y="440" class="text"></text>
-        <text x="75%" y="440" class="text">20</text>
+        <text x="75%" y="440" class="text"></text>
+        <text x="85%" y="440" class="text">20</text>
 
         <text x="5.5%" y="465" class="text">Sécurité Sociale plafonnée</text>
-        <text x="45%" y="465" class="text">1000</text>
-        <text x="55%" y="465" class="text"></text>
+        <text x="55%" y="465" class="text">1000</text>
         <text x="65%" y="465" class="text"></text>
-        <text x="75%" y="465" class="text">20</text>
+        <text x="75%" y="465" class="text"></text>
+        <text x="85%" y="465" class="text">20</text>
 
         <text x="5.5%" y="490" class="text">Sécurité Sociale déplafonnée</text>
-        <text x="45%" y="490" class="text">1000</text>
-        <text x="55%" y="490" class="text"></text>
+        <text x="55%" y="490" class="text">1000</text>
         <text x="65%" y="490" class="text"></text>
-        <text x="75%" y="490" class="text">20</text>
+        <text x="75%" y="490" class="text"></text>
+        <text x="85%" y="490" class="text">20</text>
 
         <text x="5.5%" y="515" class="text">Complémentaire Tranche 1</text>
-        <text x="45%" y="515" class="text">1000</text>
-        <text x="55%" y="515" class="text"></text>
+        <text x="55%" y="515" class="text">1000</text>
         <text x="65%" y="515" class="text"></text>
-        <text x="75%" y="515" class="text">20</text>
+        <text x="75%" y="515" class="text"></text>
+        <text x="85%" y="515" class="text">20</text>
 
         <text x="5.5%" y="540" class="text">FAMILLE</text>
-        <text x="45%" y="540" class="text">1000</text>
-        <text x="55%" y="540" class="text"></text>
+        <text x="55%" y="540" class="text">1000</text>
         <text x="65%" y="540" class="text"></text>
-        <text x="75%" y="540" class="text">20</text>
+        <text x="75%" y="540" class="text"></text>
+        <text x="85%" y="540" class="text">20</text>
 
         <text x="5.5%" y="565" class="text">ASSURANCE CHÔMAGE</text>
-        <text x="45%" y="565" class="text">1000</text>
-        <text x="55%" y="565" class="text"></text>
+        <text x="55%" y="565" class="text">1000</text>
         <text x="65%" y="565" class="text"></text>
-        <text x="75%" y="565" class="text">20</text>
+        <text x="75%" y="565" class="text"></text>
+        <text x="85%" y="565" class="text">20</text>
 
         <text x="5.5%" y="590" class="text">AUTRES CONTRIBUTIONS DUES PAR L'EMPLOYEUR</text>
-        <text x="45%" y="590" class="text">1000</text>
-        <text x="55%" y="590" class="text"></text>
+        <text x="55%" y="590" class="text">1000</text>
         <text x="65%" y="590" class="text"></text>
-        <text x="75%" y="590" class="text">20</text>
+        <text x="75%" y="590" class="text"></text>
+        <text x="85%" y="590" class="text">20</text>
 
         <text x="5.5%" y="615" class="text">CSG déductible de l'impôt sur le revenu</text>
-        <text x="45%" y="615" class="text">1000</text>
-        <text x="55%" y="615" class="text"></text>
+        <text x="55%" y="615" class="text">1000</text>
         <text x="65%" y="615" class="text"></text>
-        <text x="75%" y="615" class="text">20</text>
+        <text x="75%" y="615" class="text"></text>
+        <text x="85%" y="615" class="text">20</text>
 
         <text x="5.5%" y="640" class="text">CSG/CRDS non déductible de l'impôt sur le revenu</text>
-        <text x="45%" y="640" class="text">1000</text>
-        <text x="55%" y="640" class="text"></text>
+        <text x="55%" y="640" class="text">1000</text>
         <text x="65%" y="640" class="text"></text>
-        <text x="75%" y="640" class="text">20</text>
+        <text x="75%" y="640" class="text"></text>
+        <text x="85%" y="640" class="text">20</text>
 
         <text x="5.5%" y="665" class="text">EXONERATIONS, ECRETEMENTS ET ALLEGEMENTS DE COTISATIONS</text>
-        <text x="45%" y="665" class="text">1000</text>
-        <text x="55%" y="665" class="text"></text>
+        <text x="55%" y="665" class="text">1000</text>
         <text x="65%" y="665" class="text"></text>
-        <text x="75%" y="665" class="text">20</text>        
+        <text x="75%" y="665" class="text"></text>
+        <text x="85%" y="665" class="text">20</text>        
 
         <rect x="5%" y="690" width="100%" height="25" class="block"/>
         <text x="5.5%" y="690" class="text">Total des cotisations et contributions</text>
-        <text x="45%" y="690" class="text">1000</text>
-        <text x="55%" y="690" class="text"></text>
+        <text x="55%" y="690" class="text">1000</text>
         <text x="65%" y="690" class="text"></text>
-        <text x="75%" y="690" class="text">20</text>     
+        <text x="75%" y="690" class="text"></text>
+        <text x="85%" y="690" class="text">20</text>     
         
         <!-- Tableau Net à Payer -->
         <rect x="5%" y="720" width="100%" height="40" class="block"/>
         <text x="5.5%" y="720" class="subheader">NET À PAYER AU SALARIE</text>
-        <text x="85%" y="720" class="subheader">350</text>
+        <text x="90%" y="720" class="subheader">350</text>
 
         <text id="tooltip" x="5%" y="900" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
     </svg>
