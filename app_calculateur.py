@@ -76,7 +76,9 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     Il est calculé en multipliant les heures hebdomadaires lissées par la valeur du point d’indice et le coefficient, puis en divisant 
     le tout par 24 afin de ramener le résultat à la quotité ETP, c’est-à-dire la fraction du temps plein effectuée.
     """)
-    st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
+    with st.expander("Formule"):
+        st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
+    st.caption(f"[Lien Légifrance - Salaire conventionnel]({url_salaire})")
 
 # PAGE 2: HEURES LISSEES
 
@@ -87,15 +89,15 @@ elif module == "Heures lissées":
     url_etp = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043234742?utm_"
 
     st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
-    st.markdown("*Formules :*")
-    st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
-    st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
+    with st.expander("Formules"):
+        st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
+        st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
     st.caption(f"[Lien Légifrance - Modulation et annualisation]({url_modulation})")
 
     st.divider()
-    st.info("L'équivalent temps plein - ETP - permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
-    st.markdown("*Formule :*")
-    st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo lissées} \\times \\text{151,67}}{24}")
+    st.info("**L'équivalent temps plein - ETP - **permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
+    with st.expander("Formule"):
+        st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo lissées} \\times \\text{151,67}}{24}")
     st.caption(f"[Lien Légifrance - Temps plein professeur]({url_etp})")
     
     st.divider()
@@ -127,9 +129,9 @@ elif module == "Primes":
     "rémunération, quelle que soit leur ancienneté.")
     st.caption("Le coefficient différentiel a été fixé lors de la mise en place de la convention collective actuelle, en 2021. " \
     "Est prise en compte la valeur de point d'indice en vigueur à l'époque : 6,32€.")
-    st.markdown("*Formules :*")
-    st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
-    st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62.03 - (}\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
+    with st.expander("Formules"):
+        st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
+        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62.03 - (}\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
     
     st.divider()
     st.write("**Calculateur :**")
@@ -348,15 +350,17 @@ elif module == "🧮 Simulateur complet":
 elif module == "🔗 Liens utiles":
     st.title("🔗 Liens utiles")
     
-    st.write("#2. Formules")
-    st.write("### Prime d’ancienneté")
+    st.write("### 2. Formules")
 
-    with st.expander("📘 Formule du calcul"):
-        st.write("""
-        **Prime d’ancienneté = Salaire de base × (2 % × Nombre d’années d’ancienneté)**
-        
-        Exemple :
-        - Salaire de base : 2 500 €
-        - Ancienneté : 5 ans  
-        → Prime = 2 500 × (2 % × 5) = **250 €**
-        """)
+    with st.expander("Salaire de base"):
+        st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
+    with st.expander("Heures mensuelles lissées"):
+         st.latex("\\text{Heures mensuelles lissées} = \\frac{(\\text{Heures annuelles} + 10\\% \\text{ CP})}{12}")
+    with st.expander("Heures hebdomadaires lissées"):
+        st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{(52 / 12)}")
+    with st.expander("Heures mensuelles ETP"):
+        st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo lissées} \\times \\text{151,67}}{24}")
+    with st.expander("Prime d'ancienneté"): 
+        st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
+    with st.expander("Prime différentielle"):
+        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62.03 - (}\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
