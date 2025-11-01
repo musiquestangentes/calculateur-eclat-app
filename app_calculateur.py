@@ -89,11 +89,11 @@ elif module == "Lire sa fiche de paie":
 
         <rect x="5%" y="147" width="45%" height="15" class="block"/>
         <text x="5.5%" y="160" class="subheader">QUALIFICATION-COEFFICIENT</text>
-        <text x="5.5%" y="175" class="bold">Echelon Groupe D, Coefficient 305, Catégorie Agent de Maîtrise</text>
+        <text x="5.5%" y="175" class="bold">Echelon : Groupe D - Coefficient : 305 - Catégorie : Agent de Maîtrise</text>
 
         <rect x="5%" y="187" width="45%" height="15" class="block"/>
         <text x="5.5%" y="200" class="subheader">N° SS ET ANCIENNETÉ</text>
-        <text x="5.5%" y="215" class="bold">123 45 6789 012 - 3 ans</text>
+        <text x="5.5%" y="215" class="bold">123 45 6789 012 - Entrée le :</text>
 
         <rect x="55%" y="67" width="45%" height="15" class="block"/>
         <text x="55.5%" y="80" class="subheader">EMPLOI</text>
