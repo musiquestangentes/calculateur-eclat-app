@@ -265,7 +265,7 @@ elif module == "Vérifier son nombre d'heures annuelles":
 
     heures_profs, total_annuels = parse_fichier_multi_profs(contenu)
 
-    st.title("Calculateur heures annuelles - Musiques Tangentes")
+    st.title("Vérificateur heures annuelles réelles")
 
     prof_selectionne = st.selectbox("Sélectionnez votre nom :", list(heures_profs.keys()))
 
