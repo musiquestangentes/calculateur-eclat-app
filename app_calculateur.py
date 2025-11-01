@@ -98,21 +98,21 @@ elif module == "Lire sa fiche de paie":
         <text x="55%" y="135" class="text">Prénom Nom</text>
 
         <!-- Tableau Salaire -->
-        <rect x="5%" y="230" width="90%" height="25" class="block"/>
-        <text x="5.5%" y="250" class="subheader">Désignation</text>
-        <text x="45%" y="250" class="subheader">Base</text>
-        <text x="55%" y="250" class="subheader">Taux</text>
-        <text x="65%" y="250" class="subheader">Montant</text>
+        <rect x="5%" y="240" width="90%" height="25" class="block"/>
+        <text x="5.5%" y="260" class="subheader">Désignation</text>
+        <text x="45%" y="260" class="subheader">Base</text>
+        <text x="55%" y="260" class="subheader">Taux</text>
+        <text x="65%" y="260" class="subheader">Montant</text>
 
-        <text x="5.5%" y="280" class="text">Salaire de base</text>
-        <text x="45%" y="280" class="text">34,7</text>
-        <text x="55%" y="280" class="text">100%</text>
-        <text x="65%" y="280" class="text">34,7</text>
+        <text x="5.5%" y="290" class="text">Salaire de base</text>
+        <text x="45%" y="290" class="text">34,7</text>
+        <text x="55%" y="290" class="text">100%</text>
+        <text x="65%" y="290" class="text">34,7</text>
 
-        <text x="5.5%" y="305" class="text">Prime d'ancienneté</text>
-        <text x="45%" y="305" class="text">250</text>
-        <text x="55%" y="305" class="text">2%</text>
-        <text x="65%" y="305" class="text">250</text>
+        <text x="5.5%" y="315" class="text">Prime d'ancienneté</text>
+        <text x="45%" y="315" class="text">250</text>
+        <text x="55%" y="315" class="text">2%</text>
+        <text x="65%" y="315" class="text">250</text>
 
         <!-- Tableau Cotisations -->
         <rect x="5%" y="340" width="90%" height="25" class="block"/>
