@@ -34,14 +34,15 @@ module = st.sidebar.radio("Navigation", modules, index=0)
 if module == "Accueil":
     st.title("Simulateur de paie - Musiques Tangentes")
     st.write("""
-    Cet outil vous permet de comprendre les éléments de votre fiche de paie et de calculer vos heures et primes.
+    **Cet outil vous permet de comprendre les éléments de votre fiche de paie et de calculer vos heures et primes.**
     
     Utilisez le menu à gauche pour naviguer entre les différents modules :
     - Définitions : Coefficient, valeur du point d'indice et salaire de base  
     - Heures lissées  
     - Primes  
     - Vérification de son nombre d'heures réelles annuelles  
-    - Simulateur complet
+    - Simulateur complet   
+    - Liens utiles
     """)
     st.image(logo_url, width=400)
 
