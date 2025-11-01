@@ -57,8 +57,6 @@ elif module == "Lire sa fiche de paie":
 
     st_yled.init()
 
-    st.title("Bulletin de paie - Schéma interactif")
-
     # Mapping blocs et lignes → modules
     blocs_modules = {
         "Employeur : Association XYZ": "Coefficient, valeur du point d'indice et salaire de base",
@@ -77,24 +75,23 @@ elif module == "Lire sa fiche de paie":
         "Net à payer": "🧮 Simulateur complet"
     }
 
-    # Styles blocs et lignes
-    st_yled.set("bloc", "background", "#f0f0f0")
-    st_yled.set("bloc", "border", "2px solid #333")
-    st_yled.set("bloc", "padding", "10px")
-    st_yled.set("bloc", "margin", "5px")
-    st_yled.set("bloc", "border_radius", "5px")
-    st_yled.set("bloc", "hover_background", "#d0eaff")
-    st_yled.set("bloc", "cursor", "pointer")
-    st_yled.set("bloc", "width", "250px")
+    st_yled.set("block", "background_color", "#f0f0f0")
+    st_yled.set("block", "border", "2px solid #333")
+    st_yled.set("block", "padding", "10px")
+    st_yled.set("block", "margin", "5px")
+    st_yled.set("block", "border_radius", "5px")
+    st_yled.set("block", "hover_background_color", "#d0eaff")
+    st_yled.set("block", "cursor", "pointer")
+    st_yled.set("block", "width", "250px")
 
-    st_yled.set("ligne", "background", "#ffffff")
-    st_yled.set("ligne", "border", "2px solid #333")
-    st_yled.set("ligne", "padding", "8px")
-    st_yled.set("ligne", "margin", "3px")
-    st_yled.set("ligne", "border_radius", "3px")
-    st_yled.set("ligne", "hover_background", "#f1faff")
-    st_yled.set("ligne", "cursor", "pointer")
-    st_yled.set("ligne", "width", "650px")
+    st_yled.set("line", "background_color", "#ffffff")
+    st_yled.set("line", "border", "2px solid #333")
+    st_yled.set("line", "padding", "8px")
+    st_yled.set("line", "margin", "3px")
+    st_yled.set("line", "border_radius", "3px")
+    st_yled.set("line", "hover_background_color", "#f1faff")
+    st_yled.set("line", "cursor", "pointer")
+    st_yled.set("line", "width", "650px")
 
     st.markdown("### Informations employeur / salarié")
 
