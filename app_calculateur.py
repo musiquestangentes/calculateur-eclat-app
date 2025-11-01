@@ -67,7 +67,7 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     st.caption(f"[Lien Légifrance - Valeur du point d'indice]({url_valpoint})")
     st.divider()
     st.info("Le **salaire de base conventionnel** correspond à la rémunération d’un·e professeur·e à temps plein ECLAT. Il est calculé en multipliant les heures hebdomadaires lissées par la valeur du point d’indice et le coefficient, puis en divisant le tout par 24 afin de ramener le résultat à la quotité ETP, c’est-à-dire la fraction du temps plein effectuée.")
-    st.latex("\\text{Salaire de base} = \\frac{heures\\ hebdo\\ lissées \\times valeur\\ du\\ point \\times coefficient}{24}")
+    st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
 
 # PAGE 2: HEURES LISSEES
 
@@ -82,7 +82,7 @@ elif module == "Heures lissées":
     st.divider()
     st.info("L'équivalent temps plein - ETP - permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
     st.markdown("*Formule :*")
-    st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo lissées} \\times \\text{151,67}}{(24)}")
+    st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo lissées} \\times \\text{151,67}}{24}")
     
     st.divider()
     st.write("**Calculateur :**")
