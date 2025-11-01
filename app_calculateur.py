@@ -197,28 +197,28 @@ elif module == "Heures lissées":
     st.title("Calcul des heures lissées")
 
     st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
-    with st.expander("## Comprendre le lissage de votre salaire"):
+    with st.expander("**Comprendre le lissage de votre salaire**"):
         st.write("""
-        Certaines écoles associatives de musique, comme Musiques Tangentes, pratiquent un lissage de la rémunération sur 12 mois.   
+        Certaines écoles associatives de musique, dont Musiques Tangentes, pratiquent un lissage de la rémunération sur 12 mois. 
         Concrètement, vos heures réelles sont calculées à l’année, en excluant les périodes de vacances scolaires, puis réparties 
         mensuellement de manière uniforme. Cela signifie que vous percevez le même salaire chaque mois, même lorsque vous ne travaillez pas 
-        (pendant les vacances scolaires).   
+        (pendant les vacances scolaires).      
         **Pourquoi ce lissage existe**   
         Le lissage n’est pas une obligation légale pour les enseignants artistiques dans les écoles associatives régies par la convention 
         collective IDCC 1518 – ECLAT. Selon les recommandations de la SNAM-CGT :   
         « La rémunération est due, pour chaque mois et 12 mois sur 12, dès lors que le salarié effectue l’horaire de service contractuel 
         pendant les semaines de fonctionnement de l’activité. En aucun cas le salaire ne peut être annualisé ou lissé sur douze mois. »   
-        Source : SNAM-CGT – Bulletin de paie et contrats enseignants   
+        Source : SNAM-CGT – Bulletin de paie et contrats enseignants      
         Cependant, certaines écoles choisissent d’appliquer le lissage pour ne pas pénaliser les enseignants pendant les périodes de 
         vacances scolaires. Cela permet :   
         - de garantir un revenu stable chaque mois,   
         - d’éviter des variations importantes de salaire,   
-        - de simplifier la gestion administrative pour l’école et les enseignants.   
+        - de simplifier la gestion administrative pour l’école et les enseignants.      
         **Comment ça fonctionne**   
         Les heures effectuées sur l’année sont calculées et majorées de 10 % pour les congés payés. Ce total est divisé par 12 
         pour obtenir un salaire mensuel lissé. Le salaire versé chaque mois correspond à ce montant fixe, même si vous n’effectuez 
         pas de cours certaines semaines.   
-        💡 À noter : Le lissage est donc une pratique interne de l’école, qui ne modifie pas votre temps de travail réel ni vos droits 
+        💡 Le lissage est donc une pratique interne de l’école, qui ne modifie pas votre temps de travail réel ni vos droits 
         légaux. Vous continuez à être rémunéré·e selon vos heures effectuées, mais de manière régulière pour plus de stabilité financière.
         """)
              
