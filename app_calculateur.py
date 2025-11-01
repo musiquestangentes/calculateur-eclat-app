@@ -79,32 +79,32 @@ elif module == "Lire sa fiche de paie":
         <text x="50%" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
 
         <!-- Informations employeur et salarié -->
-        <rect x="5%" y="65" width="40%" height="15" class="block"/>
+        <rect x="5%" y="65" width="50%" height="15" class="block"/>
         <text x="5.5%" y="80" class="subheader">EMPLOYEUR</text>
         <text x="5.5%" y="95" class="bold">MUSIQUES TANGENTES</text>
 
-        <rect x="5%" y="105" width="40%" height="15" class="block"/>
+        <rect x="5%" y="105" width="50%" height="15" class="block"/>
         <text x="5.5%" y="120" class="subheader">CONVENTION COLLECTIVE</text>
         <text x="5.5%" y="135" class="bold">N° 3246 - E.C.L.A.T (Animation)</text>
 
-        <rect x="5%" y="145" width="40%" height="15" class="block"/>
+        <rect x="5%" y="145" width="50%" height="15" class="block"/>
         <text x="5.5%" y="160" class="subheader">QUALIFICATION-COEFFICIENT</text>
         <text x="5.5%" y="175" class="bold">Echelon Groupe D, Coefficient 305, Catégorie Agent de Maîtrise</text>
 
-        <rect x="5%" y="185" width="40%" height="15" class="block"/>
+        <rect x="5%" y="185" width="50%" height="15" class="block"/>
         <text x="5.5%" y="200" class="subheader">N° SS ET ANCIENNETÉ</text>
         <text x="5.5%" y="215" class="bold">123 45 6789 012 - 3 ans</text>
 
-        <rect x="55%" y="65" width="40%" height="15" class="block"/>
+        <rect x="55%" y="65" width="50%" height="15" class="block"/>
         <text x="55.5%" y="80" class="subheader">EMPLOI</text>
         <text x="55.5%" y="95" class="bold">Artiste-Enseignant</text>
 
-        <rect x="55%" y="105" width="40%" height="15" class="block"/>
+        <rect x="55%" y="105" width="50%" height="15" class="block"/>
         <text x="55.5%" y="120" class="subheader">SALARIÉ·E</text>
         <text x="55.5%" y="135" class="bold">Prénom Nom</text>
 
         <!-- Tableau Salaire -->
-        <rect x="5%" y="240" width="90%" height="25" class="block"/>
+        <rect x="5%" y="240" width="100%" height="25" class="block"/>
         <text x="5.5%" y="260" class="subheader">Désignation</text>
         <text x="45%" y="260" class="subheader">Base</text>
         <text x="55%" y="260" class="subheader">Taux</text>
@@ -121,7 +121,7 @@ elif module == "Lire sa fiche de paie":
         <text x="65%" y="315" class="text">250</text>
 
         <!-- Tableau Cotisations -->
-        <rect x="5%" y="340" width="90%" height="25" class="block"/>
+        <rect x="5%" y="340" width="100%" height="25" class="block"/>
         <text x="5.5%" y="360" class="subheader">Cotisations et contributions sociales</text>
         <text x="45%" y="360" class="subheader">Base</text>
         <text x="55%" y="360" class="subheader">Taux</text>
@@ -200,7 +200,7 @@ elif module == "Lire sa fiche de paie":
         <text x="65%" y="665" class="text"></text>
         <text x="75%" y="665" class="text">20</text>        
 
-        <rect x="5%" y="690" width="90%" height="25" class="block"/>
+        <rect x="5%" y="690" width="100%" height="25" class="block"/>
         <text x="5.5%" y="690" class="text">Total des cotisations et contributions</text>
         <text x="45%" y="690" class="text">1000</text>
         <text x="55%" y="690" class="text"></text>
@@ -208,7 +208,7 @@ elif module == "Lire sa fiche de paie":
         <text x="75%" y="690" class="text">20</text>     
         
         <!-- Tableau Net à Payer -->
-        <rect x="5%" y="720" width="90%" height="40" class="block"/>
+        <rect x="5%" y="720" width="100%" height="40" class="block"/>
         <text x="5.5%" y="720" class="subheader">NET À PAYER AU SALARIE</text>
         <text x="85%" y="720" class="subheader">350</text>
 
