@@ -36,11 +36,11 @@ if module == "Accueil":
     Cet outil vous permet de comprendre les éléments de votre fiche de paie et de calculer vos heures et primes.
     
     Utilisez le menu à gauche pour naviguer entre les différents modules :
-    - Coefficient, valeur du point d'indice et salaire de base  
+    - Définitions : Coefficient, valeur du point d'indice et salaire de base  
     - Heures lissées  
     - Primes  
-    - Simulateur complet  
-    - Vérification de son nombre d'heures réelles annuelles
+    - Vérification de son nombre d'heures réelles annuelles  
+    - Simulateur complet
     """)
     st.image(logo_url, width=400)
 
