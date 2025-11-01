@@ -282,6 +282,10 @@ elif module == "Vérifier son nombre d'heures annuelles":
             "Date": dates,
             "Heures": heures
         })
+        df_heures['Jour'] = df_heures['Date'].apply(
+            lambda x: datetime.strptime(x, "%d-%m-%Y").strftime("%A")
+        )
+        df_heures = df_heures[['Jour', 'Date', 'Heures']]
         st.dataframe(df_heures, use_container_width=True)
 
         # Export PDF
