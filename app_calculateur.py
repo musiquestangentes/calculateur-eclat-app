@@ -54,10 +54,37 @@ if module == "Accueil":
 elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
-    # Schéma interactif fiche de paie
+    # Session state pour module actif
+    if "module_actif" not in st.session_state:
+        st.session_state.module_actif = None
+
+    # Fonction pour changer de module
+    def afficher_module(module_name):
+        st.session_state.module_actif = module_name
+
+    # Mapping des éléments vers modules existants
+    modules_trigger = {
+        "employeur": "Coefficient, valeur du point d'indice et salaire de base",
+        "convention": "Coefficient, valeur du point d'indice et salaire de base",
+        "qualification": "Coefficient, valeur du point d'indice et salaire de base",
+        "ss": "Heures lissées",
+        "emploi": "Primes",
+        "salarie": "🧮 Simulateur complet",
+        "ligne_base": "Coefficient, valeur du point d'indice et salaire de base",
+        "ligne_prime": "Primes",
+        "ligne_cotis": "🔗 Liens utiles",
+        "ligne_heures": "Vérificateur d'heures",
+        "ligne_net": "🧮 Simulateur complet"
+    }
+
+    # Création de boutons invisibles pour déclencher les modules
+    for key, module_name in modules_trigger.items():
+        st.button(f"trigger_{key}", on_click=afficher_module, args=(module_name,), key=f"btn_{key}", help="", visible=False)
+
+    # SVG interactif fiche de paie
     html_code = """
     <svg width="900" height="700" style="border:1px solid #ccc; font-family:sans-serif;">
-    <style>
+      <style>
         .header { font-size:20px; font-weight:bold; }
         .subheader { font-size:16px; fill:#333; }
         .block { fill:#f0f0f0; stroke:#333; stroke-width:1; cursor:pointer; }
@@ -66,115 +93,112 @@ elif module == "Lire sa fiche de paie":
         .cell:hover { fill:#f1faff; }
         .text { font-size:14px; }
         .tooltip { font-size:14px; pointer-events:none; }
-        a { color: blue; text-decoration: underline; }
-    </style>
+      </style>
 
-    <!-- Titre et période -->
-    <text x="450" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
-    <text x="450" y="55" text-anchor="middle" class="subheader">Période : 01/09/2025 - 30/09/2025</text>
+      <!-- Titre et période -->
+      <text x="450" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
+      <text x="450" y="55" text-anchor="middle" class="subheader">Période : 01/09/2025 - 30/09/2025</text>
 
-    <!-- Blocs gauche -->
-    <rect x="50" y="80" width="200" height="40" class="block" id="employeur"/>
-    <text x="55" y="105" class="text">Employeur : Association XYZ</text>
+      <!-- Blocs gauche -->
+      <rect x="50" y="80" width="200" height="50" class="block" id="employeur"/>
+      <text x="55" y="110" class="text">Employeur : Association XYZ</text>
 
-    <rect x="50" y="130" width="200" height="40" class="block" id="convention"/>
-    <text x="55" y="155" class="text">Convention collective : ECLAT</text>
+      <rect x="50" y="140" width="200" height="50" class="block" id="convention"/>
+      <text x="55" y="170" class="text">Convention collective : ECLAT</text>
 
-    <rect x="50" y="180" width="200" height="40" class="block" id="qualification"/>
-    <text x="55" y="205" class="text">Qualification - coefficient</text>
+      <rect x="50" y="200" width="200" height="50" class="block" id="qualification"/>
+      <text x="55" y="230" class="text">Qualification - coefficient</text>
 
-    <rect x="50" y="230" width="200" height="40" class="block" id="ss"/>
-    <text x="55" y="255" class="text">N° SS & Ancienneté</text>
+      <rect x="50" y="260" width="200" height="50" class="block" id="ss"/>
+      <text x="55" y="290" class="text">N° SS & Ancienneté</text>
 
-    <!-- Blocs droite -->
-    <rect x="300" y="80" width="200" height="40" class="block" id="emploi"/>
-    <text x="305" y="105" class="text">Emploi</text>
+      <!-- Blocs droite -->
+      <rect x="300" y="80" width="200" height="50" class="block" id="emploi"/>
+      <text x="305" y="110" class="text">Emploi</text>
 
-    <rect x="300" y="130" width="200" height="40" class="block" id="salarie"/>
-    <text x="305" y="155" class="text">Salarié-e</text>
+      <rect x="300" y="140" width="200" height="50" class="block" id="salarie"/>
+      <text x="305" y="170" class="text">Salarié-e</text>
 
-    <!-- Tableau -->
-    <text x="50" y="300" class="text" font-weight="bold">Désignation</text>
-    <text x="300" y="300" class="text" font-weight="bold">Base</text>
-    <text x="400" y="300" class="text" font-weight="bold">Taux</text>
-    <text x="550" y="285" class="text" font-weight="bold">Montant</text>
-    <text x="500" y="300" class="text">Part salarié</text>
-    <text x="650" y="300" class="text">Part employeur</text>
+      <!-- Tableau avec sous-colonnes Montant -->
+      <text x="50" y="330" class="text" font-weight="bold">Désignation</text>
+      <text x="300" y="330" class="text" font-weight="bold">Base</text>
+      <text x="400" y="330" class="text" font-weight="bold">Taux</text>
+      <text x="550" y="315" class="text" font-weight="bold">Montant</text>
+      <text x="500" y="330" class="text">Part salarié</text>
+      <text x="650" y="330" class="text">Part employeur</text>
 
-    <!-- Lignes tableau -->
-    <rect x="50" y="310" width="500" height="30" class="cell" id="ligne_base"/>
-    <text x="55" y="330" class="text">Salaire de base</text>
-    <text x="300" y="330" class="text">2500 €</text>
-    <text x="400" y="330" class="text">100%</text>
-    <text x="500" y="330" class="text">2500 €</text>
-    <text x="650" y="330" class="text">2500 €</text>
+      <!-- Lignes tableau -->
+      <rect x="50" y="340" width="500" height="35" class="cell" id="ligne_base"/>
+      <text x="55" y="365" class="text">Salaire de base</text>
+      <text x="300" y="365" class="text">2500 €</text>
+      <text x="400" y="365" class="text">100%</text>
+      <text x="500" y="365" class="text">2500 €</text>
+      <text x="650" y="365" class="text">2500 €</text>
 
-    <rect x="50" y="350" width="500" height="30" class="cell" id="ligne_prime"/>
-    <text x="55" y="370" class="text">Prime ancienneté</text>
-    <text x="300" y="370" class="text">2500 €</text>
-    <text x="400" y="370" class="text">2%</text>
-    <text x="500" y="370" class="text">250 €</text>
-    <text x="650" y="370" class="text">250 €</text>
+      <rect x="50" y="380" width="500" height="35" class="cell" id="ligne_prime"/>
+      <text x="55" y="405" class="text">Prime ancienneté</text>
+      <text x="300" y="405" class="text">2500 €</text>
+      <text x="400" y="405" class="text">2%</text>
+      <text x="500" y="405" class="text">250 €</text>
+      <text x="650" y="405" class="text">250 €</text>
 
-    <rect x="50" y="390" width="500" height="30" class="cell" id="ligne_cotis"/>
-    <text x="55" y="410" class="text">Cotisations sociales</text>
-    <text x="300" y="410" class="text">-</text>
-    <text x="400" y="410" class="text">-</text>
-    <text x="500" y="410" class="text">-500 €</text>
-    <text x="650" y="410" class="text">-500 €</text>
+      <rect x="50" y="420" width="500" height="35" class="cell" id="ligne_cotis"/>
+      <text x="55" y="445" class="text">Cotisations sociales</text>
+      <text x="300" y="445" class="text">-</text>
+      <text x="400" y="445" class="text">-</text>
+      <text x="500" y="445" class="text">-500 €</text>
+      <text x="650" y="445" class="text">-500 €</text>
 
-    <rect x="50" y="430" width="500" height="30" class="cell" id="ligne_heures"/>
-    <text x="55" y="450" class="text">Heures lissées</text>
-    <text x="300" y="450" class="text">-</text>
-    <text x="400" y="450" class="text">-</text>
-    <text x="500" y="450" class="text">-</text>
-    <text x="650" y="450" class="text">-</text>
+      <rect x="50" y="460" width="500" height="35" class="cell" id="ligne_heures"/>
+      <text x="55" y="485" class="text">Heures lissées</text>
+      <text x="300" y="485" class="text">-</text>
+      <text x="400" y="485" class="text">-</text>
+      <text x="500" y="485" class="text">-</text>
+      <text x="650" y="485" class="text">-</text>
 
-    <rect x="50" y="470" width="500" height="30" class="cell" id="ligne_net"/>
-    <text x="55" y="490" class="text">Net à payer</text>
-    <text x="300" y="490" class="text">-</text>
-    <text x="400" y="490" class="text">-</text>
-    <text x="500" y="490" class="text">2350 €</text>
-    <text x="650" y="490" class="text">-</text>
+      <rect x="50" y="500" width="500" height="35" class="cell" id="ligne_net"/>
+      <text x="55" y="525" class="text">Net à payer</text>
+      <text x="300" y="525" class="text">-</text>
+      <text x="400" y="525" class="text">-</text>
+      <text x="500" y="525" class="text">2350 €</text>
+      <text x="650" y="525" class="text">-</text>
 
-    <!-- Tooltip -->
-    <text id="tooltip" x="50" y="530" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+      <!-- Tooltip -->
+      <text id="tooltip" x="50" y="570" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
 
-    <script>
+      <script>
         const tooltip = document.getElementById('tooltip');
-        function showTooltip(msg){{ tooltip.innerHTML = msg; }}
+        function showTooltip(msg){ tooltip.innerHTML = msg; }
 
-        const blocks = {{
-        "employeur": "Nom de l'employeur. <a href='#'>🧾 Module employeur</a>",
-        "convention": "Convention collective ECLAT. <a href='#'>🔗 Coefficient, valeur du point d'indice et salaire de base</a>",
-        "qualification": "Qualification et coefficient. <a href='#'>🧾 Module qualification</a>",
-        "ss": "Numéro SS & ancienneté. <a href='#'>🔗 Heures lissées</a>",
-        "emploi": "Emploi occupé. <a href='#'>🧾 Module emploi</a>",
-        "salarie": "Nom du salarié. <a href='#'>🧾 Informations salarié</a>"
-        }};
-        Object.keys(blocks).forEach(id => {{
-        const elem = document.getElementById(id);
-        elem.addEventListener('mouseover', ()=>showTooltip(blocks[id]));
-        elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
-        }});
+        const elements = {
+            "employeur":"Cliquez pour voir le module Coefficient, valeur du point d'indice et salaire de base",
+            "convention":"Cliquez pour voir le module Coefficient, valeur du point d'indice et salaire de base",
+            "qualification":"Cliquez pour voir le module Coefficient, valeur du point d'indice et salaire de base",
+            "ss":"Cliquez pour voir le module Heures lissées",
+            "emploi":"Cliquez pour voir le module Primes",
+            "salarie":"Cliquez pour voir le module Simulateur complet",
+            "ligne_base":"Cliquez pour voir le module Coefficient, valeur du point d'indice et salaire de base",
+            "ligne_prime":"Cliquez pour voir le module Primes",
+            "ligne_cotis":"Cliquez pour voir le module Liens utiles",
+            "ligne_heures":"Cliquez pour voir le module Vérificateur d'heures",
+            "ligne_net":"Cliquez pour voir le module Simulateur complet"
+        };
 
-        const lignes = {{
-        "ligne_base":"Salaire de base. <a href='#'>Coefficient, valeur du point d'indice et salaire de base</a>",
-        "ligne_prime":"Prime ancienneté / différentielle. <a href='#'>Primes - ancienneté et différentielle</a>",
-        "ligne_cotis":"Cotisations sociales. <a href='#'>🔗 Liens utiles</a>",
-        "ligne_heures":"Heures lissées. <a href='#'>Vérificateur d'heures</a>",
-        "ligne_net":"Net à payer final. <a href='#'>🧮 Simulateur complet</a>"
-        }};
-        Object.keys(lignes).forEach(id => {{
-        const elem = document.getElementById(id);
-        elem.addEventListener('mouseover', ()=>showTooltip(lignes[id]));
-        elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
-        }});
-    </script>
+        Object.keys(elements).forEach(id=>{
+            const elem=document.getElementById(id);
+            elem.addEventListener('mouseover', ()=>showTooltip(elements[id]));
+            elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
+            elem.addEventListener('click', ()=>document.getElementById('trigger_'+id).click());
+        });
+      </script>
     </svg>
     """
 
     components.html(html_code, height=650)
+
+    # Affichage module actif
+    if st.session_state.module_actif:
+        st.info(f"Module ouvert depuis la fiche de paie : **{st.session_state.module_actif}**")
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
