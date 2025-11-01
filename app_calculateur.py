@@ -66,119 +66,59 @@ elif module == "Lire sa fiche de paie":
 
     html_code = """
     <svg width="900" height="700" style="font-family:sans-serif;">
-    <style>
-        .header { font-size:20px; font-weight:bold; }
-        .subheader { font-size:16px; fill:#333; }
-        .block { fill:#f0f0f0; stroke:#333; stroke-width:1; cursor:pointer; }
-        .block:hover { fill:#d0eaff; }
-        .cell { fill:#ffffff; stroke:#333; stroke-width:1; cursor:pointer; }
-        .cell:hover { fill:#f1faff; }
-        .text { font-size:14px; }
-        .tooltip { font-size:14px; pointer-events:none; }
-        a { color: blue; text-decoration: underline; }
-    </style>
+        <!-- Titre et période -->
+        <text x="450" y="30" text-anchor="middle" font-size="20" font-weight="bold">BULLETIN DE PAIE</text>
+        <text x="450" y="55" text-anchor="middle" font-size="16" fill="#333">Période : 01/09/2025 - 30/09/2025</text>
 
-    <!-- Titre et période -->
-    <text x="450" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
-    <text x="450" y="55" text-anchor="middle" class="subheader">Période : 01/09/2025 - 30/09/2025</text>
+        <!-- Blocs gauche -->
+        <rect id="employeur" x="50" y="80" width="200" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" style="cursor:pointer"/>
+        <text x="55" y="105" font-size="14" fill="#000">Employeur : Association XYZ</text>
 
-    <!-- Blocs gauche -->
-    <rect x="50" y="80" width="200" height="40" class="block" id="employeur"/>
-    <text x="55" y="105" class="text">Employeur : Association XYZ</text>
+        <rect id="convention" x="50" y="130" width="200" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" style="cursor:pointer"/>
+        <text x="55" y="155" font-size="14" fill="#000">Convention collective : ECLAT</text>
 
-    <rect x="50" y="130" width="200" height="40" class="block" id="convention"/>
-    <text x="55" y="155" class="text">Convention collective : ECLAT</text>
+        <rect id="qualification" x="50" y="180" width="200" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" style="cursor:pointer"/>
+        <text x="55" y="205" font-size="14" fill="#000">Qualification - coefficient</text>
 
-    <rect x="50" y="180" width="200" height="40" class="block" id="qualification"/>
-    <text x="55" y="205" class="text">Qualification - coefficient</text>
+        <!-- Blocs droite -->
+        <rect id="emploi" x="300" y="80" width="200" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" style="cursor:pointer"/>
+        <text x="305" y="105" font-size="14" fill="#000">Emploi</text>
 
-    <rect x="50" y="230" width="200" height="40" class="block" id="ss"/>
-    <text x="55" y="255" class="text">N° SS & Ancienneté</text>
+        <rect id="salarie" x="300" y="130" width="200" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" style="cursor:pointer"/>
+        <text x="305" y="155" font-size="14" fill="#000">Salarié-e</text>
 
-    <!-- Blocs droite -->
-    <rect x="300" y="80" width="200" height="40" class="block" id="emploi"/>
-    <text x="305" y="105" class="text">Emploi</text>
+        <!-- Tooltip -->
+        <text id="tooltip" x="50" y="530" font-size="14" fill="#000">Passez la souris sur un élément pour voir le détail</text>
 
-    <rect x="300" y="130" width="200" height="40" class="block" id="salarie"/>
-    <text x="305" y="155" class="text">Salarié-e</text>
+        <script>
+            const mapping = {
+                "employeur":"Coefficient, valeur du point d'indice et salaire de base",
+                "convention":"Coefficient, valeur du point d'indice et salaire de base",
+                "qualification":"Coefficient, valeur du point d'indice et salaire de base",
+                "emploi":"Primes",
+                "salarie":"🧮 Simulateur complet"
+            };
 
-    <!-- Tableau -->
-    <text x="50" y="300" class="text" font-weight="bold">Désignation</text>
-    <text x="300" y="300" class="text" font-weight="bold">Base</text>
-    <text x="400" y="300" class="text" font-weight="bold">Taux</text>
-    <text x="550" y="285" class="text" font-weight="bold">Montant</text>
-    <text x="500" y="300" class="text">Part salarié</text>
-    <text x="650" y="300" class="text">Part employeur</text>
-
-    <!-- Lignes tableau -->
-    <rect x="50" y="310" width="500" height="30" class="cell" id="ligne_base"/>
-    <text x="55" y="330" class="text">Salaire de base</text>
-    <text x="300" y="330" class="text">2500 €</text>
-    <text x="400" y="330" class="text">100%</text>
-    <text x="500" y="330" class="text">2500 €</text>
-    <text x="650" y="330" class="text">2500 €</text>
-
-    <rect x="50" y="350" width="500" height="30" class="cell" id="ligne_prime"/>
-    <text x="55" y="370" class="text">Prime ancienneté</text>
-    <text x="300" y="370" class="text">2500 €</text>
-    <text x="400" y="370" class="text">2%</text>
-    <text x="500" y="370" class="text">250 €</text>
-    <text x="650" y="370" class="text">250 €</text>
-
-    <rect x="50" y="390" width="500" height="30" class="cell" id="ligne_cotis"/>
-    <text x="55" y="410" class="text">Cotisations sociales</text>
-    <text x="300" y="410" class="text">-</text>
-    <text x="400" y="410" class="text">-</text>
-    <text x="500" y="410" class="text">-500 €</text>
-    <text x="650" y="410" class="text">-500 €</text>
-
-    <rect x="50" y="430" width="500" height="30" class="cell" id="ligne_heures"/>
-    <text x="55" y="450" class="text">Heures lissées</text>
-    <text x="300" y="450" class="text">-</text>
-    <text x="400" y="450" class="text">-</text>
-    <text x="500" y="450" class="text">-</text>
-    <text x="650" y="450" class="text">-</text>
-
-    <rect x="50" y="470" width="500" height="30" class="cell" id="ligne_net"/>
-    <text x="55" y="490" class="text">Net à payer</text>
-    <text x="300" y="490" class="text">-</text>
-    <text x="400" y="490" class="text">-</text>
-    <text x="500" y="490" class="text">2350 €</text>
-    <text x="650" y="490" class="text">-</text>
-
-    <text id="tooltip" x="50" y="530" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
-
-    <script>
-        const tooltip = document.getElementById('tooltip');
-        function showTooltip(msg){ tooltip.textContent = msg; }
-
-        const mapping = {
-            "employeur":"Coefficient, valeur du point d'indice et salaire de base",
-            "convention":"Coefficient, valeur du point d'indice et salaire de base",
-            "qualification":"Coefficient, valeur du point d'indice et salaire de base",
-            "ss":"Heures lissées",
-            "emploi":"Primes",
-            "salarie":"🧮 Simulateur complet",
-            "ligne_base":"Coefficient, valeur du point d'indice et salaire de base",
-            "ligne_prime":"Primes",
-            "ligne_cotis":"🔗 Liens utiles",
-            "ligne_heures":"Vérificateur d'heures",
-            "ligne_net":"🧮 Simulateur complet"
-        };
-
-        Object.keys(mapping).forEach(id=>{
-            const elem = document.getElementById(id);
-            elem.addEventListener('mouseover', ()=>showTooltip(mapping[id]));
-            elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
-            elem.addEventListener('click', ()=>{
-                window.parent.postMessage({func:'selectModule', module: mapping[id]}, '*');
+            Object.keys(mapping).forEach(id => {
+                const elem = document.getElementById(id);
+                elem.addEventListener('mouseover', () => elem.setAttribute('fill', '#d0eaff'));
+                elem.addEventListener('mouseout', () => elem.setAttribute('fill', '#f0f0f0'));
+                elem.addEventListener('click', () => {
+                    window.parent.postMessage({func:'selectModule', module: mapping[id]}, '*');
+                });
             });
-        });
-    </script>
+
+            const tooltip = document.getElementById('tooltip');
+            Object.keys(mapping).forEach(id => {
+                const elem = document.getElementById(id);
+                elem.addEventListener('mouseover', () => tooltip.textContent = mapping[id]);
+                elem.addEventListener('mouseout', () => tooltip.textContent = "Passez la souris sur un élément pour voir le détail");
+            });
+        </script>
     </svg>
     """
 
-    components.html(html_code, height=700)
+    components.html(html_code, height=700, scrolling=True)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
