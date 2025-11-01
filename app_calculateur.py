@@ -56,7 +56,7 @@ elif module == "Lire sa fiche de paie":
 
     # Schéma interactif fiche de paie
     html_code = """
-    <svg width="900" height="600" style="border:1px solid #ccc; font-family:sans-serif;">
+    <svg width="900" height="700" style="border:1px solid #ccc; font-family:sans-serif;">
     <style>
         .header { font-size:20px; font-weight:bold; }
         .subheader { font-size:16px; fill:#333; }
@@ -66,6 +66,7 @@ elif module == "Lire sa fiche de paie":
         .cell:hover { fill:#f1faff; }
         .text { font-size:14px; }
         .tooltip { font-size:14px; pointer-events:none; }
+        a { color: blue; text-decoration: underline; }
     </style>
 
     <!-- Titre et période -->
@@ -73,100 +74,107 @@ elif module == "Lire sa fiche de paie":
     <text x="450" y="55" text-anchor="middle" class="subheader">Période : 01/09/2025 - 30/09/2025</text>
 
     <!-- Blocs gauche -->
-    <rect x="50" y="80" width="200" height="30" class="block" id="employeur"/>
-    <text x="55" y="100" class="text">Employeur</text>
+    <rect x="50" y="80" width="200" height="40" class="block" id="employeur"/>
+    <text x="55" y="105" class="text">Employeur : Association XYZ</text>
 
-    <rect x="50" y="120" width="200" height="30" class="block" id="convention"/>
-    <text x="55" y="140" class="text">Convention collective</text>
+    <rect x="50" y="130" width="200" height="40" class="block" id="convention"/>
+    <text x="55" y="155" class="text">Convention collective : ECLAT</text>
 
-    <rect x="50" y="160" width="200" height="30" class="block" id="qualification"/>
-    <text x="55" y="180" class="text">Qualification - coefficient</text>
+    <rect x="50" y="180" width="200" height="40" class="block" id="qualification"/>
+    <text x="55" y="205" class="text">Qualification - coefficient</text>
 
-    <rect x="50" y="200" width="200" height="30" class="block" id="ss"/>
-    <text x="55" y="220" class="text">N° SS & Ancienneté</text>
+    <rect x="50" y="230" width="200" height="40" class="block" id="ss"/>
+    <text x="55" y="255" class="text">N° SS & Ancienneté</text>
 
     <!-- Blocs droite -->
-    <rect x="300" y="80" width="200" height="30" class="block" id="emploi"/>
-    <text x="305" y="100" class="text">Emploi</text>
+    <rect x="300" y="80" width="200" height="40" class="block" id="emploi"/>
+    <text x="305" y="105" class="text">Emploi</text>
 
-    <rect x="300" y="120" width="200" height="30" class="block" id="salarie"/>
-    <text x="305" y="140" class="text">Salarié-e</text>
+    <rect x="300" y="130" width="200" height="40" class="block" id="salarie"/>
+    <text x="305" y="155" class="text">Salarié-e</text>
 
     <!-- Tableau -->
-    <text x="50" y="260" class="text" font-weight="bold">Désignation</text>
-    <text x="300" y="260" class="text" font-weight="bold">Base</text>
-    <text x="400" y="260" class="text" font-weight="bold">Taux</text>
-    <text x="500" y="260" class="text" font-weight="bold">Montant salarié</text>
-    <text x="650" y="260" class="text" font-weight="bold">Montant employeur</text>
+    <text x="50" y="300" class="text" font-weight="bold">Désignation</text>
+    <text x="300" y="300" class="text" font-weight="bold">Base</text>
+    <text x="400" y="300" class="text" font-weight="bold">Taux</text>
+    <text x="550" y="285" class="text" font-weight="bold">Montant</text>
+    <text x="500" y="300" class="text">Part salarié</text>
+    <text x="650" y="300" class="text">Part employeur</text>
 
-    <!-- Lignes du tableau -->
-    <!-- Ligne 1 -->
-    <rect x="50" y="270" width="600" height="30" class="cell" id="ligne_base"/>
-    <text x="55" y="290" class="text">Salaire de base</text>
-    <text x="300" y="290" class="text">2500 €</text>
-    <text x="400" y="290" class="text">100%</text>
-    <text x="500" y="290" class="text">2500 €</text>
-    <text x="650" y="290" class="text">2500 €</text>
-
-    <!-- Ligne 2 -->
-    <rect x="50" y="310" width="600" height="30" class="cell" id="ligne_prime"/>
-    <text x="55" y="330" class="text">Prime ancienneté</text>
+    <!-- Lignes tableau -->
+    <rect x="50" y="310" width="500" height="30" class="cell" id="ligne_base"/>
+    <text x="55" y="330" class="text">Salaire de base</text>
     <text x="300" y="330" class="text">2500 €</text>
-    <text x="400" y="330" class="text">2%</text>
-    <text x="500" y="330" class="text">250 €</text>
-    <text x="650" y="330" class="text">250 €</text>
+    <text x="400" y="330" class="text">100%</text>
+    <text x="500" y="330" class="text">2500 €</text>
+    <text x="650" y="330" class="text">2500 €</text>
 
-    <!-- Ligne 3 -->
-    <rect x="50" y="350" width="600" height="30" class="cell" id="ligne_cotis"/>
-    <text x="55" y="370" class="text">Cotisations sociales</text>
-    <text x="300" y="370" class="text">-</text>
-    <text x="400" y="370" class="text">-</text>
-    <text x="500" y="370" class="text">-500 €</text>
-    <text x="650" y="370" class="text">-500 €</text>
+    <rect x="50" y="350" width="500" height="30" class="cell" id="ligne_prime"/>
+    <text x="55" y="370" class="text">Prime ancienneté</text>
+    <text x="300" y="370" class="text">2500 €</text>
+    <text x="400" y="370" class="text">2%</text>
+    <text x="500" y="370" class="text">250 €</text>
+    <text x="650" y="370" class="text">250 €</text>
+
+    <rect x="50" y="390" width="500" height="30" class="cell" id="ligne_cotis"/>
+    <text x="55" y="410" class="text">Cotisations sociales</text>
+    <text x="300" y="410" class="text">-</text>
+    <text x="400" y="410" class="text">-</text>
+    <text x="500" y="410" class="text">-500 €</text>
+    <text x="650" y="410" class="text">-500 €</text>
+
+    <rect x="50" y="430" width="500" height="30" class="cell" id="ligne_heures"/>
+    <text x="55" y="450" class="text">Heures lissées</text>
+    <text x="300" y="450" class="text">-</text>
+    <text x="400" y="450" class="text">-</text>
+    <text x="500" y="450" class="text">-</text>
+    <text x="650" y="450" class="text">-</text>
+
+    <rect x="50" y="470" width="500" height="30" class="cell" id="ligne_net"/>
+    <text x="55" y="490" class="text">Net à payer</text>
+    <text x="300" y="490" class="text">-</text>
+    <text x="400" y="490" class="text">-</text>
+    <text x="500" y="490" class="text">2350 €</text>
+    <text x="650" y="490" class="text">-</text>
 
     <!-- Tooltip -->
-    <text id="tooltip" x="50" y="420" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+    <text id="tooltip" x="50" y="530" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
 
     <script>
         const tooltip = document.getElementById('tooltip');
+        function showTooltip(msg){{ tooltip.innerHTML = msg; }}
 
-        function showTooltip(msg){
-        tooltip.textContent = msg;
-        }
-
-        // Hover blocks gauche/droite
-        const blocks = {
-        "employeur": "Nom de l'employeur",
-        "convention": "Convention collective applicable",
-        "qualification": "Qualification et coefficient du salarié",
-        "ss": "Numéro de sécurité sociale et ancienneté",
-        "emploi": "Poste occupé par le salarié",
-        "salarie": "Nom du salarié"
-        };
-
-        Object.keys(blocks).forEach(id => {
+        const blocks = {{
+        "employeur": "Nom de l'employeur. <a href='#'>🧾 Module employeur</a>",
+        "convention": "Convention collective ECLAT. <a href='#'>🔗 Coefficient, valeur du point d'indice et salaire de base</a>",
+        "qualification": "Qualification et coefficient. <a href='#'>🧾 Module qualification</a>",
+        "ss": "Numéro SS & ancienneté. <a href='#'>🔗 Heures lissées</a>",
+        "emploi": "Emploi occupé. <a href='#'>🧾 Module emploi</a>",
+        "salarie": "Nom du salarié. <a href='#'>🧾 Informations salarié</a>"
+        }};
+        Object.keys(blocks).forEach(id => {{
         const elem = document.getElementById(id);
-        elem.addEventListener('mouseover', () => showTooltip(blocks[id]));
-        elem.addEventListener('mouseout', () => showTooltip('Passez la souris sur un élément pour voir le détail'));
-        });
+        elem.addEventListener('mouseover', ()=>showTooltip(blocks[id]));
+        elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
+        }});
 
-        // Hover lignes tableau
-        const lignes = {
-        "ligne_base": "Salaire de base : montant avant primes et cotisations",
-        "ligne_prime": "Prime d'ancienneté : calcul = salaire x taux x ancienneté",
-        "ligne_cotis": "Cotisations : sécurité sociale, retraite, chômage, etc."
-        };
-
-        Object.keys(lignes).forEach(id => {
+        const lignes = {{
+        "ligne_base":"Salaire de base. <a href='#'>Coefficient, valeur du point d'indice et salaire de base</a>",
+        "ligne_prime":"Prime ancienneté / différentielle. <a href='#'>Primes - ancienneté et différentielle</a>",
+        "ligne_cotis":"Cotisations sociales. <a href='#'>🔗 Liens utiles</a>",
+        "ligne_heures":"Heures lissées. <a href='#'>Vérificateur d'heures</a>",
+        "ligne_net":"Net à payer final. <a href='#'>🧮 Simulateur complet</a>"
+        }};
+        Object.keys(lignes).forEach(id => {{
         const elem = document.getElementById(id);
-        elem.addEventListener('mouseover', () => showTooltip(lignes[id]));
-        elem.addEventListener('mouseout', () => showTooltip('Passez la souris sur un élément pour voir le détail'));
-        });
+        elem.addEventListener('mouseover', ()=>showTooltip(lignes[id]));
+        elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
+        }});
     </script>
     </svg>
     """
 
-    components.html(html_code, height=500)
+    components.html(html_code, height=650)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
