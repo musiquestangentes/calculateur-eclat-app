@@ -107,6 +107,8 @@ elif module == "Primes":
     st.info("La **prime d'ancienneté** est calculée sur la base du nombre d'années d'ancienneté. Elle commence à N+1. On compte 2 points par année d'ancienneté.")
     st.info("La **prime différentielle** a été mise en place afin que tou·te·s les salarié·e·s soient sur un pied d'égalité en termes de " \
     "rémunération, quelle que soit leur ancienneté.")
+    st.write("Le coefficient différentiel a été fixé lors de la mise en place de la convention collective actuelle, en 2021. " \
+    "Est prise en compte la valeur de point d'indice en vigueur à l'époque : 6,32€.")
     st.markdown("*Formules :*")
     st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
     st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62.03 - (}\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
@@ -126,7 +128,7 @@ elif module == "Primes":
 
     if heures_lissees > 0:
         prime_anciennete = heures_lissees * valeur_point * (anciennete * 2) / 24
-        prime_diff = max(0, (62.03 - (anciennete * 2))) * valeur_point * heures_lissees / 24
+        prime_diff = max(0, (62.03 - (anciennete * 2))) * 6.32 * heures_lissees / 24
 
         st.markdown("### Résultats")
         st.write(f"- Ancienneté calculée : **{anciennete} ans**")
@@ -152,7 +154,7 @@ elif module == "Simulateur complet":
         today = datetime.today().date()
         anciennete = today.year - date_entree.year - ((today.month, today.day) < (date_entree.month, date_entree.day))
         prime_anciennete = heures_hebdo * valeur_point * (anciennete * 2) / 24
-        prime_diff = max(0, (62.03 - (anciennete * 2))) * valeur_point * heures_hebdo / 24
+        prime_diff = max(0, (62.03 - (anciennete * 2))) * 6.32 * heures_hebdo / 24
 
         # Salaire brut
         salaire_base = (heures_hebdo * valeur_point * 300) / 24
