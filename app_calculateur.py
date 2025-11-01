@@ -120,7 +120,7 @@ elif module == "Primes":
     )
     heures_lissees = st.number_input("Heures hebdomadaires lissées :", min_value=0.0, step=0.5)
     valeur_point = 7.15
-    st.write(f"Valeur du point d'indice au 1er janvier 2025 : {valeur_point} €.")
+    st.caption(f"Valeur du point d'indice au 1er janvier 2025 : {valeur_point} €.")
 
     # Ancienneté
     today = datetime.today().date()
