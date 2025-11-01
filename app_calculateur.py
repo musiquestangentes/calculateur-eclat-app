@@ -54,7 +54,7 @@ if module == "Accueil":
 elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
-    # Session state pour module actif
+    # --- Session state pour module actif ---
     if "module_actif" not in st.session_state:
         st.session_state.module_actif = None
 
@@ -62,7 +62,7 @@ elif module == "Lire sa fiche de paie":
     def afficher_module(module_name):
         st.session_state.module_actif = module_name
 
-    # Mapping des éléments vers modules existants
+    # Mapping des éléments → modules existants
     modules_trigger = {
         "employeur": "Coefficient, valeur du point d'indice et salaire de base",
         "convention": "Coefficient, valeur du point d'indice et salaire de base",
@@ -77,11 +77,14 @@ elif module == "Lire sa fiche de paie":
         "ligne_net": "🧮 Simulateur complet"
     }
 
-    # Création de boutons invisibles pour déclencher les modules
+    # --- Création de boutons HTML cachés ---
     for key, module_name in modules_trigger.items():
-        st.button(f"trigger_{key}", on_click=afficher_module, args=(module_name,), key=f"btn_{key}", help="", visible=False)
+        st.markdown(f"""
+            <button id="trigger_{key}" style="display:none;" onclick="window.parent.postMessage({{module:'{module_name}'}}, '*')">
+            </button>
+        """, unsafe_allow_html=True)
 
-    # SVG interactif fiche de paie
+    # --- SVG interactif fiche de paie ---
     html_code = """
     <svg width="900" height="700" style="border:1px solid #ccc; font-family:sans-serif;">
       <style>
@@ -193,12 +196,7 @@ elif module == "Lire sa fiche de paie":
       </script>
     </svg>
     """
-
-    components.html(html_code, height=650)
-
-    # Affichage module actif
-    if st.session_state.module_actif:
-        st.info(f"Module ouvert depuis la fiche de paie : **{st.session_state.module_actif}**")
+    components.html(html_code, height=700)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
