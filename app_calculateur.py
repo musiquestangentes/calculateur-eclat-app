@@ -139,7 +139,7 @@ elif module == "Lire sa fiche de paie":
         <!-- Tableau Net à Payer -->
         <rect x="5%" y="470" width="90%" height="50" class="block"/>
         <text x="5.5%" y="495" class="subheader">Net à payer</text>
-        <text x="75%" y="495" class="subheader">350</text>
+        <text x="95%" y="495" class="subheader">350</text>
 
         <text id="tooltip" x="5%" y="540" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
     </svg>
