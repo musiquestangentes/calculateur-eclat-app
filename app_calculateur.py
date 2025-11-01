@@ -19,6 +19,14 @@ st.sidebar.title("Musiques Tangentes")
 logo_url = "https://raw.githubusercontent.com/musiquestangentes/calculateur-eclat-app/refs/heads/main/logo_2025_celine_queguiner.png"
 st.sidebar.image(logo_url, width=300)
 
+# URLs
+url_eclat = "https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635177"
+url_grille = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000048471347#KALIARTI000048471347"
+url_valpoint = "http://legifrance.gouv.fr/conv_coll/article/KALIARTI000050362519#KALIARTI000050362519"
+url_salaire = "https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000046098173/?idConteneur=KALICONT000005635177"
+url_modulation = "https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000027717752?idConteneur=KALICONT000005635177&origin=list"
+url_etp = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043234742?utm_"
+
 # Navigation principale
 modules = [
     "Accueil",
@@ -156,9 +164,6 @@ elif module == "Lire sa fiche de paie":
 
 elif module == "Coefficient, valeur du point d'indice et salaire de base":
     st.title("Coefficient et salaire de base")
-    url_grille = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000048471347#KALIARTI000048471347"
-    url_valpoint = "http://legifrance.gouv.fr/conv_coll/article/KALIARTI000050362519#KALIARTI000050362519"
-    url_salaire = "https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000046098173/?idConteneur=KALICONT000005635177"
     
     st.info("""
     **Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT.  
@@ -191,10 +196,32 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
 elif module == "Heures lissées":
     st.title("Calcul des heures lissées")
 
-    url_modulation = "https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000027717752?idConteneur=KALICONT000005635177&origin=list"
-    url_etp = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043234742?utm_"
-
     st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
+    with st.expander("## Comprendre le lissage de votre salaire")
+        st.write("""
+        Certaines écoles associatives de musique, comme Musiques Tangentes, pratiquent un lissage de la rémunération sur 12 mois.   
+        Concrètement, vos heures réelles sont calculées à l’année, en excluant les périodes de vacances scolaires, puis réparties 
+        mensuellement de manière uniforme. Cela signifie que vous percevez le même salaire chaque mois, même lorsque vous ne travaillez pas 
+        (pendant les vacances scolaires).   
+        **Pourquoi ce lissage existe**   
+        Le lissage n’est pas une obligation légale pour les enseignants artistiques dans les écoles associatives régies par la convention 
+        collective IDCC 1518 – ECLAT. Selon les recommandations de la SNAM-CGT :   
+        « La rémunération est due, pour chaque mois et 12 mois sur 12, dès lors que le salarié effectue l’horaire de service contractuel 
+        pendant les semaines de fonctionnement de l’activité. En aucun cas le salaire ne peut être annualisé ou lissé sur douze mois. »   
+        Source : SNAM-CGT – Bulletin de paie et contrats enseignants   
+        Cependant, certaines écoles choisissent d’appliquer le lissage pour ne pas pénaliser les enseignants pendant les périodes de 
+        vacances scolaires. Cela permet :   
+        - de garantir un revenu stable chaque mois,   
+        - d’éviter des variations importantes de salaire,   
+        - de simplifier la gestion administrative pour l’école et les enseignants.   
+        **Comment ça fonctionne**   
+        Les heures effectuées sur l’année sont calculées et majorées de 10 % pour les congés payés. Ce total est divisé par 12 
+        pour obtenir un salaire mensuel lissé. Le salaire versé chaque mois correspond à ce montant fixe, même si vous n’effectuez 
+        pas de cours certaines semaines.   
+        💡 À noter : Le lissage est donc une pratique interne de l’école, qui ne modifie pas votre temps de travail réel ni vos droits 
+        légaux. Vous continuez à être rémunéré·e selon vos heures effectuées, mais de manière régulière pour plus de stabilité financière.
+        """)
+             
     with st.expander("Formules"):
         st.latex("\\text{Heures mensuelles lissées} = \\frac{\\text{Heures annuelles} + 10\\% \\text{ CP}}{12}")
         st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{\\frac{52}{12}}")
@@ -400,7 +427,7 @@ elif module == "🧮 Simulateur complet":
         prime_diff = max(0, (62.03 - (anciennete * 2))) * 6.32 * heures_hebdo / 24
 
         # Salaire brut
-        salaire_base = (heures_hebdo * valeur_point * 300) / 24
+        salaire_base = (heures_hebdo * valeur_point * 305) / 24
         salaire_brut_total = salaire_base + prime_anciennete + prime_diff
 
         # Heures réelles mensuelles
@@ -457,8 +484,10 @@ elif module == "🔗 Liens utiles":
     st.title("🔗 Liens utiles")
     
     st.write("### 1. Textes et avenants")
-    url_eclat = "https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635177"
     st.markdown(f"- [Convention collective ECLAT - IDCC 1518]({url_eclat})")
+    st.markdown(f"- [Classifications et salaires]({url_salaire})")
+    st.markdown(f"- [Durée et définition des temps de travail des animateurs techniciens et professeurs]({url_etp})")
+    st.markdown(f"- [Durée du travail : Modulation]({url_modulation})")
 
     st.write("### 2. Formules")
 
