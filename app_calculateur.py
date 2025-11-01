@@ -82,23 +82,32 @@ elif module == "Lire sa fiche de paie":
         ("SALARIÉ·E", "🧮 Simulateur complet")
     ]
 
+    def styled_button(label, module_target):
+        """Créer un bouton avec style bloc"""
+        container = st.container()
+        with container:
+            if st.button(label, key=label):
+                st.session_state.module_actif = module_target
+                st.experimental_rerun()
+        # On peut ajouter une petite ligne de style visuel avec Markdown
+        st.markdown(
+            f"<div style='height:5px;'></div>", 
+            unsafe_allow_html=True
+        )
+
     with col1:
         st.subheader("Bloc gauche")
         for label, module_target in blocs_gauche:
-            if st.button(label):
-                st.session_state.module_actif = module_target
-                st.experimental_rerun()
+            styled_button(label, module_target)
 
     with col2:
         st.subheader("Bloc droite")
         for label, module_target in blocs_droite:
-            if st.button(label):
-                st.session_state.module_actif = module_target
-                st.experimental_rerun()
+            styled_button(label, module_target)
 
     st.markdown("---")
 
-    # --- Tableau de paie stylisé ---
+    # --- Tableau de paie ---
     st.markdown("**Détails de la paie :**")
     df_paie = pd.DataFrame({
         "Désignation": ["Salaire de base", "Prime ancienneté", "Cotisations sociales", "Heures lissées", "Net à payer"],
@@ -108,28 +117,29 @@ elif module == "Lire sa fiche de paie":
         "Part employeur": ["2500 €", "250 €", "-500 €", "-", "-"]
     })
 
-    # Créer un tableau interactif ligne par ligne
+    ligne_to_module = {
+        "Salaire de base": "Coefficient, valeur du point d'indice et salaire de base",
+        "Prime ancienneté": "Primes",
+        "Cotisations sociales": "🔗 Liens utiles",
+        "Heures lissées": "Vérificateur d'heures",
+        "Net à payer": "🧮 Simulateur complet"
+    }
+
+    # Affichage du tableau ligne par ligne avec colonnes
     for i, row in df_paie.iterrows():
         cols = st.columns([2,1,1,1,1])
         with cols[0]:
-            if st.button(row["Désignation"]):
-                ligne_to_module = {
-                    "Salaire de base": "Coefficient, valeur du point d'indice et salaire de base",
-                    "Prime ancienneté": "Primes",
-                    "Cotisations sociales": "🔗 Liens utiles",
-                    "Heures lissées": "Vérificateur d'heures",
-                    "Net à payer": "🧮 Simulateur complet"
-                }
+            if st.button(row["Désignation"], key=f"ligne_{i}"):
                 st.session_state.module_actif = ligne_to_module[row["Désignation"]]
                 st.experimental_rerun()
         with cols[1]:
-            st.markdown(f"<div style='padding:5px'>{row['Base']}</div>", unsafe_allow_html=True)
+            st.markdown(f"**{row['Base']}**")
         with cols[2]:
-            st.markdown(f"<div style='padding:5px'>{row['Taux']}</div>", unsafe_allow_html=True)
+            st.markdown(f"**{row['Taux']}**")
         with cols[3]:
-            st.markdown(f"<div style='padding:5px'>{row['Part salarié']}</div>", unsafe_allow_html=True)
+            st.markdown(f"**{row['Part salarié']}**")
         with cols[4]:
-            st.markdown(f"<div style='padding:5px'>{row['Part employeur']}</div>", unsafe_allow_html=True)
+            st.markdown(f"**{row['Part employeur']}**")
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
