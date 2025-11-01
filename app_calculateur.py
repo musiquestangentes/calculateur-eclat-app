@@ -67,8 +67,8 @@ elif module == "Lire sa fiche de paie":
     <svg viewBox="0 0 1000 1000" width="100%" height="100%" style="font-family:sans-serif;">
         <style>
             .block { fill:#eef3fd; cursor:pointer; }
-            .block:hover { fill:#cce6ff; }
             .text { font-size:13px; }
+            .text:hover { fill:#cce6ff; font-weight:bold; }
             .header { font-size:20px; font-weight:bold; }
             .subheader { font-size:14px; fill:#5c9cc4; font-weight:bold; }
             .bold { font-weight:bold; }
