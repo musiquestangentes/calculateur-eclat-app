@@ -64,94 +64,93 @@ elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
     svg_code = """
-    <svg width="900" height="700" style="font-family:sans-serif;">
-    <style>
-        .block { fill:#eef3fd; cursor:pointer; }
-        .block:hover { fill:#cce6ff; }
-        .text { font-size:12px; }
-        .header { font-size:20px; font-weight:bold; }
-        .subheader { font-size:14px; fill:#5c9cc4; }
-        .tooltip { font-size:14px; pointer-events:none; fill:#333; }
-    </style>
+    <svg width="1000" height="700" style="font-family:sans-serif;">
+        <style>
+            .block { fill:#eef3fd; cursor:pointer; }
+            .block:hover { fill:#cce6ff; }
+            .text { font-size:12px; }
+            .header { font-size:20px; font-weight:bold; }
+            .subheader { font-size:14px; fill:#5c9cc4; font-weight:bold; }
+            .tooltip { font-size:14px; pointer-events:none; fill:#333; }
+            .bold { font-weight:bold; }
+        </style>
 
-    <!-- Titre -->
-    <text x="450" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
+        <!-- Titre -->
+        <text x="500" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
 
-    <!-- Blocs gauche -->
-    <rect x="50" y="80" width="300" height="40" class="block" id="bloc_employeur"/>
-    <text x="55" y="105" class="text">EMPLOYEUR : MUSIQUES TANGENTES</text>
+        <!-- Blocs gauche -->
+        <text x="50" y="80" class="bold">EMPLOYEUR</text>
+        <text x="50" y="95" class="text">MUSIQUES TANGENTES</text>
 
-    <rect x="50" y="130" width="300" height="40" class="block" id="bloc_convention"/>
-    <text x="55" y="155" class="text">CONVENTION COLLECTIVE : N° 3246 - E.C.L.A.T (Animation)</text>
+        <text x="50" y="120" class="bold">CONVENTION COLLECTIVE</text>
+        <text x="50" y="135" class="text">N° 3246 - E.C.L.A.T (Animation)</text>
 
-    <rect x="50" y="180" width="300" height="40" class="block" id="bloc_qualification"/>
-    <text x="55" y="205" class="text">QUALIFICATION-COEFFICIENT : Echelon Groupe D, Coefficient 305, Catégorie Agent de Maîtrise</text>
+        <text x="50" y="160" class="bold">QUALIFICATION-COEFFICIENT</text>
+        <text x="50" y="175" class="text">Echelon Groupe D, Coefficient 305, Catégorie Agent de Maîtrise</text>
 
-    <!-- Blocs droite -->
-    <rect x="300" y="80" width="300" height="40" class="block" id="bloc_emploi"/>
-    <text x="305" y="105" class="text">EMPLOI</text>
+        <text x="50" y="200" class="bold">N° SS ET ANCIENNETÉ</text>
+        <text x="50" y="215" class="text">123 45 6789 012 - 3 ans</text>
 
-    <rect x="300" y="130" width="300" height="40" class="block" id="bloc_salarie"/>
-    <text x="305" y="155" class="text">SALARIÉ·E</text>
+        <!-- Blocs droite -->
+        <text x="500" y="80" class="bold">EMPLOI</text>
+        <text x="500" y="95" class="text">Animateur</text>
 
-    <!-- Tableau salaire -->
-    <text x="50" y="250" class="subheader" font-weight="bold">Désignation</text>
-    <text x="300" y="250" class="subheader" font-weight="bold">Base</text>
-    <text x="400" y="250" class="subheader" font-weight="bold">Taux</text>
-    <text x="500" y="250" class="subheader" font-weight="bold">Montant</text>
-    <text x="500" y="265" class="subheader">Part salarié</text>
-    <text x="650" y="265" class="subheader">Part employeur</text>
+        <text x="500" y="120" class="bold">SALARIÉ·E</text>
+        <text x="500" y="135" class="text">Jean Dupont</text>
 
-    <rect x="50" y="265" width="500" height="30" class="block" id="ligne_base"/>
-    <text x="55" y="280" class="text">Salaire de base</text>
-    <text x="300" y="280" class="text">34,7</text>
-    <text x="400" y="280" class="text">100%</text>
-    <text x="500" y="280" class="text">34,7</text>
-    <text x="650" y="280" class="text">34,7</text>
+        <!-- Tableau salaire -->
+        <text x="50" y="250" class="subheader">Désignation</text>
+        <text x="300" y="250" class="subheader">Base</text>
+        <text x="400" y="250" class="subheader">Taux</text>
+        <text x="500" y="250" class="subheader">Montant</text>
 
-    <rect x="50" y="300" width="500" height="30" class="block" id="ligne_prime"/>
-    <text x="55" y="320" class="text">Prime ancienneté</text>
-    <text x="300" y="320" class="text">250</text>
-    <text x="400" y="320" class="text">2%</text>
-    <text x="500" y="320" class="text">250</text>
-    <text x="650" y="320" class="text">250</text>
+        <rect x="50" y="260" width="500" height="30" class="block"/>
+        <text x="55" y="280" class="text">Salaire de base</text>
+        <text x="300" y="280" class="text">34,7</text>
+        <text x="400" y="280" class="text">100%</text>
+        <text x="500" y="280" class="text">34,7</text>
 
-    <rect x="50" y="340" width="500" height="30" class="block" id="ligne_cotis"/>
-    <text x="55" y="360" class="text">Cotisations sociales</text>
-    <text x="500" y="360" class="text">500</text>
-    <text x="650" y="360" class="text">500</text>
+        <rect x="50" y="295" width="500" height="30" class="block"/>
+        <text x="55" y="315" class="text">Prime ancienneté</text>
+        <text x="300" y="315" class="text">250</text>
+        <text x="400" y="315" class="text">2%</text>
+        <text x="500" y="315" class="text">250</text>
 
-    <rect x="50" y="380" width="500" height="30" class="block" id="ligne_net"/>
-    <text x="55" y="400" class="text">Net à payer</text>
-    <text x="500" y="400" class="text">350</text>
+        <rect x="50" y="330" width="500" height="30" class="block"/>
+        <text x="55" y="350" class="text">Cotisations sociales</text>
+        <text x="500" y="350" class="text">500</text>
 
-    <text id="tooltip" x="50" y="450" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+        <rect x="50" y="365" width="500" height="30" class="block"/>
+        <text x="55" y="385" class="text">Net à payer</text>
+        <text x="500" y="385" class="text">350</text>
 
-    <script>
-        const tooltip = document.getElementById('tooltip');
-        function showTooltip(msg){ tooltip.textContent = msg; }
+        <!-- Tableau cotisations -->
+        <text x="50" y="420" class="subheader">Désignation</text>
+        <text x="200" y="420" class="subheader">Base</text>
+        <text x="300" y="420" class="subheader">Taux</text>
+        <text x="400" y="420" class="subheader">Part salarié</text>
+        <text x="500" y="420" class="subheader">Part employeur</text>
 
-        const mapping = {
-        "bloc_employeur":"Coefficient, valeur du point d'indice et salaire de base",
-        "bloc_convention":"Coefficient, valeur du point d'indice et salaire de base",
-        "bloc_qualification":"Coefficient, valeur du point d'indice et salaire de base",
-        "bloc_emploi":"Primes",
-        "bloc_salarie":"🧮 Simulateur complet",
-        "ligne_base":"Coefficient, valeur du point d'indice et salaire de base",
-        "ligne_prime":"Primes",
-        "ligne_cotis":"🔗 Liens utiles",
-        "ligne_net":"🧮 Simulateur complet"
-        };
+        <rect x="50" y="430" width="500" height="30" class="block"/>
+        <text x="55" y="450" class="text">Sécurité sociale</text>
+        <text x="200" y="450" class="text">1000</text>
+        <text x="300" y="450" class="text">8%</text>
+        <text x="400" y="450" class="text">80</text>
+        <text x="500" y="450" class="text">80</text>
 
-        Object.keys(mapping).forEach(id=>{
-        const elem = document.getElementById(id);
-        if(elem){
-            elem.addEventListener('mouseover', ()=>showTooltip(mapping[id]));
-            elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
-            elem.addEventListener('click', ()=>window.parent.postMessage({func:'selectModule', module: mapping[id]}, '*'));
-        }
-        });
-    </script>
+        <rect x="50" y="465" width="500" height="30" class="block"/>
+        <text x="55" y="485" class="text">Assurance chômage</text>
+        <text x="200" y="485" class="text">1000</text>
+        <text x="300" y="485" class="text">2%</text>
+        <text x="400" y="485" class="text">20</text>
+        <text x="500" y="485" class="text">20</text>
+
+        <text id="tooltip" x="50" y="530" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+
+        <script>
+            const tooltip = document.getElementById('tooltip');
+            function showTooltip(msg){ tooltip.textContent = msg; }
+        </script>
     </svg>
     """
 
