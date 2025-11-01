@@ -7,8 +7,6 @@ from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 from pathlib import Path
-import locale
-locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
 
 # Config de la page
 st.set_page_config(page_title="Simulateur ECLAT", page_icon="🎵", layout="wide")
@@ -279,13 +277,22 @@ elif module == "Vérifier son nombre d'heures annuelles":
 
         st.markdown(f"### Total annuel : **{total_annuel:.2f} h**")
 
-        # Tableau avec dates réelles
+        # Tableau avec dates réelles     
         df_heures = pd.DataFrame({
             "Date": dates,
             "Heures": heures
         })
+        jours_fr = {
+            "Monday": "Lundi",
+            "Tuesday": "Mardi",
+            "Wednesday": "Mercredi",
+            "Thursday": "Jeudi",
+            "Friday": "Vendredi",
+            "Saturday": "Samedi",
+            "Sunday": "Dimanche"
+        }
         df_heures['Jour'] = df_heures['Date'].apply(
-            lambda x: datetime.strptime(x, "%d-%m-%Y").strftime("%A")
+            lambda x: jours_fr[datetime.strptime(x, "%d-%m-%Y").strftime("%A")]
         )
         df_heures = df_heures[['Jour', 'Date', 'Heures']]
         st.dataframe(df_heures, use_container_width=True)
