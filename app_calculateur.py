@@ -9,6 +9,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from pathlib import Path
 import streamlit.components.v1 as components
 from streamlit_javascript import st_javascript
+import st_yled
 
 # Config de la page
 st.set_page_config(page_title="Simulateur ECLAT", page_icon="🎵", layout="wide")
@@ -30,14 +31,6 @@ modules = [
     "🔗 Liens utiles"
 ]
 module = st.sidebar.radio("Navigation", modules, index=0)
-
-clicked_module = st_javascript("window.addEventListener('message', e => e.data.func==='selectModule' ? e.data.module : null)")
-if clicked_module:
-    st.session_state.module_actif = clicked_module
-    st.experimental_rerun()
-
-if "module_actif" not in st.session_state:
-    st.session_state.module_actif = None
 
 # ACCUEIL
 
@@ -62,63 +55,66 @@ if module == "Accueil":
 elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
-    module_actif = st.session_state.module_actif
+    st_yled.init()
 
-    html_code = """
-    <svg width="900" height="700" style="font-family:sans-serif;">
-        <!-- Titre et période -->
-        <text x="450" y="30" text-anchor="middle" font-size="20" font-weight="bold">BULLETIN DE PAIE</text>
-        <text x="450" y="55" text-anchor="middle" font-size="16" fill="#333">Période : 01/09/2025 - 30/09/2025</text>
+    st.title("Bulletin de paie - Schéma interactif")
 
-        <!-- Blocs gauche -->
-        <rect id="employeur" x="50" y="80" width="200" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" style="cursor:pointer"/>
-        <text x="55" y="105" font-size="14" fill="#000">Employeur : Association XYZ</text>
+    # Mapping blocs et lignes → modules
+    blocs_modules = {
+        "Employeur : Association XYZ": "Coefficient, valeur du point d'indice et salaire de base",
+        "Convention collective : ECLAT": "Coefficient, valeur du point d'indice et salaire de base",
+        "Qualification - coefficient": "Coefficient, valeur du point d'indice et salaire de base",
+        "N° SS & Ancienneté": "Heures lissées",
+        "Emploi": "Primes",
+        "Salarié-e": "🧮 Simulateur complet"
+    }
 
-        <rect id="convention" x="50" y="130" width="200" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" style="cursor:pointer"/>
-        <text x="55" y="155" font-size="14" fill="#000">Convention collective : ECLAT</text>
+    lignes_modules = {
+        "Salaire de base": "Coefficient, valeur du point d'indice et salaire de base",
+        "Prime ancienneté": "Primes",
+        "Cotisations sociales": "🔗 Liens utiles",
+        "Heures lissées": "Vérificateur d'heures",
+        "Net à payer": "🧮 Simulateur complet"
+    }
 
-        <rect id="qualification" x="50" y="180" width="200" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" style="cursor:pointer"/>
-        <text x="55" y="205" font-size="14" fill="#000">Qualification - coefficient</text>
+    # Styles blocs et lignes
+    st_yled.set("bloc", "background_color", "#f0f0f0")
+    st_yled.set("bloc", "border", "2px solid #333")
+    st_yled.set("bloc", "padding", "10px")
+    st_yled.set("bloc", "margin", "5px")
+    st_yled.set("bloc", "border_radius", "5px")
+    st_yled.set("bloc", "hover_background_color", "#d0eaff")
+    st_yled.set("bloc", "cursor", "pointer")
+    st_yled.set("bloc", "width", "250px")
 
-        <!-- Blocs droite -->
-        <rect id="emploi" x="300" y="80" width="200" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" style="cursor:pointer"/>
-        <text x="305" y="105" font-size="14" fill="#000">Emploi</text>
+    st_yled.set("ligne", "background_color", "#ffffff")
+    st_yled.set("ligne", "border", "2px solid #333")
+    st_yled.set("ligne", "padding", "8px")
+    st_yled.set("ligne", "margin", "3px")
+    st_yled.set("ligne", "border_radius", "3px")
+    st_yled.set("ligne", "hover_background_color", "#f1faff")
+    st_yled.set("ligne", "cursor", "pointer")
+    st_yled.set("ligne", "width", "650px")
 
-        <rect id="salarie" x="300" y="130" width="200" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" style="cursor:pointer"/>
-        <text x="305" y="155" font-size="14" fill="#000">Salarié-e</text>
+    st.markdown("### Informations employeur / salarié")
 
-        <!-- Tooltip -->
-        <text id="tooltip" x="50" y="530" font-size="14" fill="#000">Passez la souris sur un élément pour voir le détail</text>
+    # Affichage blocs gauche/droite
+    cols = st.columns([1,1])  # deux colonnes pour gauche/droite
+    for i, (nom_bloc, module_cible) in enumerate(blocs_modules.items()):
+        col = cols[i % 2]
+        if st_yled.button(nom_bloc, style="bloc", key=f"bloc_{i}"):
+            st.session_state.module_actif = module_cible
+            st.experimental_rerun()
 
-        <script>
-            const mapping = {
-                "employeur":"Coefficient, valeur du point d'indice et salaire de base",
-                "convention":"Coefficient, valeur du point d'indice et salaire de base",
-                "qualification":"Coefficient, valeur du point d'indice et salaire de base",
-                "emploi":"Primes",
-                "salarie":"🧮 Simulateur complet"
-            };
+    st.markdown("### Détails paie")
 
-            Object.keys(mapping).forEach(id => {
-                const elem = document.getElementById(id);
-                elem.addEventListener('mouseover', () => elem.setAttribute('fill', '#d0eaff'));
-                elem.addEventListener('mouseout', () => elem.setAttribute('fill', '#f0f0f0'));
-                elem.addEventListener('click', () => {
-                    window.parent.postMessage({func:'selectModule', module: mapping[id]}, '*');
-                });
-            });
+    # Affichage tableau lignes
+    for i, (ligne, module_cible) in enumerate(lignes_modules.items()):
+        if st_yled.button(ligne, style="ligne", key=f"ligne_{i}"):
+            st.session_state.module_actif = module_cible
+            st.experimental_rerun()
 
-            const tooltip = document.getElementById('tooltip');
-            Object.keys(mapping).forEach(id => {
-                const elem = document.getElementById(id);
-                elem.addEventListener('mouseover', () => tooltip.textContent = mapping[id]);
-                elem.addEventListener('mouseout', () => tooltip.textContent = "Passez la souris sur un élément pour voir le détail");
-            });
-        </script>
-    </svg>
-    """
-
-    components.html(html_code, height=700, scrolling=True)
+    st.info("Passez la souris sur un bloc ou une ligne pour voir le détail, et cliquez pour accéder au module correspondant.")
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
