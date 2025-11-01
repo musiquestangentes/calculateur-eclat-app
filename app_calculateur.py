@@ -211,7 +211,7 @@ elif module == "Heures lissées":
 
         > « La rémunération est due, pour chaque mois et 12 mois sur 12, dès lors que le salarié effectue l’horaire de service contractuel pendant les semaines de fonctionnement de l’activité. En aucun cas le salaire ne peut être annualisé ou lissé sur douze mois. »  
 
-        > Source : SNAM-CGT – Bulletin de paie et contrats enseignants  
+        > *Source : SNAM-CGT – Bulletin de paie et contrats enseignants*  
 
         Cette phrase décrit la rémunération légale minimale et indique que l’école doit payer les heures réellement effectuées chaque mois. Elle **n’empêche pas** une école associative de mettre en place un lissage volontaire pour stabiliser le revenu.  
 
@@ -219,7 +219,7 @@ elif module == "Heures lissées":
 
         - Les heures annuelles sont calculées et majorées de 10 % pour les congés payés  
         - Ce total est réparti sur 12 mois pour garantir un **revenu stable** même pendant les vacances scolaires  
-        - Le lissage est donc une **pratique interne** visant à simplifier la gestion administrative et sécuriser les revenus des enseignant·e·s  
+        - Le lissage est donc une **pratique interne** visant à simplifier la gestion administrative et sécuriser les revenus des enseignant·e·s.  
 
         Le lissage ne modifie pas votre temps de travail réel ni vos droits légaux. Vous continuez à être rémunéré·e selon vos heures effectuées, mais de manière régulière pour plus de stabilité financière.
         """)
