@@ -55,63 +55,99 @@ if module == "Accueil":
 elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
-    st_yled.init()
+    st.write("Passez la souris sur les blocs pour plus d'infos et cliquez pour naviguer.")
 
-    # Mapping blocs et lignes → modules
-    blocs_modules = {
-        "Employeur : Association XYZ": "Coefficient, valeur du point d'indice et salaire de base",
-        "Convention collective : ECLAT": "Coefficient, valeur du point d'indice et salaire de base",
-        "Qualification - coefficient": "Coefficient, valeur du point d'indice et salaire de base",
-        "N° SS & Ancienneté": "Heures lissées",
-        "Emploi": "Primes",
-        "Salarié-e": "🧮 Simulateur complet"
-    }
+    html_code = """
+    <div style="width:100%; overflow-x:auto;">
+    <svg width="900" height="700" style="font-family:sans-serif; max-width:100%; height:auto;">
+    <style>
+        .header { font-size:20px; font-weight:bold; }
+        .subheader { font-size:16px; fill:#333; }
+        .block { fill:#f0f0f0; stroke:#333; stroke-width:1; cursor:pointer; }
+        .block:hover { fill:#d0eaff; }
+        .cell { fill:#ffffff; stroke:#333; stroke-width:1; cursor:pointer; }
+        .cell:hover { fill:#f1faff; }
+        .text { font-size:14px; }
+        .tooltip { font-size:14px; pointer-events:none; }
+        a { color: blue; text-decoration: underline; }
+    </style>
 
-    lignes_modules = {
-        "Salaire de base": "Coefficient, valeur du point d'indice et salaire de base",
-        "Prime ancienneté": "Primes",
-        "Cotisations sociales": "🔗 Liens utiles",
-        "Heures lissées": "Vérificateur d'heures",
-        "Net à payer": "🧮 Simulateur complet"
-    }
+    <!-- Titre et période -->
+    <text x="450" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
+    <text x="450" y="55" text-anchor="middle" class="subheader">Période : 01/09/2025 - 30/09/2025</text>
 
-    st_yled.set("block", "background_color", "#f0f0f0")
-    st_yled.set("block", "border", "2px solid #333")
-    st_yled.set("block", "padding", "10px")
-    st_yled.set("block", "margin", "5px")
-    st_yled.set("block", "border_radius", "5px")
-    st_yled.set("block", "hover_background_color", "#d0eaff")
-    st_yled.set("block", "cursor", "pointer")
-    st_yled.set("block", "width", "250px")
+    <!-- Blocs gauche -->
+    <rect x="50" y="80" width="200" height="40" class="block" id="employeur"/>
+    <text x="55" y="105" class="text">Employeur : Association XYZ</text>
 
-    st_yled.set("line", "background_color", "#ffffff")
-    st_yled.set("line", "border", "2px solid #333")
-    st_yled.set("line", "padding", "8px")
-    st_yled.set("line", "margin", "3px")
-    st_yled.set("line", "border_radius", "3px")
-    st_yled.set("line", "hover_background_color", "#f1faff")
-    st_yled.set("line", "cursor", "pointer")
-    st_yled.set("line", "width", "650px")
+    <rect x="50" y="130" width="200" height="40" class="block" id="convention"/>
+    <text x="55" y="155" class="text">Convention collective : ECLAT</text>
 
-    st.markdown("### Informations employeur / salarié")
+    <rect x="50" y="180" width="200" height="40" class="block" id="qualification"/>
+    <text x="55" y="205" class="text">Qualification - coefficient</text>
 
-    # Affichage blocs gauche/droite
-    cols = st.columns([1,1])  # deux colonnes pour gauche/droite
-    for i, (nom_bloc, module_cible) in enumerate(blocs_modules.items()):
-        col = cols[i % 2]
-        if st_yled.button(nom_bloc, style="bloc", key=f"bloc_{i}"):
-            st.session_state.module_actif = module_cible
-            st.experimental_rerun()
+    <rect x="50" y="230" width="200" height="40" class="block" id="ss"/>
+    <text x="55" y="255" class="text">N° SS & Ancienneté</text>
 
-    st.markdown("### Détails paie")
+    <!-- Blocs droite -->
+    <rect x="300" y="80" width="200" height="40" class="block" id="emploi"/>
+    <text x="305" y="105" class="text">Emploi</text>
 
-    # Affichage tableau lignes
-    for i, (ligne, module_cible) in enumerate(lignes_modules.items()):
-        if st_yled.button(ligne, style="ligne", key=f"ligne_{i}"):
-            st.session_state.module_actif = module_cible
-            st.experimental_rerun()
+    <rect x="300" y="130" width="200" height="40" class="block" id="salarie"/>
+    <text x="305" y="155" class="text">Salarié-e</text>
 
-    st.info("Passez la souris sur un bloc ou une ligne pour voir le détail, et cliquez pour accéder au module correspondant.")
+    <!-- Tableau -->
+    <text x="50" y="300" class="text" font-weight="bold">Désignation</text>
+    <text x="300" y="300" class="text" font-weight="bold">Base</text>
+    <text x="400" y="300" class="text" font-weight="bold">Taux</text>
+    <text x="500" y="285" class="text" font-weight="bold">Montant</text>
+    <text x="500" y="300" class="text">Part salarié</text>
+    <text x="650" y="300" class="text">Part employeur</text>
+
+    <!-- Lignes tableau -->
+    <rect x="50" y="310" width="500" height="30" class="cell" id="ligne_base"/>
+    <text x="55" y="330" class="text">Salaire de base</text>
+    <text x="300" y="330" class="text">2500 €</text>
+    <text x="400" y="330" class="text">100%</text>
+    <text x="500" y="330" class="text">2500 €</text>
+    <text x="650" y="330" class="text">2500 €</text>
+
+    <rect x="50" y="350" width="500" height="30" class="cell" id="ligne_prime"/>
+    <text x="55" y="370" class="text">Prime ancienneté</text>
+    <text x="300" y="370" class="text">2500 €</text>
+    <text x="400" y="370" class="text">2%</text>
+    <text x="500" y="370" class="text">250 €</text>
+    <text x="650" y="370" class="text">250 €</text>
+
+    <text id="tooltip" x="50" y="420" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+
+    <script>
+        const tooltip = document.getElementById('tooltip');
+        function showTooltip(msg){ tooltip.textContent = msg; }
+
+        const mapping = {
+            "employeur":"Coefficient, valeur du point d'indice et salaire de base",
+            "convention":"Coefficient, valeur du point d'indice et salaire de base",
+            "qualification":"Coefficient, valeur du point d'indice et salaire de base",
+            "ss":"Heures lissées",
+            "emploi":"Primes",
+            "salarie":"🧮 Simulateur complet",
+            "ligne_base":"Coefficient, valeur du point d'indice et salaire de base",
+            "ligne_prime":"Primes"
+        };
+
+        Object.keys(mapping).forEach(id=>{
+            const elem = document.getElementById(id);
+            elem.addEventListener('mouseover', ()=>showTooltip(mapping[id]));
+            elem.addEventListener('mouseout', ()=>showTooltip('Passez la souris sur un élément pour voir le détail'));
+            elem.addEventListener('click', ()=>{ window.parent.postMessage({func:'selectModule', module: mapping[id]}, '*'); });
+        });
+    </script>
+    </svg>
+    </div>
+    """
+
+    components.html(html_code, height=720)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
