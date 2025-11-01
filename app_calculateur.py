@@ -64,97 +64,86 @@ elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
     svg_code = """
-    <svg width="1000" height="700" style="font-family:sans-serif;">
+    <svg viewBox="0 0 1000 700" width="100%" height="100%" style="font-family:sans-serif;">
         <style>
             .block { fill:#eef3fd; cursor:pointer; }
             .block:hover { fill:#cce6ff; }
             .text { font-size:12px; }
             .header { font-size:20px; font-weight:bold; }
             .subheader { font-size:14px; fill:#5c9cc4; font-weight:bold; }
-            .tooltip { font-size:14px; pointer-events:none; fill:#333; }
             .bold { font-weight:bold; }
+            .tooltip { font-size:14px; pointer-events:none; fill:#333; }
         </style>
 
         <!-- Titre -->
-        <text x="500" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
+        <text x="50%" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
 
-        <!-- Blocs gauche -->
-        <text x="50" y="80" class="bold">EMPLOYEUR</text>
-        <text x="50" y="95" class="text">MUSIQUES TANGENTES</text>
+        <!-- Informations employeur et salarié -->
+        <text x="5%" y="80" class="bold">EMPLOYEUR</text>
+        <text x="5%" y="95" class="text">MUSIQUES TANGENTES</text>
 
-        <text x="50" y="120" class="bold">CONVENTION COLLECTIVE</text>
-        <text x="50" y="135" class="text">N° 3246 - E.C.L.A.T (Animation)</text>
+        <text x="5%" y="120" class="bold">CONVENTION COLLECTIVE</text>
+        <text x="5%" y="135" class="text">N° 3246 - E.C.L.A.T (Animation)</text>
 
-        <text x="50" y="160" class="bold">QUALIFICATION-COEFFICIENT</text>
-        <text x="50" y="175" class="text">Echelon Groupe D, Coefficient 305, Catégorie Agent de Maîtrise</text>
+        <text x="5%" y="160" class="bold">QUALIFICATION-COEFFICIENT</text>
+        <text x="5%" y="175" class="text">Echelon Groupe D, Coefficient 305, Catégorie Agent de Maîtrise</text>
 
-        <text x="50" y="200" class="bold">N° SS ET ANCIENNETÉ</text>
-        <text x="50" y="215" class="text">123 45 6789 012 - 3 ans</text>
+        <text x="5%" y="200" class="bold">N° SS ET ANCIENNETÉ</text>
+        <text x="5%" y="215" class="text">123 45 6789 012 - 3 ans</text>
 
-        <!-- Blocs droite -->
-        <text x="500" y="80" class="bold">EMPLOI</text>
-        <text x="500" y="95" class="text">Animateur</text>
+        <text x="55%" y="80" class="bold">EMPLOI</text>
+        <text x="55%" y="95" class="text">Animateur</text>
 
-        <text x="500" y="120" class="bold">SALARIÉ·E</text>
-        <text x="500" y="135" class="text">Jean Dupont</text>
+        <text x="55%" y="120" class="bold">SALARIÉ·E</text>
+        <text x="55%" y="135" class="text">Jean Dupont</text>
 
-        <!-- Tableau salaire -->
-        <text x="50" y="250" class="subheader">Désignation</text>
-        <text x="300" y="250" class="subheader">Base</text>
-        <text x="400" y="250" class="subheader">Taux</text>
-        <text x="500" y="250" class="subheader">Montant</text>
+        <!-- Tableau Salaire -->
+        <text x="5%" y="250" class="subheader">Désignation</text>
+        <text x="35%" y="250" class="subheader">Base</text>
+        <text x="45%" y="250" class="subheader">Taux</text>
+        <text x="55%" y="250" class="subheader">Montant</text>
 
-        <rect x="50" y="260" width="500" height="30" class="block"/>
-        <text x="55" y="280" class="text">Salaire de base</text>
-        <text x="300" y="280" class="text">34,7</text>
-        <text x="400" y="280" class="text">100%</text>
-        <text x="500" y="280" class="text">34,7</text>
+        <rect x="5%" y="260" width="90%" height="30" class="block"/>
+        <text x="5.5%" y="280" class="text">Salaire de base</text>
+        <text x="35%" y="280" class="text">34,7</text>
+        <text x="45%" y="280" class="text">100%</text>
+        <text x="55%" y="280" class="text">34,7</text>
 
-        <rect x="50" y="295" width="500" height="30" class="block"/>
-        <text x="55" y="315" class="text">Prime ancienneté</text>
-        <text x="300" y="315" class="text">250</text>
-        <text x="400" y="315" class="text">2%</text>
-        <text x="500" y="315" class="text">250</text>
+        <rect x="5%" y="295" width="90%" height="30" class="block"/>
+        <text x="5.5%" y="315" class="text">Prime ancienneté</text>
+        <text x="35%" y="315" class="text">250</text>
+        <text x="45%" y="315" class="text">2%</text>
+        <text x="55%" y="315" class="text">250</text>
 
-        <rect x="50" y="330" width="500" height="30" class="block"/>
-        <text x="55" y="350" class="text">Cotisations sociales</text>
-        <text x="500" y="350" class="text">500</text>
+        <!-- Tableau Cotisations -->
+        <text x="5%" y="360" class="subheader">Désignation</text>
+        <text x="20%" y="360" class="subheader">Base</text>
+        <text x="30%" y="360" class="subheader">Taux</text>
+        <text x="40%" y="360" class="subheader">Part salarié</text>
+        <text x="50%" y="360" class="subheader">Part employeur</text>
 
-        <rect x="50" y="365" width="500" height="30" class="block"/>
-        <text x="55" y="385" class="text">Net à payer</text>
-        <text x="500" y="385" class="text">350</text>
+        <rect x="5%" y="370" width="90%" height="30" class="block"/>
+        <text x="5.5%" y="390" class="text">Sécurité sociale</text>
+        <text x="20%" y="390" class="text">1000</text>
+        <text x="30%" y="390" class="text">8%</text>
+        <text x="40%" y="390" class="text">80</text>
+        <text x="50%" y="390" class="text">80</text>
 
-        <!-- Tableau cotisations -->
-        <text x="50" y="420" class="subheader">Désignation</text>
-        <text x="200" y="420" class="subheader">Base</text>
-        <text x="300" y="420" class="subheader">Taux</text>
-        <text x="400" y="420" class="subheader">Part salarié</text>
-        <text x="500" y="420" class="subheader">Part employeur</text>
+        <rect x="5%" y="405" width="90%" height="30" class="block"/>
+        <text x="5.5%" y="425" class="text">Assurance chômage</text>
+        <text x="20%" y="425" class="text">1000</text>
+        <text x="30%" y="425" class="text">2%</text>
+        <text x="40%" y="425" class="text">20</text>
+        <text x="50%" y="425" class="text">20</text>
 
-        <rect x="50" y="430" width="500" height="30" class="block"/>
-        <text x="55" y="450" class="text">Sécurité sociale</text>
-        <text x="200" y="450" class="text">1000</text>
-        <text x="300" y="450" class="text">8%</text>
-        <text x="400" y="450" class="text">80</text>
-        <text x="500" y="450" class="text">80</text>
+        <!-- Tableau Net à Payer -->
+        <rect x="5%" y="470" width="90%" height="50" class="block"/>
+        <text x="5.5%" y="495" class="subheader">Net à payer</text>
+        <text x="55%" y="495" class="subheader">350</text>
 
-        <rect x="50" y="465" width="500" height="30" class="block"/>
-        <text x="55" y="485" class="text">Assurance chômage</text>
-        <text x="200" y="485" class="text">1000</text>
-        <text x="300" y="485" class="text">2%</text>
-        <text x="400" y="485" class="text">20</text>
-        <text x="500" y="485" class="text">20</text>
-
-        <text id="tooltip" x="50" y="530" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
-
-        <script>
-            const tooltip = document.getElementById('tooltip');
-            function showTooltip(msg){ tooltip.textContent = msg; }
-        </script>
+        <text id="tooltip" x="5%" y="540" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
     </svg>
     """
-
-    components.html(svg_code, height=500, scrolling=True)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
