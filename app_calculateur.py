@@ -1,7 +1,6 @@
 import streamlit as st
 from datetime import datetime, date
 import pandas as pd
-import altair as alt
 import re
 from io import BytesIO
 from reportlab.lib.pagesizes import A4
@@ -219,7 +218,7 @@ elif module == "Vérifier son nombre d'heures annuelles":
     def parse_fichier_multi_profs(fichier_txt):
         """
         Retourne :
-        heures_profs = { "Prénom NOM": [heures_par_semaine], ... }
+        heures_profs = { "Prénom NOM": [(date, heures), ...], ... }
         total_annuels = { "Prénom NOM": total_annee, ... }
         """
         heures_profs = {}
@@ -236,31 +235,32 @@ elif module == "Vérifier son nombre d'heures annuelles":
             if not re.match(r"\d{2}-\d{2}-\d{4}", line) and not line.startswith("Total"):
                 if current_prof is not None:
                     heures_profs[current_prof] = heures_courantes
-                    total_annuels[current_prof] = sum(heures_courantes)
+                    total_annuels[current_prof] = sum(h for _, h in heures_courantes)
                 current_prof = line
                 heures_courantes = []
 
-            elif re.match(r"\d{2}-\d{2}-\d{4}\s+total jour\s*:\s*\d{2}:\d{2}", line):
-                hhmm = line.split("total jour :")[1].strip()
-                heures_courantes.append(hhmm_to_decimal(hhmm))
+            match = re.match(r"(\d{2}-\d{2}-\d{4})\s+total jour\s*:\s*(\d{2}:\d{2})", line)
+            if match:
+                date_str, hhmm = match.groups()
+                heures_courantes.append((date_str, hhmm_to_decimal(hhmm)))
 
             elif line.startswith("Total Période"):
-                match = re.search(r"([\d,\.]+)", line)
-                if match:
-                    total_annuel = float(match.group(1).replace(",", "."))
+                match_total = re.search(r"([\d,\.]+)", line)
+                if match_total:
+                    total_annuel = float(match_total.group(1).replace(",", "."))
                     total_annuels[current_prof] = total_annuel
 
         if current_prof is not None:
             heures_profs[current_prof] = heures_courantes
             if current_prof not in total_annuels:
-                total_annuels[current_prof] = sum(heures_courantes)
+                total_annuels[current_prof] = sum(h for _, h in heures_courantes)
 
         return heures_profs, total_annuels
 
     # Lecture backend
     DATA_FILE = Path(__file__).parent / "heures_2526.txt"
 
-    with open(DATA_FILE, "r", encoding="utf-8", errors="replace") as f:
+    with open(DATA_FILE, "r", encoding="utf-16") as f:
         contenu = f.read()
 
     heures_profs, total_annuels = parse_fichier_multi_profs(contenu)
@@ -270,23 +270,19 @@ elif module == "Vérifier son nombre d'heures annuelles":
     prof_selectionne = st.selectbox("Sélectionnez votre nom :", list(heures_profs.keys()))
 
     if prof_selectionne:
-        heures_semaine = heures_profs[prof_selectionne]
+        data_semaine = heures_profs[prof_selectionne]
+        dates = [d for d, _ in data_semaine]
+        heures = [h for _, h in data_semaine]
         total_annuel = total_annuels[prof_selectionne]
 
         st.markdown(f"### Total annuel : **{total_annuel:.2f} h**")
 
-        # Tableau semaine par semaine
-        semaines = [f"Semaine {i+1}" for i in range(len(heures_semaine))]
-        df_heures = pd.DataFrame({"Semaine": semaines, "Heures": heures_semaine})
+        # Tableau avec dates réelles
+        df_heures = pd.DataFrame({
+            "Date": dates,
+            "Heures": heures
+        })
         st.dataframe(df_heures, use_container_width=True)
-
-        # Graphique
-        chart = alt.Chart(df_heures).mark_bar(color="#c2005c").encode(
-            x='Semaine',
-            y='Heures',
-            tooltip=['Semaine', 'Heures']
-        ).properties(width=800, height=300)
-        st.altair_chart(chart)
 
         # Export PDF
         buffer = BytesIO()
@@ -299,8 +295,8 @@ elif module == "Vérifier son nombre d'heures annuelles":
         story.append(Paragraph(f"Total annuel : {total_annuel:.2f} h", styles["Normal"]))
         story.append(Spacer(1,12))
 
-        for i, h in enumerate(heures_semaine):
-            story.append(Paragraph(f"Semaine {i+1} : {h:.2f} h", styles["Normal"]))
+        for date_str, h in data_semaine:
+            story.append(Paragraph(f"{date_str} : {h:.2f} h", styles["Normal"]))
 
         doc.build(story)
         pdf_data = buffer.getvalue()
