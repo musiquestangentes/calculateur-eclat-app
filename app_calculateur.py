@@ -68,10 +68,11 @@ elif module == "Lire sa fiche de paie":
         <style>
             .block { fill:#eef3fd; }
             .text { font-size:13px; }
+            .titres { font-size: 13px; }
             .text:hover { font-weight:bold; cursor:pointer;}
             .header { font-size:20px; font-weight:bold; }
             .subheader { font-size:14px; fill:#5c9cc4; font-weight:bold; }
-            .bold { font-size: 13px; }
+            .bold { font-size: 13px; font-weight: bold;}
             .tooltip-box {
                 fill: #fffbe6;
                 fill-opacity: 1;
@@ -101,27 +102,27 @@ elif module == "Lire sa fiche de paie":
         <!-- Informations employeur et salarié -->
         <rect x="5%" y="67" width="45%" height="15" class="block"/>
         <text x="5.5%" y="80" class="subheader">EMPLOYEUR</text>
-        <text x="5.5%" y="95" class="bold">MUSIQUES TANGENTES</text>
+        <text x="5.5%" y="95" class="titres">MUSIQUES TANGENTES</text>
 
         <rect x="5%" y="107" width="45%" height="15" class="block"/>
         <text x="5.5%" y="120" class="subheader">CONVENTION COLLECTIVE</text>
-        <text x="5.5%" y="135" class="bold">N° 3246 - E.C.L.A.T (Animation)</text>
+        <text x="5.5%" y="135" class="titres">N° 3246 - E.C.L.A.T (Animation)</text>
 
         <rect x="5%" y="147" width="45%" height="15" class="block"/>
         <text x="5.5%" y="160" class="subheader">QUALIFICATION-COEFFICIENT</text>
-        <text x="5.5%" y="175" class="bold">Echelon Groupe D - Coefficient 305 - Catégorie Agent de Maîtrise</text>
+        <text x="5.5%" y="175" class="titres">Echelon Groupe D - Coefficient 305 - Catégorie Agent de Maîtrise</text>
 
         <rect x="5%" y="187" width="45%" height="15" class="block"/>
         <text x="5.5%" y="200" class="subheader">N° SECURITE SOCIALE - ANCIENNETÉ</text>
-        <text x="5.5%" y="215" class="bold">123 45 6789 012 - Entré·e le 01/01/2015 - Ancienneté 10 ans</text>
+        <text x="5.5%" y="215" class="titres">123 45 6789 012 - Entré·e le 01/01/2015 - Ancienneté 10 ans</text>
 
         <rect x="55%" y="67" width="45%" height="15" class="block"/>
         <text x="55.5%" y="80" class="subheader">EMPLOI</text>
-        <text x="55.5%" y="95" class="bold">ARTISTE ENSEIGNANT</text>
+        <text x="55.5%" y="95" class="titres">ARTISTE ENSEIGNANT</text>
 
         <rect x="55%" y="107" width="45%" height="15" class="block"/>
         <text x="55.5%" y="120" class="subheader">SALARIÉ·E</text>
-        <text x="55.5%" y="135" class="bold">Prénom Nom</text>
+        <text x="55.5%" y="135" class="titres">Prénom Nom</text>
 
         <!-- Tableau Salaire -->
         <rect x="5%" y="240" width="100%" height="28" class="block"/>
@@ -177,13 +178,13 @@ elif module == "Lire sa fiche de paie":
         <text x="75%" y="455" class="text">80</text>
         <text x="85%" y="455" class="text">80</text>
 
-        <text x="5.5%" y="480" class="text">ACCIDENTS DU TRAVAIL - MALADIES PROFESSIONNELLES</text>
+        <text x="5.5%" y="480" class="bold">ACCIDENTS DU TRAVAIL - MALADIES PROFESSIONNELLES</text>
         <text x="55%" y="480" class="text">1000</text>
         <text x="65%" y="480" class="text"></text>
         <text x="75%" y="480" class="text"></text>
         <text x="85%" y="480" class="text"></text>
 
-        <text x="5.5%" y="505" class="text">RETRAITE</text>
+        <text x="5.5%" y="505" class="bold">RETRAITE</text>
         <text x="55%" y="505" class="text">1000</text>
         <text x="65%" y="505" class="text"></text>
         <text x="75%" y="505" class="text"></text>
@@ -207,37 +208,37 @@ elif module == "Lire sa fiche de paie":
         <text x="75%" y="580" class="text"></text>
         <text x="85%" y="580" class="text">20</text>
 
-        <text x="5.5%" y="605" class="text">FAMILLE</text>
+        <text x="5.5%" y="605" class="bold">FAMILLE</text>
         <text x="55%" y="605" class="text">1000</text>
         <text x="65%" y="605" class="text"></text>
         <text x="75%" y="605" class="text"></text>
         <text x="85%" y="605" class="text">20</text>
 
-        <text x="5.5%" y="630" class="text">ASSURANCE CHÔMAGE</text>
+        <text x="5.5%" y="630" class="bold">ASSURANCE CHÔMAGE</text>
         <text x="55%" y="630" class="text">1000</text>
         <text x="65%" y="630" class="text"></text>
         <text x="75%" y="630" class="text"></text>
         <text x="85%" y="630" class="text">20</text>
 
-        <text x="5.5%" y="655" class="text">AUTRES CONTRIBUTIONS DUES PAR L'EMPLOYEUR</text>
+        <text x="5.5%" y="655" class="bold">AUTRES CONTRIBUTIONS DUES PAR L'EMPLOYEUR</text>
         <text x="55%" y="655" class="text">1000</text>
         <text x="65%" y="655" class="text"></text>
         <text x="75%" y="655" class="text"></text>
         <text x="85%" y="655" class="text">20</text>
 
-        <text x="5.5%" y="680" class="text">CSG déductible de l'impôt sur le revenu</text>
+        <text x="5.5%" y="680" class="bold">CSG déductible de l'impôt sur le revenu</text>
         <text x="55%" y="680" class="text">1000</text>
         <text x="65%" y="680" class="text"></text>
         <text x="75%" y="680" class="text"></text>
         <text x="85%" y="680" class="text">20</text>
 
-        <text x="5.5%" y="705" class="text">CSG/CRDS non déductible de l'impôt sur le revenu</text>
+        <text x="5.5%" y="705" class="bold">CSG/CRDS non déductible de l'impôt sur le revenu</text>
         <text x="55%" y="705" class="text">1000</text>
         <text x="65%" y="705" class="text"></text>
         <text x="75%" y="705" class="text"></text>
         <text x="85%" y="705" class="text">20</text>
 
-        <text x="5.5%" y="730" class="text">EXONERATIONS, ECRETEMENTS ET ALLEGEMENTS DE COTISATIONS</text>
+        <text x="5.5%" y="730" class="bold">EXONERATIONS, ECRETEMENTS ET ALLEGEMENTS DE COTISATIONS</text>
         <text x="55%" y="730" class="text">1000</text>
         <text x="65%" y="730" class="text"></text>
         <text x="75%" y="730" class="text"></text>
@@ -269,12 +270,12 @@ elif module == "Lire sa fiche de paie":
       tooltipBg.setAttribute("width", length + 20);
 
       // Positionne la bulle près de la souris
-    #   const svg = evt.target.ownerSVGElement;
-    #   const pt = svg.createSVGPoint();
-    #   pt.x = evt.clientX;
-    #   pt.y = evt.clientY;
-    #   const cursor = pt.matrixTransform(svg.getScreenCTM().inverse());
-    #   tooltip.setAttribute("transform", `translate(${cursor.x + 15}, ${cursor.y - 10})`);
+      const svg = evt.target.ownerSVGElement;
+      const pt = svg.createSVGPoint();
+      pt.x = evt.clientX;
+      pt.y = evt.clientY;
+      const cursor = pt.matrixTransform(svg.getScreenCTM().inverse());
+      tooltip.setAttribute("transform", `translate(${cursor.x + 15}, ${cursor.y - 10})`);
     }
 
     function hideTooltip() {
