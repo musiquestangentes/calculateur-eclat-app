@@ -1,6 +1,4 @@
 Prénom NOM
- total jour : 
-Total Mois : ; Total Période : ; 
 
 Marc-André ALBERGEL
 16-09-2025 total jour : 03:30
