@@ -349,7 +349,7 @@ elif module == "Lire sa fiche de paie":
     """
     svg_code = re.sub(
         r'y="([\d.]+)"',
-        lambda m: f'y="{float(m.group(1)) + 50:g}"',
+        lambda m: f'y="{float(m.group(1)) + 30:g}"',
         svg_code
     )
     components.html(svg_code, height=800, scrolling=False)
