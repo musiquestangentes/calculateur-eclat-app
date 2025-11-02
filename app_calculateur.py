@@ -73,7 +73,24 @@ elif module == "Lire sa fiche de paie":
             .subheader { font-size:14px; fill:#5c9cc4; font-weight:bold; }
             .bold { font-size: 13px; }
             .tooltip { font-size:14px; pointer-events:none; fill:#333; }
+            .tooltip-box {
+                fill: #fffbe6;
+                stroke: #aaa;
+                stroke-width: 0.5;
+                rx: 6;
+                ry: 6;
+            }
+            .tooltip-text {
+                font-size: 12px;
+                fill: #333;
+                pointer-events: none;
+            }
         </style>
+
+        <g id="tooltip" visibility="hidden">
+            <rect id="tooltip-bg" class="tooltip-box" width="200" height="30" x="0" y="0"/>
+            <text id="tooltip-text" x="10" y="20" class="tooltip-text"></text>
+        </g>
 
         <!-- Titre -->
         <text x="50%" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
@@ -113,7 +130,8 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="290" class="text">Salaire de base</text>
         <text x="55%" y="290" class="text">19,70</text>
         <text x="65%" y="290" class="text">14,2454</text>
-        <text x="75%" y="290" class="text">280,63</text>
+        <text x="75%" y="290" class="text" onmouseover="showTooltip(evt, 'Calcul : 19,70 h × 14,2454 € = 280,63 €')"
+        onmouseout="hideTooltip()">280,63</text>
 
         <text x="5.5%" y="315" class="text">Prime d'ancienneté CC 3246</text>
         <text x="55%" y="315" class="text">20</text>
@@ -227,7 +245,35 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="720" class="subheader">NET À PAYER AU SALARIE</text>
         <text x="90%" y="720" class="subheader">350</text>
 
-        <text id="tooltip" x="5%" y="900" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+        <text id="tooltip" x="5%" y="1000" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+    
+    <script><![CDATA[
+    const tooltip = document.getElementById('tooltip');
+    const tooltipText = document.getElementById('tooltip-text');
+    const tooltipBg = document.getElementById('tooltip-bg');
+
+    function showTooltip(evt, text) {
+      tooltip.setAttribute("visibility", "visible");
+      tooltipText.textContent = text;
+
+      // Ajuste la taille du rectangle selon la longueur du texte
+      const length = tooltipText.getComputedTextLength();
+      tooltipBg.setAttribute("width", length + 20);
+
+      // Positionne la bulle près de la souris
+      const svg = evt.target.ownerSVGElement;
+      const pt = svg.createSVGPoint();
+      pt.x = evt.clientX;
+      pt.y = evt.clientY;
+      const cursor = pt.matrixTransform(svg.getScreenCTM().inverse());
+      tooltip.setAttribute("transform", `translate(${cursor.x + 10}, ${cursor.y - 10})`);
+    }
+
+    function hideTooltip() {
+      tooltip.setAttribute("visibility", "hidden");
+    }
+  ]]></script>
+    
     </svg>
     """
 
