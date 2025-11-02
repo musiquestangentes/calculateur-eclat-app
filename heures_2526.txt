@@ -1,6 +1,6 @@
 Prénom NOM
-15-09-2025 total jour : 00:00
-Total Mois : 0 h; Total Période : 0 h; 
+ total jour : 
+Total Mois : ; Total Période : ; 
 
 Marc-André ALBERGEL
 16-09-2025 total jour : 03:30
