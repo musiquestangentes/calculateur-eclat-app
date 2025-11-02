@@ -63,6 +63,8 @@ if module == "Accueil":
 elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
+    st.write("Passez la souris sur un élément pour voir le détail")
+
     svg_code = """
     <svg viewBox="0 0 1000 1250" width="100%" height="100%" preserveAspectRatio="xMinYMin meet" style="font-family:sans-serif;">
         <style>
@@ -88,8 +90,6 @@ elif module == "Lire sa fiche de paie":
                 pointer-events: none;
             }
         </style>
-
-        <text x="0%" y="0" class="titres">Passez la souris sur un élément pour voir le détail</text>
         
         <!-- Titre -->
         <text x="50%" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
