@@ -173,7 +173,9 @@ elif module == "Lire sa fiche de paie":
             onmouseout="hideTooltip()">Total brut abattu</text>
         <text x="55%" y="390" class="text"></text>
         <text x="65%" y="390" class="text"></text>
-        <text x="75%" y="390" class="text">233,52</text>
+        <text x="75%" y="390" class="text" 
+            onmouseover="showTooltip(evt, 'Total brut réel × ≈30% = Total brut abattu')"
+            onmouseout="hideTooltip()">233,52</text>
 
         <!-- Tableau Cotisations -->
         <rect x="5%" y="410" width="100%" height="28" class="block"/>
@@ -187,7 +189,7 @@ elif module == "Lire sa fiche de paie":
         <text x="55%" y="455" class="text">233,52</text>
         <text x="65%" y="455" class="text"></text>
         <text x="75%" y="455" class="text"></text>
-        <text x="85%" y="455" class="text">80</text>
+        <text x="85%" y="455" class="text"></text>
 
         <text x="5.5%" y="480" class="bold">ACCIDENTS DU TRAVAIL - MALADIES PROFESSIONNELLES</text>
         <text x="55%" y="480" class="text">233,52</text>
@@ -199,7 +201,7 @@ elif module == "Lire sa fiche de paie":
         <text x="55%" y="505" class="text">233,52</text>
         <text x="65%" y="505" class="text"></text>
         <text x="75%" y="505" class="text"></text>
-        <text x="85%" y="505" class="text">20</text>
+        <text x="85%" y="505" class="text"></text>
 
         <text x="5.5%" y="530" class="text">Sécurité Sociale plafonnée</text>
         <text x="55%" y="530" class="text">233,52</text>
