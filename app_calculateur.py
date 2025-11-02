@@ -243,31 +243,31 @@ elif module == "Lire sa fiche de paie":
         <text x="55%" y="680" class="text">333,75</text>
         <text x="65%" y="680" class="text">6,8000</text>
         <text x="75%" y="680" class="text"></text>
-        <text x="85%" y="680" class="text">20</text>
+        <text x="85%" y="680" class="text"></text>
 
         <text x="5.5%" y="705" class="bold">CSG/CRDS non déductible de l'impôt sur le revenu</text>
         <text x="55%" y="705" class="text">333,75</text>
         <text x="65%" y="705" class="text">2,9000</text>
         <text x="75%" y="705" class="text"></text>
-        <text x="85%" y="705" class="text">20</text>
+        <text x="85%" y="705" class="text"></text>
 
         <text x="5.5%" y="730" class="bold">EXONERATIONS, ECRETEMENTS ET ALLEGEMENTS DE COTISATIONS</text>
         <text x="55%" y="730" class="text">333,75</text>
         <text x="65%" y="730" class="text"></text>
         <text x="75%" y="730" class="text"></text>
-        <text x="85%" y="730" class="text">20</text>        
+        <text x="85%" y="730" class="text"></text>        
 
         <rect x="5%" y="740" width="100%" height="20" class="block"/>
         <text x="5.5%" y="755" class="subheader">Total des cotisations et contributions</text>
         <text x="55%" y="755" class="text"></text>
         <text x="65%" y="755" class="text"></text>
         <text x="75%" y="755" class="text"></text>
-        <text x="85%" y="755" class="text">20</text>     
+        <text x="85%" y="755" class="text"></text>     
         
         <!-- Tableau Net à Payer -->
         <rect x="5%" y="770" width="100%" height="30" class="block"/>
         <text x="5.5%" y="790" class="subheader">NET À PAYER AU SALARIE</text>
-        <text x="90%" y="790" class="subheader">300</text>
+        <text x="90%" y="790" class="subheader"></text>
 
         <g id="tooltip" visibility="hidden">
             <rect id="tooltip-bg" class="tooltip-box" width="200" height="30" x="0" y="0" rx="5" ry="5"/>
