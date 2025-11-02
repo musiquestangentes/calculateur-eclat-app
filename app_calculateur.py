@@ -64,7 +64,7 @@ elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
     svg_code = """
-    <svg viewBox="0 0 1000 1000" width="100%" height="100%" style="font-family:sans-serif;">
+    <svg viewBox="0 0 1000 1250" width="100%" height="auto%" preserveAspectRatio="xMinYMin meet" style="font-family:sans-serif;">
         <style>
             .block { fill:#eef3fd; }
             .text { font-size:13px; }
@@ -126,14 +126,14 @@ elif module == "Lire sa fiche de paie":
         <text x="75%" y="340" class="text">13,944</text>
 
         <text x="5.5%" y="365" class="text">Total brut</text>
-        <text x="55%" y="365" class="text">20</text>
-        <text x="65%" y="365" class="text">0,6972</text>
-        <text x="75%" y="365" class="text">13,944</text>
+        <text x="55%" y="365" class="text"></text>
+        <text x="65%" y="365" class="text"></text>
+        <text x="75%" y="365" class="text">300</text>
 
         <text x="5.5%" y="390" class="text">Total brut abattu</text>
-        <text x="55%" y="390" class="text">20</text>
-        <text x="65%" y="390" class="text">0,6972</text>
-        <text x="75%" y="390" class="text">13,944</text>
+        <text x="55%" y="390" class="text"></text>
+        <text x="65%" y="390" class="text"></text>
+        <text x="75%" y="390" class="text">300</text>
 
         <!-- Tableau Cotisations -->
         <rect x="5%" y="410" width="100%" height="28" class="block"/>
@@ -155,41 +155,41 @@ elif module == "Lire sa fiche de paie":
         <text x="75%" y="480" class="text"></text>
         <text x="85%" y="480" class="text"></text>
 
-        <text x="5.5%" y="515" class="text">RETRAITE</text>
-        <text x="55%" y="515" class="text">1000</text>
-        <text x="65%" y="515" class="text"></text>
-        <text x="75%" y="515" class="text"></text>
-        <text x="85%" y="515" class="text">20</text>
+        <text x="5.5%" y="505" class="text">RETRAITE</text>
+        <text x="55%" y="505" class="text">1000</text>
+        <text x="65%" y="505" class="text"></text>
+        <text x="75%" y="505" class="text"></text>
+        <text x="85%" y="505" class="text">20</text>
 
-        <text x="5.5%" y="540" class="text">Sécurité Sociale plafonnée</text>
-        <text x="55%" y="540" class="text">1000</text>
-        <text x="65%" y="540" class="text"></text>
-        <text x="75%" y="540" class="text"></text>
-        <text x="85%" y="540" class="text">20</text>
+        <text x="5.5%" y="530" class="text">Sécurité Sociale plafonnée</text>
+        <text x="55%" y="530" class="text">1000</text>
+        <text x="65%" y="530" class="text"></text>
+        <text x="75%" y="530" class="text"></text>
+        <text x="85%" y="530" class="text">20</text>
 
-        <text x="5.5%" y="565" class="text">Sécurité Sociale déplafonnée</text>
-        <text x="55%" y="565" class="text">1000</text>
-        <text x="65%" y="565" class="text"></text>
-        <text x="75%" y="565" class="text"></text>
-        <text x="85%" y="565" class="text">20</text>
+        <text x="5.5%" y="555" class="text">Sécurité Sociale déplafonnée</text>
+        <text x="55%" y="555" class="text">1000</text>
+        <text x="65%" y="555" class="text"></text>
+        <text x="75%" y="555" class="text"></text>
+        <text x="85%" y="555" class="text">20</text>
 
-        <text x="5.5%" y="590" class="text">Complémentaire Tranche 1</text>
-        <text x="55%" y="590" class="text">1000</text>
-        <text x="65%" y="590" class="text"></text>
-        <text x="75%" y="590" class="text"></text>
-        <text x="85%" y="590" class="text">20</text>
+        <text x="5.5%" y="580" class="text">Complémentaire Tranche 1</text>
+        <text x="55%" y="580" class="text">1000</text>
+        <text x="65%" y="580" class="text"></text>
+        <text x="75%" y="580" class="text"></text>
+        <text x="85%" y="580" class="text">20</text>
 
-        <text x="5.5%" y="615" class="text">FAMILLE</text>
-        <text x="55%" y="615" class="text">1000</text>
-        <text x="65%" y="615" class="text"></text>
-        <text x="75%" y="615" class="text"></text>
-        <text x="85%" y="615" class="text">20</text>
+        <text x="5.5%" y="605" class="text">FAMILLE</text>
+        <text x="55%" y="605" class="text">1000</text>
+        <text x="65%" y="605" class="text"></text>
+        <text x="75%" y="605" class="text"></text>
+        <text x="85%" y="605" class="text">20</text>
 
-        <text x="5.5%" y="640" class="text">ASSURANCE CHÔMAGE</text>
-        <text x="55%" y="640" class="text">1000</text>
-        <text x="65%" y="640" class="text"></text>
-        <text x="75%" y="640" class="text"></text>
-        <text x="85%" y="640" class="text">20</text>
+        <text x="5.5%" y="630" class="text">ASSURANCE CHÔMAGE</text>
+        <text x="55%" y="630" class="text">1000</text>
+        <text x="65%" y="630" class="text"></text>
+        <text x="75%" y="630" class="text"></text>
+        <text x="85%" y="630" class="text">20</text>
 
         <text x="5.5%" y="665" class="text">AUTRES CONTRIBUTIONS DUES PAR L'EMPLOYEUR</text>
         <text x="55%" y="665" class="text">1000</text>
