@@ -263,7 +263,7 @@ elif module == "Lire sa fiche de paie":
     const tooltipText = document.getElementById('tooltip-text');
     const tooltipBg = document.getElementById('tooltip-bg');
 
-    const MAX_WIDTH = 200; // largeur max en pixels
+    const MAX_WIDTH = 250; // largeur max en pixels
 
     function showTooltip(evt, text) {
         tooltip.setAttribute("visibility", "visible");
