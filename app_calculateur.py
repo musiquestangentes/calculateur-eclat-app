@@ -93,6 +93,8 @@ elif module == "Lire sa fiche de paie":
             <text id="tooltip-text" x="10" y="20" class="tooltip-text"></text>
         </g>
 
+        <text id="tooltip" x="0%" y="10" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+
         <!-- Titre -->
         <text x="50%" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
 
@@ -217,43 +219,41 @@ elif module == "Lire sa fiche de paie":
         <text x="75%" y="630" class="text"></text>
         <text x="85%" y="630" class="text">20</text>
 
-        <text x="5.5%" y="665" class="text">AUTRES CONTRIBUTIONS DUES PAR L'EMPLOYEUR</text>
-        <text x="55%" y="665" class="text">1000</text>
-        <text x="65%" y="665" class="text"></text>
-        <text x="75%" y="665" class="text"></text>
-        <text x="85%" y="665" class="text">20</text>
+        <text x="5.5%" y="655" class="text">AUTRES CONTRIBUTIONS DUES PAR L'EMPLOYEUR</text>
+        <text x="55%" y="655" class="text">1000</text>
+        <text x="65%" y="655" class="text"></text>
+        <text x="75%" y="655" class="text"></text>
+        <text x="85%" y="655" class="text">20</text>
 
-        <text x="5.5%" y="690" class="text">CSG déductible de l'impôt sur le revenu</text>
-        <text x="55%" y="690" class="text">1000</text>
-        <text x="65%" y="690" class="text"></text>
-        <text x="75%" y="690" class="text"></text>
-        <text x="85%" y="690" class="text">20</text>
+        <text x="5.5%" y="680" class="text">CSG déductible de l'impôt sur le revenu</text>
+        <text x="55%" y="680" class="text">1000</text>
+        <text x="65%" y="680" class="text"></text>
+        <text x="75%" y="680" class="text"></text>
+        <text x="85%" y="680" class="text">20</text>
 
-        <text x="5.5%" y="715" class="text">CSG/CRDS non déductible de l'impôt sur le revenu</text>
-        <text x="55%" y="715" class="text">1000</text>
-        <text x="65%" y="715" class="text"></text>
-        <text x="75%" y="715" class="text"></text>
-        <text x="85%" y="715" class="text">20</text>
+        <text x="5.5%" y="705" class="text">CSG/CRDS non déductible de l'impôt sur le revenu</text>
+        <text x="55%" y="705" class="text">1000</text>
+        <text x="65%" y="705" class="text"></text>
+        <text x="75%" y="705" class="text"></text>
+        <text x="85%" y="705" class="text">20</text>
 
-        <text x="5.5%" y="740" class="text">EXONERATIONS, ECRETEMENTS ET ALLEGEMENTS DE COTISATIONS</text>
-        <text x="55%" y="740" class="text">1000</text>
-        <text x="65%" y="740" class="text"></text>
-        <text x="75%" y="740" class="text"></text>
-        <text x="85%" y="740" class="text">20</text>        
+        <text x="5.5%" y="730" class="text">EXONERATIONS, ECRETEMENTS ET ALLEGEMENTS DE COTISATIONS</text>
+        <text x="55%" y="730" class="text">1000</text>
+        <text x="65%" y="730" class="text"></text>
+        <text x="75%" y="730" class="text"></text>
+        <text x="85%" y="730" class="text">20</text>        
 
-        <rect x="5%" y="765" width="100%" height="25" class="block"/>
-        <text x="5.5%" y="765" class="text">Total des cotisations et contributions</text>
-        <text x="55%" y="765" class="text">1000</text>
-        <text x="65%" y="765" class="text"></text>
-        <text x="75%" y="765" class="text"></text>
-        <text x="85%" y="765" class="text">20</text>     
+        <rect x="5%" y="755" width="100%" height="25" class="block"/>
+        <text x="5.5%" y="755" class="text">Total des cotisations et contributions</text>
+        <text x="55%" y="755" class="text">1000</text>
+        <text x="65%" y="755" class="text"></text>
+        <text x="75%" y="755" class="text"></text>
+        <text x="85%" y="755" class="text">20</text>     
         
         <!-- Tableau Net à Payer -->
-        <rect x="5%" y="720" width="100%" height="40" class="block"/>
-        <text x="5.5%" y="720" class="subheader">NET À PAYER AU SALARIE</text>
-        <text x="90%" y="720" class="subheader">350</text>
-
-        <text id="tooltip" x="5%" y="1000" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+        <rect x="5%" y="790" width="100%" height="40" class="block"/>
+        <text x="5.5%" y="790" class="subheader">NET À PAYER AU SALARIE</text>
+        <text x="90%" y="790" class="subheader">350</text>
     
     <script><![CDATA[
     const tooltip = document.getElementById('tooltip');
