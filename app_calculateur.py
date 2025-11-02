@@ -384,7 +384,7 @@ elif module == "Lissage et ETP":
 
     st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
     with st.expander("**Comprendre le lissage de votre salaire**"):
-        st.write("""
+        st.write(f"""
         Certaines écoles associatives de musique, dont Musiques Tangentes, pratiquent un **lissage de la rémunération sur 12 mois**.  
 
         Concrètement, vos heures réelles sont calculées à l’année, en excluant les périodes de vacances scolaires, puis réparties mensuellement de manière uniforme. Cela signifie que vous percevez le même salaire chaque mois, même lors des mois non travaillés.  
