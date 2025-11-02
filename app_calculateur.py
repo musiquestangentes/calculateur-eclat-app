@@ -25,6 +25,7 @@ url_valpoint = "http://legifrance.gouv.fr/conv_coll/article/KALIARTI000050362519
 url_salaire = "https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000046098173/?idConteneur=KALICONT000005635177"
 url_modulation = "https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000027717752?idConteneur=KALICONT000005635177&origin=list"
 url_etp = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043234742?utm_"
+url_snam = "https://www.snam-cgt.org/enseignement/quel-employeur-quels-droits/ecoles-de-musique-associatives/"
 
 # Navigation principale
 modules = [
@@ -396,7 +397,7 @@ elif module == "Lissage et ETP":
 
         > « La rémunération est due, pour chaque mois et 12 mois sur 12, dès lors que le salarié effectue l’horaire de service contractuel pendant les semaines de fonctionnement de l’activité. En aucun cas le salaire ne peut être annualisé ou lissé sur douze mois. »  
 
-        > <a href="https://www.snam-cgt.org/enseignement/quel-employeur-quels-droits/ecoles-de-musique-associatives/">*Source : SNAM-CGT – Bulletin de paie et contrats enseignants*</a>
+        > [*Source : SNAM-CGT – Bulletin de paie et contrats enseignants*]({url_snam})
 
         Cette phrase décrit la rémunération légale minimale et indique que l’école doit payer les heures réellement effectuées chaque mois. Elle **n’empêche pas** une école associative de mettre en place un lissage volontaire pour stabiliser le revenu.  
 
