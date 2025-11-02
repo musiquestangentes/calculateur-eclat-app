@@ -9,7 +9,6 @@ from reportlab.lib.styles import getSampleStyleSheet
 from pathlib import Path
 import streamlit.components.v1 as components
 from streamlit_javascript import st_javascript
-import st_yled
 
 # Config de la page
 st.set_page_config(page_title="Simulateur ECLAT", page_icon="🎵", layout="wide")
@@ -32,7 +31,7 @@ modules = [
     "Accueil",
     "Lire sa fiche de paie",
     "Coefficient, valeur du point d'indice et salaire de base",
-    "Heures lissées",
+    "Heures lissées et ETP",
     "Primes",
     "Vérificateur d'heures",
     "🧮 Simulateur complet",
@@ -51,7 +50,7 @@ if module == "Accueil":
     Utilisez le menu à gauche pour naviguer entre les différents modules :
     - Définitions : Coefficient, valeur du point d'indice et salaire de base  
     - Lire sa fiche de paie : schéma interactif  
-    - Heures lissées  
+    - Heures lissées et ETP 
     - Primes  
     - Vérification de son nombre d'heures réelles annuelles  
     - Simulateur complet   
@@ -321,8 +320,8 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
 
 # PAGE 3: HEURES LISSEES
 
-elif module == "Heures lissées":
-    st.title("Calcul des heures lissées")
+elif module == "Heures lissées et ETP":
+    st.title("Calcul des heures lissées et ETP")
 
     st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
     with st.expander("**Comprendre le lissage de votre salaire**"):
