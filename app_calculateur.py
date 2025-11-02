@@ -269,12 +269,12 @@ elif module == "Lire sa fiche de paie":
       tooltipBg.setAttribute("width", length + 20);
 
       // Positionne la bulle près de la souris
-      const svg = evt.target.ownerSVGElement;
-      const pt = svg.createSVGPoint();
-      pt.x = evt.clientX;
-      pt.y = evt.clientY;
-      const cursor = pt.matrixTransform(svg.getScreenCTM().inverse());
-      tooltip.setAttribute("transform", `translate(${cursor.x + 15}, ${cursor.y - 10})`);
+    #   const svg = evt.target.ownerSVGElement;
+    #   const pt = svg.createSVGPoint();
+    #   pt.x = evt.clientX;
+    #   pt.y = evt.clientY;
+    #   const cursor = pt.matrixTransform(svg.getScreenCTM().inverse());
+    #   tooltip.setAttribute("transform", `translate(${cursor.x + 15}, ${cursor.y - 10})`);
     }
 
     function hideTooltip() {
