@@ -64,7 +64,7 @@ elif module == "Lire sa fiche de paie":
     st.title("Comprendre sa fiche de paie")
 
     svg_code = """
-    <svg viewBox="0 0 1000 1250" width="100%" height="auto%" preserveAspectRatio="xMinYMin meet" style="font-family:sans-serif;">
+    <svg viewBox="0 0 1000 1500" width="100%" height="auto" preserveAspectRatio="xMinYMin meet" style="font-family:sans-serif;">
         <style>
             .block { fill:#eef3fd; }
             .text { font-size:13px; }
@@ -75,10 +75,12 @@ elif module == "Lire sa fiche de paie":
             .tooltip { font-size:14px; pointer-events:none; fill:#333; }
             .tooltip-box {
                 fill: #fffbe6;
+                fill-opacity: 1;
                 stroke: #aaa;
                 stroke-width: 0.5;
-                rx: 7;
-                ry: 7;
+                rx: 6;
+                ry: 6;
+                opacity: 1;
             }
             .tooltip-text {
                 font-size: 13px;
