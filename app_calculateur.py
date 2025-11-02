@@ -69,6 +69,7 @@ elif module == "Lire sa fiche de paie":
             .text { font-size:13px; }
             .titres { font-size: 13px; }
             .text:hover { font-weight:bold; cursor:pointer;}
+            .text:a { fill:blue;}
             .header { font-size:20px; font-weight:bold; }
             .subheader { font-size:14px; fill:#5c9cc4; font-weight:bold; }
             .bold { font-size: 13px; font-weight: bold;}
@@ -291,7 +292,7 @@ elif module == "Lire sa fiche de paie":
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
 elif module == "Coefficient, valeur du point d'indice et salaire de base":
-    st.title("### Coefficient et salaire de base")
+    st.title("Coefficient et salaire de base")
     
     st.info("""
     **Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT.  
@@ -322,7 +323,7 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
 # PAGE 3: HEURES LISSEES
 
 elif module == "Heures lissées et ETP":
-    st.title("### Calcul des heures lissées et ETP")
+    st.title("Calcul des heures lissées et ETP")
 
     st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
     with st.expander("**Comprendre le lissage de votre salaire**"):
