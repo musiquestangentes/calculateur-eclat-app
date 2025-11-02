@@ -89,7 +89,7 @@ elif module == "Lire sa fiche de paie":
             }
         </style>
 
-        <text x="0%" y="-10" class="titres">Passez la souris sur un élément pour voir le détail</text>
+        <text x="0%" y="0" class="titres">Passez la souris sur un élément pour voir le détail</text>
         
         <!-- Titre -->
         <text x="50%" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
