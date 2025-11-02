@@ -173,7 +173,7 @@ elif module == "Lire sa fiche de paie":
         <rect x="5%" y="410" width="100%" height="28" class="block"/>
         <text x="5.5%" y="430" class="subheader">Cotisations et contributions sociales</text>
         <text x="55%" y="430" class="subheader">Base</text>
-        <text x="65%" y="430" class="subheader">Taux</text>
+        <text x="65%" y="430" class="subheader">Taux salarial</text>
         <text x="75%" y="430" class="subheader">Part salarié</text>
         <text x="85%" y="430" class="subheader">Part employeur</text>
 
@@ -197,19 +197,19 @@ elif module == "Lire sa fiche de paie":
 
         <text x="5.5%" y="530" class="text">Sécurité Sociale plafonnée</text>
         <text x="55%" y="530" class="text">333,75</text>
-        <text x="65%" y="530" class="text"></text>
+        <text x="65%" y="530" class="text">6,9000</text>
         <text x="75%" y="530" class="text"></text>
         <text x="85%" y="530" class="text">20</text>
 
         <text x="5.5%" y="555" class="text">Sécurité Sociale déplafonnée</text>
         <text x="55%" y="555" class="text">333,75</text>
-        <text x="65%" y="555" class="text"></text>
+        <text x="65%" y="555" class="text">0,4000</text>
         <text x="75%" y="555" class="text"></text>
         <text x="85%" y="555" class="text">20</text>
 
         <text x="5.5%" y="580" class="text">Complémentaire Tranche 1</text>
         <text x="55%" y="580" class="text">333,75</text>
-        <text x="65%" y="580" class="text"></text>
+        <text x="65%" y="580" class="text">4,0100</text>
         <text x="75%" y="580" class="text"></text>
         <text x="85%" y="580" class="text">20</text>
 
@@ -239,13 +239,13 @@ elif module == "Lire sa fiche de paie":
 
         <text x="5.5%" y="705" class="bold">CSG/CRDS non déductible de l'impôt sur le revenu</text>
         <text x="55%" y="705" class="text">333,75</text>
-        <text x="65%" y="705" class="text"></text>
+        <text x="65%" y="705" class="text">6,8000</text>
         <text x="75%" y="705" class="text"></text>
         <text x="85%" y="705" class="text">20</text>
 
         <text x="5.5%" y="730" class="bold">EXONERATIONS, ECRETEMENTS ET ALLEGEMENTS DE COTISATIONS</text>
         <text x="55%" y="730" class="text">333,75</text>
-        <text x="65%" y="730" class="text"></text>
+        <text x="65%" y="730" class="text">2,9000</text>
         <text x="75%" y="730" class="text"></text>
         <text x="85%" y="730" class="text">20</text>        
 
