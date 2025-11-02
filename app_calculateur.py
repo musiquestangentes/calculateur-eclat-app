@@ -136,7 +136,7 @@ elif module == "Lire sa fiche de paie":
             onmouseover="showTooltip(evt, 'Taux Salaire de base / Heures ETP. Pour avoir le taux brut réel, il faut convertir les heures ETP en heures réelles.')"
             onmouseout="hideTooltip()">14,2454</text>
         <text x="75%" y="290" class="text" 
-            onmouseover="showTooltip(evt, 'Calcul : 19,70 × 14,2454 = 280,63')"
+            onmouseover="showTooltip(evt, '19,70 × 14,2454 = 280,63')"
             onmouseout="hideTooltip()">280,63</text>
 
         <text x="5.5%" y="315" class="text">Prime d'ancienneté CC 3246</text>
@@ -151,9 +151,13 @@ elif module == "Lire sa fiche de paie":
             onmouseout="hideTooltip()">18,59</text>
 
         <text x="5.5%" y="340" class="text">Prime différentielle compensatoire</text>
-        <text x="55%" y="340" class="text">37,15</text>
+        <text x="55%" y="340" class="text" 
+            onmouseover="showTooltip(evt, 'Le calcul détaillé se trouve dans l\\'onglet Primes')"
+            onmouseout="hideTooltip()">37,15</text>
         <text x="65%" y="340" class="text">0,9295</text>
-        <text x="75%" y="340" class="text">34,53</text>
+        <text x="75%" y="340" class="text" 
+            onmouseover="showTooltip(evt, '37,15 × 0,9295 = 34,53')"
+            onmouseout="hideTooltip()">34,53</text>
 
         <text x="5.5%" y="365" class="text">Total brut</text>
         <text x="55%" y="365" class="text"></text>
@@ -347,7 +351,7 @@ elif module == "Lire sa fiche de paie":
     
     </svg>
     """
-    
+
     components.html(svg_code, height=800, scrolling=False)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
