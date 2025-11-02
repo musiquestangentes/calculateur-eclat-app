@@ -584,6 +584,7 @@ elif module == "🧮 Simulateur complet":
         st.write(f"- Ancienneté : **{anciennete} ans**")
         st.write(f"- Prime d’ancienneté : **{prime_anciennete:.2f} €**")
         st.write(f"- Prime différentielle : **{prime_diff:.2f} €**")
+        st.write(f"- Salaire de base conventionnel : **{salaire_base:.2f} €**")
         st.write(f"- Salaire brut total estimé : **{salaire_brut_total:.2f} €**")
         st.write(f"- Taux horaire brut réel : **{taux_horaire_brut_reel:.2f} €/h**")
 
