@@ -52,7 +52,7 @@ if module == "Accueil":
     - Définitions : Coefficient, valeur du point d'indice et salaire de base  
     - Lire sa fiche de paie : schéma interactif  
     - Lissage et ETP 
-    - Primes  
+    - Primes d'ancienneté et différentielle  
     - Vérification de son nombre d'heures réelles annuelles  
     - Simulateur complet   
     - Liens utiles
@@ -104,7 +104,9 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="135" class="titres">N° 3246 - E.C.L.A.T (Animation)</text>
 
         <rect x="5%" y="147" width="45%" height="15" class="block"/>
-        <text x="5.5%" y="160" class="subheader">QUALIFICATION-COEFFICIENT</text>
+        <text x="5.5%" y="160" class="subheader" 
+            onmouseover="showTooltip(evt, 'Voir \\"Coefficient, valeur du point d'indice et salaire de base\\"')"
+            onmouseout="hideTooltip()">QUALIFICATION-COEFFICIENT</text>
         <text x="5.5%" y="175" class="titres">Echelon Groupe D - <tspan fill="blue" style="cursor:pointer;" onclick="window.location.href='?module=Coefficient, valeur du point d'indice et salaire de base'">Coefficient 305</tspan> - Catégorie Agent de Maîtrise</text>
 
         <rect x="5%" y="187" width="45%" height="15" class="block"/>
@@ -130,7 +132,10 @@ elif module == "Lire sa fiche de paie":
         <text x="55%" y="290" class="text" 
             onmouseover="showTooltip(evt, 'Heures mensuelles ETP')"
             onmouseout="hideTooltip()">19,70</text>
-        <text x="65%" y="290" class="text">14,2454</text>
+        <text x="65%" y="290" class="text" 
+            onmouseover="showTooltip(evt, 'Taux Salaire de base / Heures ETP. Pour avoir le taux brut réel, il faut convertir les heures ETP en 
+            heures réelles.')"
+            onmouseout="hideTooltip()">14,2454</text>
         <text x="75%" y="290" class="text" 
             onmouseover="showTooltip(evt, 'Calcul : 19,70 × 14,2454 = 280,63')"
             onmouseout="hideTooltip()">280,63</text>
