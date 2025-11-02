@@ -174,73 +174,73 @@ elif module == "Lire sa fiche de paie":
         <text x="85%" y="430" class="subheader">Part employeur</text>
 
         <text x="5.5%" y="455" class="text">Sécurité sociale - Maladie Maternité Invalidité Décès</text>
-        <text x="55%" y="455" class="text">1000</text>
+        <text x="55%" y="455" class="text">333,75</text>
         <text x="65%" y="455" class="text">8%</text>
         <text x="75%" y="455" class="text">80</text>
         <text x="85%" y="455" class="text">80</text>
 
         <text x="5.5%" y="480" class="bold">ACCIDENTS DU TRAVAIL - MALADIES PROFESSIONNELLES</text>
-        <text x="55%" y="480" class="text">1000</text>
+        <text x="55%" y="480" class="text">333,75</text>
         <text x="65%" y="480" class="text"></text>
         <text x="75%" y="480" class="text"></text>
         <text x="85%" y="480" class="text"></text>
 
         <text x="5.5%" y="505" class="bold">RETRAITE</text>
-        <text x="55%" y="505" class="text">1000</text>
+        <text x="55%" y="505" class="text">333,75</text>
         <text x="65%" y="505" class="text"></text>
         <text x="75%" y="505" class="text"></text>
         <text x="85%" y="505" class="text">20</text>
 
         <text x="5.5%" y="530" class="text">Sécurité Sociale plafonnée</text>
-        <text x="55%" y="530" class="text">1000</text>
+        <text x="55%" y="530" class="text">333,75</text>
         <text x="65%" y="530" class="text"></text>
         <text x="75%" y="530" class="text"></text>
         <text x="85%" y="530" class="text">20</text>
 
         <text x="5.5%" y="555" class="text">Sécurité Sociale déplafonnée</text>
-        <text x="55%" y="555" class="text">1000</text>
+        <text x="55%" y="555" class="text">333,75</text>
         <text x="65%" y="555" class="text"></text>
         <text x="75%" y="555" class="text"></text>
         <text x="85%" y="555" class="text">20</text>
 
         <text x="5.5%" y="580" class="text">Complémentaire Tranche 1</text>
-        <text x="55%" y="580" class="text">1000</text>
+        <text x="55%" y="580" class="text">333,75</text>
         <text x="65%" y="580" class="text"></text>
         <text x="75%" y="580" class="text"></text>
         <text x="85%" y="580" class="text">20</text>
 
         <text x="5.5%" y="605" class="bold">FAMILLE</text>
-        <text x="55%" y="605" class="text">1000</text>
+        <text x="55%" y="605" class="text">333,75</text>
         <text x="65%" y="605" class="text"></text>
         <text x="75%" y="605" class="text"></text>
         <text x="85%" y="605" class="text">20</text>
 
         <text x="5.5%" y="630" class="bold">ASSURANCE CHÔMAGE</text>
-        <text x="55%" y="630" class="text">1000</text>
+        <text x="55%" y="630" class="text">333,75</text>
         <text x="65%" y="630" class="text"></text>
         <text x="75%" y="630" class="text"></text>
         <text x="85%" y="630" class="text">20</text>
 
         <text x="5.5%" y="655" class="bold">AUTRES CONTRIBUTIONS DUES PAR L'EMPLOYEUR</text>
-        <text x="55%" y="655" class="text">1000</text>
+        <text x="55%" y="655" class="text">333,75</text>
         <text x="65%" y="655" class="text"></text>
         <text x="75%" y="655" class="text"></text>
         <text x="85%" y="655" class="text">20</text>
 
         <text x="5.5%" y="680" class="bold">CSG déductible de l'impôt sur le revenu</text>
-        <text x="55%" y="680" class="text">1000</text>
+        <text x="55%" y="680" class="text">333,75</text>
         <text x="65%" y="680" class="text"></text>
         <text x="75%" y="680" class="text"></text>
         <text x="85%" y="680" class="text">20</text>
 
         <text x="5.5%" y="705" class="bold">CSG/CRDS non déductible de l'impôt sur le revenu</text>
-        <text x="55%" y="705" class="text">1000</text>
+        <text x="55%" y="705" class="text">333,75</text>
         <text x="65%" y="705" class="text"></text>
         <text x="75%" y="705" class="text"></text>
         <text x="85%" y="705" class="text">20</text>
 
         <text x="5.5%" y="730" class="bold">EXONERATIONS, ECRETEMENTS ET ALLEGEMENTS DE COTISATIONS</text>
-        <text x="55%" y="730" class="text">1000</text>
+        <text x="55%" y="730" class="text">333,75</text>
         <text x="65%" y="730" class="text"></text>
         <text x="75%" y="730" class="text"></text>
         <text x="85%" y="730" class="text">20</text>        
@@ -255,7 +255,7 @@ elif module == "Lire sa fiche de paie":
         <!-- Tableau Net à Payer -->
         <rect x="5%" y="770" width="100%" height="30" class="block"/>
         <text x="5.5%" y="790" class="subheader">NET À PAYER AU SALARIE</text>
-        <text x="90%" y="790" class="subheader">350</text>
+        <text x="90%" y="790" class="subheader">300</text>
 
         <g id="tooltip" visibility="hidden">
             <rect id="tooltip-bg" class="tooltip-box" width="200" height="30" x="0" y="0" rx="5" ry="5"/>
