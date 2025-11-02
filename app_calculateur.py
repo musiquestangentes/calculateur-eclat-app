@@ -396,7 +396,7 @@ elif module == "Heures lissées et ETP":
 
         > « La rémunération est due, pour chaque mois et 12 mois sur 12, dès lors que le salarié effectue l’horaire de service contractuel pendant les semaines de fonctionnement de l’activité. En aucun cas le salaire ne peut être annualisé ou lissé sur douze mois. »  
 
-        > *Source : SNAM-CGT – Bulletin de paie et contrats enseignants*  
+        > *<a href="https://www.snam-cgt.org/enseignement/quel-employeur-quels-droits/ecoles-de-musique-associatives/">Source : SNAM-CGT – Bulletin de paie et contrats enseignants*</a>
 
         Cette phrase décrit la rémunération légale minimale et indique que l’école doit payer les heures réellement effectuées chaque mois. Elle **n’empêche pas** une école associative de mettre en place un lissage volontaire pour stabiliser le revenu.  
 
