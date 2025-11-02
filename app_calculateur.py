@@ -89,7 +89,7 @@ elif module == "Lire sa fiche de paie":
             }
         </style>
 
-        <text x="0%" y="15" class="text">Passez la souris sur un élément pour voir le détail</text>
+        <text x="0%" y="15" class="titres">Passez la souris sur un élément pour voir le détail</text>
 
         <!-- Titre -->
         <text x="50%" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
@@ -136,12 +136,12 @@ elif module == "Lire sa fiche de paie":
             onmouseout="hideTooltip()">280,63</text>
 
         <text x="5.5%" y="315" class="text">Prime d'ancienneté CC 3246</text>
-        <text x="55%" y="315" class="text"
-            onmouseover="showTooltip(evt, 'Nombre d'années d'ancienneté x 2')"
+        <text x="55%" y="315" class="text" 
+            onmouseover="showTooltip(evt, 'Nombre d'années d'ancienneté × 2')"
             onmouseout="hideTooltip()">20</text>
         <text x="65%" y="315" class="text">0,6972</text>
         <text x="75%" y="315" class="text"
-            onmouseover="showTooltip(evt, 'Calcul : 20 x 0,6972 = 13,944')"
+            onmouseover="showTooltip(evt, 'Calcul : 20 × 0,6972 = 13,944')"
             onmouseout="hideTooltip()">13,944</text>
 
         <text x="5.5%" y="340" class="text">Prime différentielle compensatoire</text>
