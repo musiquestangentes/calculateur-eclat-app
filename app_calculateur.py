@@ -245,8 +245,8 @@ elif module == "Lire sa fiche de paie":
         <text x="85%" y="730" class="text">20</text>        
 
         <rect x="5%" y="740" width="100%" height="20" class="block"/>
-        <text x="5.5%" y="755" class="text">Total des cotisations et contributions</text>
-        <text x="55%" y="755" class="text">1000</text>
+        <text x="5.5%" y="755" class="subheader">Total des cotisations et contributions</text>
+        <text x="55%" y="755" class="text"></text>
         <text x="65%" y="755" class="text"></text>
         <text x="75%" y="755" class="text"></text>
         <text x="85%" y="755" class="text">20</text>     
