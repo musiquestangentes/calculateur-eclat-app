@@ -179,8 +179,8 @@ elif module == "Lire sa fiche de paie":
 
         <text x="5.5%" y="455" class="text">Sécurité sociale - Maladie Maternité Invalidité Décès</text>
         <text x="55%" y="455" class="text">333,75</text>
-        <text x="65%" y="455" class="text">8%</text>
-        <text x="75%" y="455" class="text">80</text>
+        <text x="65%" y="455" class="text"></text>
+        <text x="75%" y="455" class="text"></text>
         <text x="85%" y="455" class="text">80</text>
 
         <text x="5.5%" y="480" class="bold">ACCIDENTS DU TRAVAIL - MALADIES PROFESSIONNELLES</text>
@@ -233,19 +233,19 @@ elif module == "Lire sa fiche de paie":
 
         <text x="5.5%" y="680" class="bold">CSG déductible de l'impôt sur le revenu</text>
         <text x="55%" y="680" class="text">333,75</text>
-        <text x="65%" y="680" class="text"></text>
+        <text x="65%" y="680" class="text">6,8000</text>
         <text x="75%" y="680" class="text"></text>
         <text x="85%" y="680" class="text">20</text>
 
         <text x="5.5%" y="705" class="bold">CSG/CRDS non déductible de l'impôt sur le revenu</text>
         <text x="55%" y="705" class="text">333,75</text>
-        <text x="65%" y="705" class="text">6,8000</text>
+        <text x="65%" y="705" class="text">2,9000</text>
         <text x="75%" y="705" class="text"></text>
         <text x="85%" y="705" class="text">20</text>
 
         <text x="5.5%" y="730" class="bold">EXONERATIONS, ECRETEMENTS ET ALLEGEMENTS DE COTISATIONS</text>
         <text x="55%" y="730" class="text">333,75</text>
-        <text x="65%" y="730" class="text">2,9000</text>
+        <text x="65%" y="730" class="text"></text>
         <text x="75%" y="730" class="text"></text>
         <text x="85%" y="730" class="text">20</text>        
 
