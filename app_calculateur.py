@@ -77,11 +77,11 @@ elif module == "Lire sa fiche de paie":
                 fill: #fffbe6;
                 stroke: #aaa;
                 stroke-width: 0.5;
-                rx: 6;
-                ry: 6;
+                rx: 7;
+                ry: 7;
             }
             .tooltip-text {
-                font-size: 12px;
+                font-size: 13px;
                 fill: #333;
                 pointer-events: none;
             }
@@ -128,9 +128,10 @@ elif module == "Lire sa fiche de paie":
         <text x="75%" y="260" class="subheader">Montant</text>
 
         <text x="5.5%" y="290" class="text">Salaire de base</text>
-        <text x="55%" y="290" class="text">19,70</text>
+        <text x="55%" y="290" class="text" onmouseover="showTooltip(evt, 'Heures mensuelles ETP')"
+        onmouseout="hideTooltip()">19,70</text>
         <text x="65%" y="290" class="text">14,2454</text>
-        <text x="75%" y="290" class="text" onmouseover="showTooltip(evt, 'Calcul : 19,70 h × 14,2454 € = 280,63 €')"
+        <text x="75%" y="290" class="text" onmouseover="showTooltip(evt, 'Calcul : 19,70 × 14,2454 = 280,63')"
         onmouseout="hideTooltip()">280,63</text>
 
         <text x="5.5%" y="315" class="text">Prime d'ancienneté CC 3246</text>
