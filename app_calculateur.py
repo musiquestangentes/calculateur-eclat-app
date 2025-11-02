@@ -169,11 +169,11 @@ elif module == "Lire sa fiche de paie":
             onmouseout="hideTooltip()">333,75</text>
 
         <text x="5.5%" y="390" class="text" 
-            onmouseover="showTooltip(evt, 'Calcul fiscal réduisant les cotisations (abattement d\\'environ 30% pour frais professionnels) : ce sont sur cette base que sont calculées les cotisations et contributions sociales. Ce total brut ne change donc pas le salaire réel, il indique au contraire un net perçu plus élevé.')"
+            onmouseover="showTooltip(evt, 'Calcul fiscal réduisant les cotisations (abattement d\\'environ 30%) : ce sont sur cette base que sont calculées les cotisations et contributions sociales. Ce total brut ne change donc pas le salaire réel, il indique au contraire un net perçu plus élevé.')"
             onmouseout="hideTooltip()">Total brut abattu</text>
         <text x="55%" y="390" class="text"></text>
         <text x="65%" y="390" class="text"></text>
-        <text x="75%" y="390" class="text">333,75</text>
+        <text x="75%" y="390" class="text">233,52</text>
 
         <!-- Tableau Cotisations -->
         <rect x="5%" y="410" width="100%" height="28" class="block"/>
@@ -184,58 +184,58 @@ elif module == "Lire sa fiche de paie":
         <text x="85%" y="430" class="subheader">Part employeur</text>
 
         <text x="5.5%" y="455" class="text">Sécurité sociale - Maladie Maternité Invalidité Décès</text>
-        <text x="55%" y="455" class="text">333,75</text>
+        <text x="55%" y="455" class="text">233,52</text>
         <text x="65%" y="455" class="text"></text>
         <text x="75%" y="455" class="text"></text>
         <text x="85%" y="455" class="text">80</text>
 
         <text x="5.5%" y="480" class="bold">ACCIDENTS DU TRAVAIL - MALADIES PROFESSIONNELLES</text>
-        <text x="55%" y="480" class="text">333,75</text>
+        <text x="55%" y="480" class="text">233,52</text>
         <text x="65%" y="480" class="text"></text>
         <text x="75%" y="480" class="text"></text>
         <text x="85%" y="480" class="text"></text>
 
         <text x="5.5%" y="505" class="bold">RETRAITE</text>
-        <text x="55%" y="505" class="text">333,75</text>
+        <text x="55%" y="505" class="text">233,52</text>
         <text x="65%" y="505" class="text"></text>
         <text x="75%" y="505" class="text"></text>
         <text x="85%" y="505" class="text">20</text>
 
         <text x="5.5%" y="530" class="text">Sécurité Sociale plafonnée</text>
-        <text x="55%" y="530" class="text">333,75</text>
+        <text x="55%" y="530" class="text">233,52</text>
         <text x="65%" y="530" class="text">6,9000</text>
-        <text x="75%" y="530" class="text"></text>
-        <text x="85%" y="530" class="text">20</text>
+        <text x="75%" y="530" class="text">16,11</text>
+        <text x="85%" y="530" class="text"></text>
 
         <text x="5.5%" y="555" class="text">Sécurité Sociale déplafonnée</text>
-        <text x="55%" y="555" class="text">333,75</text>
+        <text x="55%" y="555" class="text">233,52</text>
         <text x="65%" y="555" class="text">0,4000</text>
-        <text x="75%" y="555" class="text"></text>
-        <text x="85%" y="555" class="text">20</text>
+        <text x="75%" y="555" class="text">0,93</text>
+        <text x="85%" y="555" class="text"></text>
 
         <text x="5.5%" y="580" class="text">Complémentaire Tranche 1</text>
-        <text x="55%" y="580" class="text">333,75</text>
+        <text x="55%" y="580" class="text">233,52</text>
         <text x="65%" y="580" class="text">4,0100</text>
-        <text x="75%" y="580" class="text"></text>
-        <text x="85%" y="580" class="text">20</text>
+        <text x="75%" y="580" class="text">9,36</text>
+        <text x="85%" y="580" class="text"></text>
 
         <text x="5.5%" y="605" class="bold">FAMILLE</text>
-        <text x="55%" y="605" class="text">333,75</text>
+        <text x="55%" y="605" class="text">233,52</text>
         <text x="65%" y="605" class="text"></text>
         <text x="75%" y="605" class="text"></text>
-        <text x="85%" y="605" class="text">20</text>
+        <text x="85%" y="605" class="text"></text>
 
         <text x="5.5%" y="630" class="bold">ASSURANCE CHÔMAGE</text>
-        <text x="55%" y="630" class="text">333,75</text>
+        <text x="55%" y="630" class="text">233,52</text>
         <text x="65%" y="630" class="text"></text>
         <text x="75%" y="630" class="text"></text>
-        <text x="85%" y="630" class="text">20</text>
+        <text x="85%" y="630" class="text"></text>
 
         <text x="5.5%" y="655" class="bold">AUTRES CONTRIBUTIONS DUES PAR L'EMPLOYEUR</text>
-        <text x="55%" y="655" class="text">333,75</text>
+        <text x="55%" y="655" class="text"></text>
         <text x="65%" y="655" class="text"></text>
         <text x="75%" y="655" class="text"></text>
-        <text x="85%" y="655" class="text">20</text>
+        <text x="85%" y="655" class="text"></text>
 
         <text x="5.5%" y="680" class="bold">CSG déductible de l'impôt sur le revenu</text>
         <text x="55%" y="680" class="text">333,75</text>
