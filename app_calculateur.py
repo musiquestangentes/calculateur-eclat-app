@@ -93,7 +93,7 @@ elif module == "Lire sa fiche de paie":
             <text id="tooltip-text" x="10" y="20" class="tooltip-text"></text>
         </g>
 
-        <text id="tooltip" x="0%" y="10" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
+        <text id="tooltip" x="0%" y="15" class="tooltip">Passez la souris sur un élément pour voir le détail</text>
 
         <!-- Titre -->
         <text x="50%" y="30" text-anchor="middle" class="header">BULLETIN DE PAIE</text>
@@ -285,7 +285,7 @@ elif module == "Lire sa fiche de paie":
     </svg>
     """
 
-    components.html(svg_code, height=1600, scrolling=False)
+    components.html(svg_code, height=1200, scrolling=False)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
