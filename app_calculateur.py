@@ -103,7 +103,7 @@ elif module == "Lire sa fiche de paie":
 
         <rect x="5%" y="147" width="45%" height="15" class="block"/>
         <text x="5.5%" y="160" class="subheader">QUALIFICATION-COEFFICIENT</text>
-        <text x="5.5%" y="175" class="titres">Echelon Groupe D - Coefficient 305 - Catégorie Agent de Maîtrise</text>
+        <text x="5.5%" y="175" class="titres">Echelon Groupe D - <a href="https://calculateur-eclat-mustang.streamlit.app/">Coefficient 305</a> - Catégorie Agent de Maîtrise</text>
 
         <rect x="5%" y="187" width="45%" height="15" class="block"/>
         <text x="5.5%" y="200" class="subheader">N° SECURITE SOCIALE - ANCIENNETÉ</text>
@@ -291,7 +291,7 @@ elif module == "Lire sa fiche de paie":
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
 elif module == "Coefficient, valeur du point d'indice et salaire de base":
-    st.title("Coefficient et salaire de base")
+    st.title("### Coefficient et salaire de base")
     
     st.info("""
     **Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT.  
@@ -322,7 +322,7 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
 # PAGE 3: HEURES LISSEES
 
 elif module == "Heures lissées et ETP":
-    st.title("Calcul des heures lissées et ETP")
+    st.title("### Calcul des heures lissées et ETP")
 
     st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
     with st.expander("**Comprendre le lissage de votre salaire**"):
