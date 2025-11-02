@@ -135,7 +135,7 @@ elif module == "Lire sa fiche de paie":
 
         <text x="5.5%" y="315" class="text">Prime d'ancienneté CC 3246</text>
         <text x="55%" y="315" class="text" 
-            onmouseover="showTooltip(evt, "Nombre d'années d'ancienneté × 2")"
+            onmouseover="showTooltip(evt, 'Nombre d\\'années d\\'ancienneté × 2')"
             onmouseout="hideTooltip()">20</text>
         <text x="65%" y="315" class="text" 
             onmouseover="showTooltip(evt, "Taux plus ou moins élevé selon le nombre d'heures effectuées. Calcul : Prime / Base")"
