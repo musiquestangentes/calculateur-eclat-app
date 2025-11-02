@@ -263,24 +263,28 @@ elif module == "Lire sa fiche de paie":
     const tooltipBg = document.getElementById('tooltip-bg');
 
     function showTooltip(evt, text) {
-      tooltip.setAttribute("visibility", "visible");
-      tooltipText.textContent = text;
+        tooltip.setAttribute("visibility", "visible");
+        tooltipText.textContent = text;
 
-      // Ajuste la taille du rectangle selon la longueur du texte
-      const length = tooltipText.getComputedTextLength();
-      tooltipBg.setAttribute("width", length + 20);
+        const bbox = tooltipText.getBBox();
+        tooltipBg.setAttribute("width", bbox.width + 20);
+        tooltipBg.setAttribute("height", bbox.height + 10);
 
-      // Positionne la bulle près de la souris
-      const svg = evt.target.ownerSVGElement;
-      const pt = svg.createSVGPoint();
-      pt.x = evt.clientX;
-      pt.y = evt.clientY;
-      const cursor = pt.matrixTransform(svg.getScreenCTM().inverse());
-      tooltip.setAttribute("transform", `translate(${cursor.x + 15}, ${cursor.y - 10})`);
-    }
+        const svg = evt.target.ownerSVGElement;
+        const pt = svg.createSVGPoint();
+        pt.x = evt.clientX;
+        pt.y = evt.clientY;
+        const cursor = pt.matrixTransform(svg.getScreenCTM().inverse());
 
-    function hideTooltip() {
-      tooltip.setAttribute("visibility", "hidden");
+        let xPos = cursor.x + 15;
+        let yPos = cursor.y - bbox.height - 5;
+
+        if (xPos + bbox.width + 20 > svg.viewBox.baseVal.width) {
+            xPos = svg.viewBox.baseVal.width - (bbox.width + 20);
+        }
+        if (yPos < 0) yPos = cursor.y + 15;
+
+        tooltip.setAttribute("transform", `translate(${xPos}, ${yPos})`);
     }
   ]]></script>
     
