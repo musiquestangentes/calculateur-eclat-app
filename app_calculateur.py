@@ -347,11 +347,7 @@ elif module == "Lire sa fiche de paie":
     
     </svg>
     """
-    svg_code = re.sub(
-        r'y="([\d.]+)"',
-        lambda m: f'y="{float(m.group(1)) + 20:g}"',
-        svg_code
-    )
+    
     components.html(svg_code, height=800, scrolling=False)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
