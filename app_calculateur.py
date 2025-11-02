@@ -72,7 +72,6 @@ elif module == "Lire sa fiche de paie":
             .header { font-size:20px; font-weight:bold; }
             .subheader { font-size:14px; fill:#5c9cc4; font-weight:bold; }
             .bold { font-size: 13px; }
-            .tooltip { font-size:14px; pointer-events:none; fill:#333; }
             .tooltip-box {
                 fill: #fffbe6;
                 fill-opacity: 1;
@@ -130,16 +129,22 @@ elif module == "Lire sa fiche de paie":
         <text x="75%" y="260" class="subheader">Montant</text>
 
         <text x="5.5%" y="290" class="text">Salaire de base</text>
-        <text x="55%" y="290" class="text" onmouseover="showTooltip(evt, 'Heures mensuelles ETP')"
-        onmouseout="hideTooltip()">19,70</text>
+        <text x="55%" y="290" class="text" 
+            onmouseover="showTooltip(evt, 'Heures mensuelles ETP')"
+            onmouseout="hideTooltip()">19,70</text>
         <text x="65%" y="290" class="text">14,2454</text>
-        <text x="75%" y="290" class="text" onmouseover="showTooltip(evt, 'Calcul : 19,70 × 14,2454 = 280,63')"
-        onmouseout="hideTooltip()">280,63</text>
+        <text x="75%" y="290" class="text" 
+            onmouseover="showTooltip(evt, 'Calcul : 19,70 × 14,2454 = 280,63')"
+            onmouseout="hideTooltip()">280,63</text>
 
         <text x="5.5%" y="315" class="text">Prime d'ancienneté CC 3246</text>
-        <text x="55%" y="315" class="text">20</text>
+        <text x="55%" y="315" class="text"
+            onmouseover="showTooltip(evt, 'Nombre d'années d'ancienneté x 2')"
+            onmouseout="hideTooltip()">20</text>
         <text x="65%" y="315" class="text">0,6972</text>
-        <text x="75%" y="315" class="text">13,944</text>
+        <text x="75%" y="315" class="text"
+            onmouseover="showTooltip(evt, 'Calcul : 20 x 0,6972 = 13,944')"
+            onmouseout="hideTooltip()">13,944</text>
 
         <text x="5.5%" y="340" class="text">Prime différentielle compensatoire</text>
         <text x="55%" y="340" class="text">20</text>
