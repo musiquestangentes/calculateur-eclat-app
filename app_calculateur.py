@@ -243,7 +243,7 @@ elif module == "Lire sa fiche de paie":
         <text x="75%" y="730" class="text"></text>
         <text x="85%" y="730" class="text">20</text>        
 
-        <rect x="5%" y="735" width="100%" height="25" class="block"/>
+        <rect x="5%" y="740" width="100%" height="20" class="block"/>
         <text x="5.5%" y="755" class="text">Total des cotisations et contributions</text>
         <text x="55%" y="755" class="text">1000</text>
         <text x="65%" y="755" class="text"></text>
@@ -274,7 +274,7 @@ elif module == "Lire sa fiche de paie":
       pt.x = evt.clientX;
       pt.y = evt.clientY;
       const cursor = pt.matrixTransform(svg.getScreenCTM().inverse());
-      tooltip.setAttribute("transform", `translate(${cursor.x + 10}, ${cursor.y - 10})`);
+      tooltip.setAttribute("transform", `translate(${cursor.x + 15}, ${cursor.y - 10})`);
     }
 
     function hideTooltip() {
@@ -285,7 +285,7 @@ elif module == "Lire sa fiche de paie":
     </svg>
     """
 
-    components.html(svg_code, height=900, scrolling=False)
+    components.html(svg_code, height=800, scrolling=False)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
