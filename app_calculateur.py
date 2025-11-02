@@ -31,7 +31,7 @@ modules = [
     "Accueil",
     "Lire sa fiche de paie",
     "Coefficient, valeur du point d'indice et salaire de base",
-    "Heures lissées et ETP",
+    "Lissage et ETP",
     "Primes",
     "Vérificateur d'heures",
     "🧮 Simulateur complet",
@@ -50,7 +50,7 @@ if module == "Accueil":
     Utilisez le menu à gauche pour naviguer entre les différents modules :
     - Définitions : Coefficient, valeur du point d'indice et salaire de base  
     - Lire sa fiche de paie : schéma interactif  
-    - Heures lissées et ETP 
+    - Lissage et ETP 
     - Primes  
     - Vérification de son nombre d'heures réelles annuelles  
     - Simulateur complet   
@@ -378,7 +378,7 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
 
 # PAGE 3: HEURES LISSEES
 
-elif module == "Heures lissées et ETP":
+elif module == "Lissage et ETP":
     st.title("Calcul des heures lissées et ETP")
 
     st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
@@ -396,7 +396,7 @@ elif module == "Heures lissées et ETP":
 
         > « La rémunération est due, pour chaque mois et 12 mois sur 12, dès lors que le salarié effectue l’horaire de service contractuel pendant les semaines de fonctionnement de l’activité. En aucun cas le salaire ne peut être annualisé ou lissé sur douze mois. »  
 
-        > *<a href="https://www.snam-cgt.org/enseignement/quel-employeur-quels-droits/ecoles-de-musique-associatives/">Source : SNAM-CGT – Bulletin de paie et contrats enseignants*</a>
+        > <a href="https://www.snam-cgt.org/enseignement/quel-employeur-quels-droits/ecoles-de-musique-associatives/">*Source : SNAM-CGT – Bulletin de paie et contrats enseignants*</a>
 
         Cette phrase décrit la rémunération légale minimale et indique que l’école doit payer les heures réellement effectuées chaque mois. Elle **n’empêche pas** une école associative de mettre en place un lissage volontaire pour stabiliser le revenu.  
 
