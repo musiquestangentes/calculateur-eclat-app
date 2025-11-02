@@ -147,7 +147,7 @@ elif module == "Lire sa fiche de paie":
             onmouseover="showTooltip(evt, 'Taux plus ou moins élevé selon le nombre d\\'heures effectuées. Calcul : Prime / Base')"
             onmouseout="hideTooltip()">0,9295</text>
         <text x="75%" y="315" class="text"
-            onmouseover="showTooltip(evt, 'Calcul : 20 × 0,9295 = 18,59')"
+            onmouseover="showTooltip(evt, '20 × 0,9295 = 18,59')"
             onmouseout="hideTooltip()">18,59</text>
 
         <text x="5.5%" y="340" class="text">Prime différentielle compensatoire</text>
@@ -198,7 +198,7 @@ elif module == "Lire sa fiche de paie":
         <text x="85%" y="480" class="text"></text>
 
         <text x="5.5%" y="505" class="bold">RETRAITE</text>
-        <text x="55%" y="505" class="text">233,52</text>
+        <text x="55%" y="505" class="text"></text>
         <text x="65%" y="505" class="text"></text>
         <text x="75%" y="505" class="text"></text>
         <text x="85%" y="505" class="text"></text>
