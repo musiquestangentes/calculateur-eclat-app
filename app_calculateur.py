@@ -365,7 +365,7 @@ elif module == "Heures lissées et ETP":
     st.caption(f"[Lien Légifrance - Temps plein professeur]({url_etp})")
     
     st.divider()
-    st.write("**Heures annuelles réelles -> Heures lissées et ETP :**")
+    st.write("#### Heures annuelles réelles -> Heures lissées et ETP :")
     heures_annuelles_reelles = st.number_input(
         "Heures annuelles réellement effectuées (de septembre à août) :", min_value=0.0, step=0.5
     )
@@ -376,14 +376,13 @@ elif module == "Heures lissées et ETP":
         heures_hebdo = heures_mensuelles / (52/12)
         heures_mensuelles_etp = (heures_hebdo * ((35 * 52)/12)) / 24
 
-        st.markdown("#### Résultats")
+        st.markdown("##### Résultats")
         st.write(f"- Heures annuelles + 10% CP : **{heures_avec_cp:.2f} h**")
         st.write(f"- Heures mensuelles lissées : **{heures_mensuelles:.2f} h/mois**")
         st.write(f"- Heures hebdomadaires lissées : **{heures_hebdo:.2f} h/semaine**")
         st.write(f"- Heures mensuelles ETP : **{heures_mensuelles_etp:.2f} h**")
 
-    st.divider()
-    st.write("**Heures mensuelles ETP -> Heures annuelles réelles :**")
+    st.write("#### Heures mensuelles ETP -> Heures annuelles réelles :")
     heures_mensuelles_etp = st.number_input(
         "Heures mensuelles ETP (affichées sur fiche de paie) :", min_value=0.0, step=0.5
     )
@@ -391,7 +390,7 @@ elif module == "Heures lissées et ETP":
     if heures_mensuelles_etp > 0:
         heures_annuelles_reelles = heures_mensuelles_etp * 7.4805
 
-        st.markdown("#### Résultats")
+        st.markdown("##### Résultats")
         st.write(f"- Heures annuelles réelles : **{heures_annuelles_reelles:.2f} h**")
 
 
