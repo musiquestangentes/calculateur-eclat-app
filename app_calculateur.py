@@ -90,7 +90,7 @@ elif module == "Lire sa fiche de paie":
         </style>
 
         <g id="tooltip" visibility="hidden">
-            <rect id="tooltip-bg" class="tooltip-box" width="200" height="30" x="0" y="0"/>
+            <rect id="tooltip-bg" class="tooltip-box" width="200" height="30" x="0" y="0" fill-opacity="1"/>
             <text id="tooltip-text" x="10" y="20" class="tooltip-text"></text>
         </g>
 
@@ -101,27 +101,27 @@ elif module == "Lire sa fiche de paie":
 
         <!-- Informations employeur et salarié -->
         <rect x="5%" y="67" width="45%" height="15" class="block"/>
-        <text x="5.5%" y="80" class="subheader">EMPLOYEUR</text>
+        <text x="5.5%" y="80" text-anchor="middle" class="subheader">EMPLOYEUR</text>
         <text x="5.5%" y="95" class="titres">MUSIQUES TANGENTES</text>
 
         <rect x="5%" y="107" width="45%" height="15" class="block"/>
-        <text x="5.5%" y="120" class="subheader">CONVENTION COLLECTIVE</text>
+        <text x="5.5%" y="120" text-anchor="middle" class="subheader">CONVENTION COLLECTIVE</text>
         <text x="5.5%" y="135" class="titres">N° 3246 - E.C.L.A.T (Animation)</text>
 
         <rect x="5%" y="147" width="45%" height="15" class="block"/>
-        <text x="5.5%" y="160" class="subheader">QUALIFICATION-COEFFICIENT</text>
+        <text x="5.5%" y="160" text-anchor="middle" class="subheader">QUALIFICATION-COEFFICIENT</text>
         <text x="5.5%" y="175" class="titres">Echelon Groupe D - Coefficient 305 - Catégorie Agent de Maîtrise</text>
 
         <rect x="5%" y="187" width="45%" height="15" class="block"/>
-        <text x="5.5%" y="200" class="subheader">N° SECURITE SOCIALE - ANCIENNETÉ</text>
+        <text x="5.5%" y="200" text-anchor="middle" class="subheader">N° SECURITE SOCIALE - ANCIENNETÉ</text>
         <text x="5.5%" y="215" class="titres">123 45 6789 012 - Entré·e le 01/01/2015 - Ancienneté 10 ans</text>
 
         <rect x="55%" y="67" width="45%" height="15" class="block"/>
-        <text x="55.5%" y="80" class="subheader">EMPLOI</text>
+        <text x="55.5%" y="80" text-anchor="middle" class="subheader">EMPLOI</text>
         <text x="55.5%" y="95" class="titres">ARTISTE ENSEIGNANT</text>
 
         <rect x="55%" y="107" width="45%" height="15" class="block"/>
-        <text x="55.5%" y="120" class="subheader">SALARIÉ·E</text>
+        <text x="55.5%" y="120" text-anchor="middle" class="subheader">SALARIÉ·E</text>
         <text x="55.5%" y="135" class="titres">Prénom Nom</text>
 
         <!-- Tableau Salaire -->
