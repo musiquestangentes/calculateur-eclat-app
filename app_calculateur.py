@@ -79,7 +79,6 @@ elif module == "Lire sa fiche de paie":
                 stroke-width: 0.5;
                 rx: 5;
                 ry: 5;
-                opacity: 1;
             }
             .tooltip-text {
                 font-size: 13px;
@@ -136,10 +135,10 @@ elif module == "Lire sa fiche de paie":
 
         <text x="5.5%" y="315" class="text">Prime d'ancienneté CC 3246</text>
         <text x="55%" y="315" class="text" 
-            onmouseover="showTooltip(evt, 'Nombre d'années d'ancienneté × 2')"
+            onmouseover="showTooltip(evt, 'Nombre d\'années d\'ancienneté × 2')"
             onmouseout="hideTooltip()">20</text>
         <text x="65%" y="315" class="text" 
-            onmouseover="showTooltip(evt, 'Taux plus ou moins élevé selon le nombre d'heures effectuées. Calcul : Prime / Base')"
+            onmouseover="showTooltip(evt, 'Taux plus ou moins élevé selon le nombre d\'heures effectuées. Calcul : Prime / Base')"
             onmouseout="hideTooltip()">0,9295</text>
         <text x="75%" y="315" class="text"
             onmouseover="showTooltip(evt, 'Calcul : 20 × 0,9295 = 18,59')"
@@ -276,7 +275,7 @@ elif module == "Lire sa fiche de paie":
       pt.x = evt.clientX;
       pt.y = evt.clientY;
       const cursor = pt.matrixTransform(svg.getScreenCTM().inverse());
-      tooltip.setAttribute("transform", `translate(${cursor.x + 10}, ${cursor.y - 10})`);
+      tooltip.setAttribute("transform", `translate(${cursor.x + 15}, ${cursor.y - 10})`);
     }
 
     function hideTooltip() {
