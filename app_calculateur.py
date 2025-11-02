@@ -253,23 +253,61 @@ elif module == "Lire sa fiche de paie":
         <text x="90%" y="790" class="subheader">350</text>
 
         <g id="tooltip" visibility="hidden">
-            <rect id="tooltip-bg" class="tooltip-box" width="200" height="30" x="0" y="0"/>
+            <rect id="tooltip-bg" class="tooltip-box" width="200" height="30" x="0" y="0" rx="5" ry="5"/>
             <text id="tooltip-text" x="10" y="20" class="tooltip-text"></text>
         </g>
+
     
     <script><![CDATA[
     const tooltip = document.getElementById('tooltip');
     const tooltipText = document.getElementById('tooltip-text');
     const tooltipBg = document.getElementById('tooltip-bg');
 
+    const MAX_WIDTH = 200; // largeur max en pixels
+
     function showTooltip(evt, text) {
         tooltip.setAttribute("visibility", "visible");
-        tooltipText.textContent = text;
 
+        // Supprime le texte précédent
+        while (tooltipText.firstChild) tooltipText.removeChild(tooltipText.firstChild);
+
+        // Découpe le texte en mots
+        const words = text.split(' ');
+        let line = '';
+        let yOffset = 15;
+        const lineHeight = 16; // hauteur de ligne
+
+        for (let i = 0; i < words.length; i++) {
+            const testLine = line + words[i] + ' ';
+            tooltipText.textContent = testLine;
+            const width = tooltipText.getComputedTextLength();
+
+            if (width > MAX_WIDTH && i > 0) {
+                const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+                tspan.setAttribute("x", 10);
+                tspan.setAttribute("y", yOffset);
+                tspan.textContent = line;
+                tooltipText.appendChild(tspan);
+                line = words[i] + ' ';
+                yOffset += lineHeight;
+            } else {
+                line = testLine;
+            }
+        }
+
+        // dernière ligne
+        const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+        tspan.setAttribute("x", 10);
+        tspan.setAttribute("y", yOffset);
+        tspan.textContent = line;
+        tooltipText.appendChild(tspan);
+
+        // Ajuste largeur et hauteur du rectangle
         const bbox = tooltipText.getBBox();
-        tooltipBg.setAttribute("width", bbox.width + 20);
+        tooltipBg.setAttribute("width", Math.min(bbox.width + 20, MAX_WIDTH + 20));
         tooltipBg.setAttribute("height", bbox.height + 10);
 
+        // Position de la tooltip
         const svg = evt.target.ownerSVGElement;
         const pt = svg.createSVGPoint();
         pt.x = evt.clientX;
@@ -286,6 +324,11 @@ elif module == "Lire sa fiche de paie":
 
         tooltip.setAttribute("transform", `translate(${xPos}, ${yPos})`);
     }
+
+    function hideTooltip() {
+        tooltip.setAttribute("visibility", "hidden");
+    }
+
   ]]></script>
     
     </svg>
