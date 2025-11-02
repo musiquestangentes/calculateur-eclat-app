@@ -271,36 +271,45 @@ elif module == "Lire sa fiche de paie":
         // Supprime le texte précédent
         while (tooltipText.firstChild) tooltipText.removeChild(tooltipText.firstChild);
 
-        // Découpe le texte en mots
         const words = text.split(' ');
         let line = '';
         let yOffset = 15;
-        const lineHeight = 16; // hauteur de ligne
+        const lineHeight = 16; // hauteur d'une ligne
 
-        for (let i = 0; i < words.length; i++) {
-            const testLine = line + words[i] + ' ';
-            tooltipText.textContent = testLine;
-            const width = tooltipText.getComputedTextLength();
+        words.forEach((word, i) => {
+            const testLine = line + word + ' ';
+            
+            // Crée un tspan temporaire pour mesurer
+            const tempTspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+            tempTspan.setAttribute("x", 0);
+            tempTspan.setAttribute("y", 0);
+            tempTspan.textContent = testLine;
+            tooltipText.appendChild(tempTspan);
+            const width = tempTspan.getComputedTextLength();
+            tooltipText.removeChild(tempTspan);
 
-            if (width > MAX_WIDTH && i > 0) {
+            if (width > MAX_WIDTH && line !== '') {
                 const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
                 tspan.setAttribute("x", 10);
                 tspan.setAttribute("y", yOffset);
-                tspan.textContent = line;
+                tspan.textContent = line.trim();
                 tooltipText.appendChild(tspan);
-                line = words[i] + ' ';
+
+                line = word + ' ';
                 yOffset += lineHeight;
             } else {
                 line = testLine;
             }
-        }
+        });
 
         // dernière ligne
-        const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-        tspan.setAttribute("x", 10);
-        tspan.setAttribute("y", yOffset);
-        tspan.textContent = line;
-        tooltipText.appendChild(tspan);
+        if (line !== '') {
+            const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+            tspan.setAttribute("x", 10);
+            tspan.setAttribute("y", yOffset);
+            tspan.textContent = line.trim();
+            tooltipText.appendChild(tspan);
+        }
 
         // Ajuste largeur et hauteur du rectangle
         const bbox = tooltipText.getBBox();
