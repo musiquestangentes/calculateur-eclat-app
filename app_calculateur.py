@@ -146,19 +146,19 @@ elif module == "Lire sa fiche de paie":
             onmouseout="hideTooltip()">18,59</text>
 
         <text x="5.5%" y="340" class="text">Prime différentielle compensatoire</text>
-        <text x="55%" y="340" class="text">37,149</text>
+        <text x="55%" y="340" class="text">37,15</text>
         <text x="65%" y="340" class="text">0,9295</text>
         <text x="75%" y="340" class="text">34,53</text>
 
         <text x="5.5%" y="365" class="text">Total brut</text>
         <text x="55%" y="365" class="text"></text>
         <text x="65%" y="365" class="text"></text>
-        <text x="75%" y="365" class="text">300</text>
+        <text x="75%" y="365" class="text">333,75</text>
 
         <text x="5.5%" y="390" class="text">Total brut abattu</text>
         <text x="55%" y="390" class="text"></text>
         <text x="65%" y="390" class="text"></text>
-        <text x="75%" y="390" class="text">300</text>
+        <text x="75%" y="390" class="text">333,75</text>
 
         <!-- Tableau Cotisations -->
         <rect x="5%" y="410" width="100%" height="28" class="block"/>
