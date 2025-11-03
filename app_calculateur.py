@@ -319,7 +319,7 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="755" class="subheader">Total des cotisations et contributions</text>
         <text x="55%" y="755" class="text"></text>
         <text x="65%" y="755" class="text"></text>
-        <text x="75%" y="755" class="text"></text>
+        <text x="75%" y="755" class="text">58,21</text>
         <text x="85%" y="755" class="text"></text>     
 
         <!-- Tableau Net à Payer -->
@@ -327,7 +327,7 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="790" class="subheader" 
             onmouseover="showTooltip(evt, 'Salaire brut − Cotisations')"
             onmouseout="hideTooltip()">NET À PAYER AU SALARIE</text>
-        <text x="90%" y="790" class="subheader"></text>
+        <text x="90%" y="790" class="subheader">275,54</text>
 
         <g id="tooltip" visibility="hidden">
             <rect id="tooltip-bg" class="tooltip-box" width="200" height="30" x="0" y="0" rx="5" ry="5"/>
