@@ -75,7 +75,7 @@ elif module == "Lire sa fiche de paie":
             .header { font-size:20px; font-weight:bold; }
             .subheader { font-size:14px; fill:#5c9cc4; font-weight:bold; }
             .bold { font-size: 13px; font-weight: bold;}
-            .bold:hover { font-weight:500; cursor:pointer;}
+            .bold:hover { font-weight:600; cursor:pointer;}
             .tooltip-box {
                 fill: #fffbe6;
                 fill-opacity: 1;
