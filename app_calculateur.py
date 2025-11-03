@@ -167,21 +167,21 @@ elif module == "Lire sa fiche de paie":
             onmouseover="showTooltip(evt, '37,15 × 0,9295 = 34,53')"
             onmouseout="hideTooltip()">34,53</text>
 
-        <text x="5.5%" y="365" class="text" 
+        <text x="5.5%" y="365" class="bold" 
             onmouseover="showTooltip(evt, 'Total brut réel : ce que vous gagnez effectivement pour vos heures')"
             onmouseout="hideTooltip()">Total brut</text>
         <text x="55%" y="365" class="text"></text>
         <text x="65%" y="365" class="text"></text>
-        <text x="75%" y="365" class="text" 
+        <text x="75%" y="365" class="bold" 
             onmouseover="showTooltip(evt, '280,63 + 18,59 + 34,53 = 333,75')"
             onmouseout="hideTooltip()">333,75</text>
 
-        <text x="5.5%" y="390" class="text" 
+        <text x="5.5%" y="390" class="bold" 
             onmouseover="showTooltip(evt, 'Calcul fiscal réduisant les cotisations (abattement d’environ 30%) : ce sont sur cette base que sont calculées les cotisations et contributions sociales. Ce total brut ne change donc pas le salaire réel, il indique au contraire un net perçu plus élevé.')"
             onmouseout="hideTooltip()">Total brut abattu</text>
         <text x="55%" y="390" class="text"></text>
         <text x="65%" y="390" class="text"></text>
-        <text x="75%" y="390" class="text" 
+        <text x="75%" y="390" class="bold" 
             onmouseover="showTooltip(evt, 'Total brut réel × ≈30% = Total brut abattu')"
             onmouseout="hideTooltip()">233,52</text>
 
