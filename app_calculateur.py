@@ -130,7 +130,7 @@ elif module == "Lire sa fiche de paie":
         <text x="75%" y="260" class="subheader">Montant</text>
 
         <text x="5.5%" y="290" class="text" 
-            onmouseover="showTooltip(evt, 'Voir l\\'onglet « Coefficient, valeur du point d\\'indice et salaire de base »')"
+            onmouseover="showTooltip(evt, "Voir l'onglet « Coefficient, valeur du point d\\'indice et salaire de base »")"
             onmouseout="hideTooltip()">Salaire de base</text>
         <text x="55%" y="290" class="text" 
             onmouseover="showTooltip(evt, 'Heures mensuelles ETP')"
