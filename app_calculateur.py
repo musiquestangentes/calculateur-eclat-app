@@ -558,7 +558,7 @@ elif module == "Primes":
     "Est prise en compte la valeur de point d'indice en vigueur à l'époque : 6,32€.")
     with st.expander("Formules"):
         st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
-        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62.03 - (}\\text{ancienneté} \\times 2)) \\times \\text{6.32} \\times \\text{heures hebdo lissées}}{24}")
+        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62.03 - (}\\text{ancienneté} \\times 2)) \\times \\text{7.15} \\times \\text{heures hebdo lissées}}{24}")
     
     st.divider()
     st.write("**Calculateur :**")
@@ -575,7 +575,7 @@ elif module == "Primes":
 
     if heures_lissees > 0:
         prime_anciennete = heures_lissees * valeur_point * (anciennete * 2) / 24
-        prime_diff = max(0, (62.03 - (anciennete * 2))) * 6.32 * heures_lissees / 24
+        prime_diff = max(0, (62.03 - (anciennete * 2))) * 7.15 * heures_lissees / 24
 
         st.markdown("### Résultats")
         st.write(f"- Ancienneté calculée : **{anciennete} ans**")
@@ -718,7 +718,7 @@ elif module == "🧮 Simulateur complet":
         today = datetime.today().date()
         anciennete = today.year - date_entree.year - ((today.month, today.day) < (date_entree.month, date_entree.day))
         prime_anciennete = heures_hebdo * valeur_point * (anciennete * 2) / 24
-        prime_diff = max(0, (62.03 - (anciennete * 2))) * 6.32 * heures_hebdo / 24
+        prime_diff = max(0, (62.03 - (anciennete * 2))) * 7.15 * heures_hebdo / 24
 
         # Salaire brut
         salaire_base = (heures_hebdo * valeur_point * 305) / 24
