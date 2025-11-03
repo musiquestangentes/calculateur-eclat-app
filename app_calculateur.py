@@ -278,7 +278,7 @@ elif module == "Lire sa fiche de paie":
         <text x="85%" y="655" class="text"></text>
 
         <text x="5.5%" y="680" class="bold"  
-            onmouseover="showTooltip(evt, 'CSG = Contribution Sociale Généralisée. Ces contributions sont des impôts, totalement à la charge du/de la salarié·e. Elles permettent principalement de financer la protection sociale. Elles sont calculées sur 98,25\\% 
+            onmouseover="showTooltip(evt, 'CSG : Contribution Sociale Généralisée. Ces contributions sont des impôts, totalement à la charge du/de la salarié·e. Elles permettent principalement de financer la protection sociale. Elles sont calculées sur 98,25\\% 
             \\du salaire brut.')"
             onmouseout="hideTooltip()">CSG déductible de l'impôt sur le revenu</text>
         <text x="55%" y="680" class="text">327,91</text>
@@ -287,7 +287,7 @@ elif module == "Lire sa fiche de paie":
         <text x="85%" y="680" class="text"></text>
 
         <text x="5.5%" y="705" class="bold" 
-            onmouseover="showTooltip(evt, 'CRDS = Contribution au Remboursement de la Dette Sociale. Ces contributions sont des impôts, totalement à la charge du/de la salarié·e. Elles permettent principalement de financer la protection sociale et à résorber l’endettement de la Sécurité sociale. 
+            onmouseover="showTooltip(evt, 'CRDS : Contribution au Remboursement de la Dette Sociale. Ces contributions sont des impôts, totalement à la charge du/de la salarié·e. Elles permettent principalement de financer la protection sociale et à résorber l\\’endettement de la Sécurité sociale. 
             Elles sont calculées sur 98,25\\% \\du salaire brut.')"
             onmouseout="hideTooltip()">CSG/CRDS non déductible de l'impôt sur le revenu</text>
         <text x="55%" y="705" class="text">327,91</text>
