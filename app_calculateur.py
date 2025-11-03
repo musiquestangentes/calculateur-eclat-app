@@ -193,15 +193,12 @@ elif module == "Lire sa fiche de paie":
             onmouseover="showTooltip(evt, 'Taux de 7,3% applicable en 2025')"
             onmouseout="hideTooltip()">16,35</text>
 
-        <!-- ... (le reste du document identique, j'ai gardé les mêmes onmouseover avec simples quotes) ... -->
-
         <g id="tooltip" visibility="hidden">
             <rect id="tooltip-bg" class="tooltip-box" width="200" height="30" x="0" y="0" rx="5" ry="5"/>
             <text id="tooltip-text" x="10" y="20" class="tooltip-text"></text>
         </g>
 
     <script><![CDATA[
-    /* on expose les fonctions sur window pour que les handlers inline y aient accès */
     setTimeout(function(){
     window.showTooltip = function(evt, text) {
         try {
@@ -290,7 +287,7 @@ elif module == "Lire sa fiche de paie":
     </svg>
     """
 
-    components.html(svg_code, height=800, scrolling=False)
+    components.html(svg_code, height=1250, scrolling=False)
 
 # PAGE 2: COEFFICIENT ET SALAIRE DE BASE
 
