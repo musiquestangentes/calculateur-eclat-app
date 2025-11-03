@@ -327,7 +327,9 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="790" class="subheader" 
             onmouseover="showTooltip(evt, 'Salaire brut − Cotisations')"
             onmouseout="hideTooltip()">NET À PAYER AU SALARIE</text>
-        <text x="90%" y="790" class="subheader">275,54</text>
+        <text x="90%" y="790" class="subheader" 
+            onmouseover="showTooltip(evt, '333,75 − 58,21 = 275,54')"
+            onmouseout="hideTooltip()">275,54</text>
 
         <g id="tooltip" visibility="hidden">
             <rect id="tooltip-bg" class="tooltip-box" width="200" height="30" x="0" y="0" rx="5" ry="5"/>
