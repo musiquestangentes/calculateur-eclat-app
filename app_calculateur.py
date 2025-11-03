@@ -196,7 +196,9 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="455" class="text" 
             onmouseover="showTooltip(evt, 'Ces cotisations constituent une garantie de base en santé pour tou·te·s les salarié·e·s et sont entièrement prises en charge par l’employeur.')"
             onmouseout="hideTooltip()">Sécurité sociale - Maladie Maternité Invalidité Décès</text>
-        <text x="55%" y="455" class="text">233,52</text>
+        <text x="55%" y="455" class="text" 
+            onmouseover="showTooltip(evt, 'Total brut abattu')"
+            onmouseout="hideTooltip()">233,52</text>
         <text x="65%" y="455" class="text"></text>
         <text x="75%" y="455" class="text"></text>
         <text x="85%" y="455" class="text" 
@@ -206,7 +208,9 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="480" class="bold" 
             onmouseover="showTooltip(evt, 'Cette cotisation couvre les risques liés aux accidents du travail, aux maladies professionnelles et aux accidents du trajet. Son taux est fixé par la CARSAT (caisse d’assurance retraite et de la santé au travail).')"
             onmouseout="hideTooltip()">ACCIDENTS DU TRAVAIL - MALADIES PROFESSIONNELLES</text>
-        <text x="55%" y="480" class="text">233,52</text>
+        <text x="55%" y="480" class="text" 
+            onmouseover="showTooltip(evt, 'Total brut abattu')"
+            onmouseout="hideTooltip()">233,52</text>
         <text x="65%" y="480" class="text"></text>
         <text x="75%" y="480" class="text"></text>
         <text x="85%" y="480" class="text"></text>
@@ -222,7 +226,9 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="530" class="text" 
             onmouseover="showTooltip(evt, 'La cotisation plafonnée s’applique sur le salaire limité au plafond défini par la Sécurité sociale (3 925 euros mensuels en 2025).')"
             onmouseout="hideTooltip()">Sécurité Sociale plafonnée</text>
-        <text x="55%" y="530" class="text">233,52</text>
+        <text x="55%" y="530" class="text" 
+            onmouseover="showTooltip(evt, 'Total brut abattu')"
+            onmouseout="hideTooltip()">233,52</text>
         <text x="65%" y="530" class="text">6,9000</text>
         <text x="75%" y="530" class="text" 
             onmouseover="showTooltip(evt, 'Taux de 6,9% en 2025')"
@@ -234,7 +240,9 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="555" class="text" 
             onmouseover="showTooltip(evt, 'La cotisation déplafonnée s’applique sur le salaire total.')"
             onmouseout="hideTooltip()">Sécurité Sociale déplafonnée</text>
-        <text x="55%" y="555" class="text">233,52</text>
+        <text x="55%" y="555" class="text" 
+            onmouseover="showTooltip(evt, 'Total brut abattu')"
+            onmouseout="hideTooltip()">233,52</text>
         <text x="65%" y="555" class="text">0,4000</text>
         <text x="75%" y="555" class="text" 
             onmouseover="showTooltip(evt, 'Taux de 0,4% en 2025')"
@@ -246,7 +254,9 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="580" class="text" 
             onmouseover="showTooltip(evt, 'Cette cotisation complète la retraite de base de la Sécurité sociale. 60% sont versés par l’employeur et 40% par le/la salarié·e. Elle finance le régime de retraite complémentaire. Le montant versé est converti en points qui serviront à définir le montant de la retraite complémentaire du/de la salarié·e (AGIRC-ARRCO).')"
             onmouseout="hideTooltip()">Complémentaire Tranche 1</text>
-        <text x="55%" y="580" class="text">233,52</text>
+        <text x="55%" y="580" class="text" 
+            onmouseover="showTooltip(evt, 'Total brut abattu')"
+            onmouseout="hideTooltip()">233,52</text>
         <text x="65%" y="580" class="text">4,0100</text>
         <text x="75%" y="580" class="text">9,36</text>
         <text x="85%" y="580" class="text"></text>
@@ -254,7 +264,9 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="605" class="bold" 
             onmouseover="showTooltip(evt, 'Uniquement à la charge de l’employeur, cette cotisation finance les prestations familiales versées par la Caisse d’Allocations Familiales (CAF).')"
             onmouseout="hideTooltip()">FAMILLE</text>
-        <text x="55%" y="605" class="text">233,52</text>
+        <text x="55%" y="605" class="text" 
+            onmouseover="showTooltip(evt, 'Total brut abattu')"
+            onmouseout="hideTooltip()">233,52</text>
         <text x="65%" y="605" class="text"></text>
         <text x="75%" y="605" class="text"></text>
         <text x="85%" y="605" class="text" 
@@ -264,7 +276,9 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="630" class="bold" 
             onmouseover="showTooltip(evt, 'Uniquement à la charge de l’employeur, cette cotisation permet de percevoir une allocation en cas de chômage.')"
             onmouseout="hideTooltip()">ASSURANCE CHÔMAGE</text>
-        <text x="55%" y="630" class="text">233,52</text>
+        <text x="55%" y="630" class="text" 
+            onmouseover="showTooltip(evt, 'Total brut abattu')"
+            onmouseout="hideTooltip()">233,52</text>
         <text x="65%" y="630" class="text"></text>
         <text x="75%" y="630" class="text"></text>
         <text x="85%" y="630" class="text"></text>
@@ -278,7 +292,9 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="680" class="bold" 
             onmouseover="showTooltip(evt, 'CSG : Contribution Sociale Généralisée. Ces contributions sont des impôts, totalement à la charge du/de la salarié·e. Elles permettent principalement de financer la protection sociale. Elles sont calculées sur 98,25% du salaire brut.')"
             onmouseout="hideTooltip()">CSG déductible de l'impôt sur le revenu</text>
-        <text x="55%" y="680" class="text">327,91</text>
+        <text x="55%" y="680" class="text" 
+            onmouseover="showTooltip(evt, '98,25% du Total brut réel')"
+            onmouseout="hideTooltip()">327,91</text>
         <text x="65%" y="680" class="text">6,8000</text>
         <text x="75%" y="680" class="text">22,30</text>
         <text x="85%" y="680" class="text"></text>
@@ -286,7 +302,9 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="705" class="bold" 
             onmouseover="showTooltip(evt, 'CRDS : Contribution au Remboursement de la Dette Sociale. Ces contributions sont des impôts, totalement à la charge du/de la salarié·e. Elles permettent principalement de financer la protection sociale et à résorber l’endettement de la Sécurité sociale. Elles sont calculées sur 98,25% du salaire brut.')"
             onmouseout="hideTooltip()">CSG/CRDS non déductible de l'impôt sur le revenu</text>
-        <text x="55%" y="705" class="text">327,91</text>
+        <text x="55%" y="705" class="text" 
+            onmouseover="showTooltip(evt, '98,25% du Total brut réel')"
+            onmouseout="hideTooltip()">327,91</text>
         <text x="65%" y="705" class="text">2,9000</text>
         <text x="75%" y="705" class="text">9,51</text>
         <text x="85%" y="705" class="text"></text>
