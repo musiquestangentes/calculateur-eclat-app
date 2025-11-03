@@ -297,7 +297,7 @@ elif module == "Lire sa fiche de paie":
         <text x="85%" y="705" class="text"></text>
 
         <text x="5.5%" y="730" class="bold">EXONERATIONS, ECRETEMENTS ET ALLEGEMENTS DE COTISATIONS</text>
-        <text x="55%" y="730" class="text">333,75</text>
+        <text x="55%" y="730" class="text"></text>
         <text x="65%" y="730" class="text"></text>
         <text x="75%" y="730" class="text"></text>
         <text x="85%" y="730" class="text"></text>        
@@ -327,7 +327,7 @@ elif module == "Lire sa fiche de paie":
 
     const MAX_WIDTH = 250; // largeur max en pixels
 
-    function showTooltip(evt, text) {
+    window.showTooltip = function(evt, text) {
         tooltip.setAttribute("visibility", "visible");
 
         // Supprime le texte précédent
@@ -396,7 +396,7 @@ elif module == "Lire sa fiche de paie":
         tooltip.setAttribute("transform", `translate(${xPos}, ${yPos})`);
     }
 
-    function hideTooltip() {
+    window.hideTooltip = function() {
         tooltip.setAttribute("visibility", "hidden");
     }
 
