@@ -324,7 +324,9 @@ elif module == "Lire sa fiche de paie":
 
         <!-- Tableau Net à Payer -->
         <rect x="5%" y="770" width="100%" height="30" class="block"/>
-        <text x="5.5%" y="790" class="subheader">NET À PAYER AU SALARIE</text>
+        <text x="5.5%" y="790" class="subheader" 
+            onmouseover="showTooltip(evt, 'Salaire brut − Cotisations')"
+            onmouseout="hideTooltip()">NET À PAYER AU SALARIE</text>
         <text x="90%" y="790" class="subheader"></text>
 
         <g id="tooltip" visibility="hidden">
