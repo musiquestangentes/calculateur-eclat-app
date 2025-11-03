@@ -107,7 +107,7 @@ elif module == "Lire sa fiche de paie":
         <text x="5.5%" y="160" class="subheader" 
             onmouseover="showTooltip(evt, 'Voir l’onglet « Coefficient, valeur du point d’indice et salaire de base »')"
             onmouseout="hideTooltip()">QUALIFICATION-COEFFICIENT</text>
-        <text x="5.5%" y="175" class="titres">Echelon Groupe D - <tspan fill="blue" style="cursor:pointer;" onclick="window.location.href='?module=Coefficient, valeur du point d\\'indice et salaire de base'">Coefficient 305</tspan> - Catégorie Agent de Maîtrise</text>
+        <text x="5.5%" y="175" class="titres">Echelon Groupe D - Coefficient 305 - Catégorie Agent de Maîtrise</text>
 
         <rect x="5%" y="187" width="45%" height="15" class="block"/>
         <text x="5.5%" y="200" class="subheader">N° SECURITE SOCIALE - ANCIENNETÉ</text>
