@@ -721,7 +721,10 @@ elif module == "🧮 Simulateur complet":
         # Salaire brut
         salaire_base = (heures_hebdo * valeur_point * 305) / 24
         salaire_brut_total = salaire_base + prime_anciennete + prime_diff
-
+        total_brut_abattu = salaire_brut_total * 0.7
+        cotisations_sal = (total_brut_abattu * 0.069) + (total_brut_abattu * 0.004) + (total_brut_abattu * 0.0401) + ((salaire_base * 0.9825) * 0,068) + ((salaire_base * 0.9825) * 0,029)
+        salaire_net = salaire_brut_total - cotisations_sal
+        
         # Heures réelles mensuelles
         coef_etp_par_heure_reelle = 1.36
         heures_mensuelles_reelles = heures_mensuelles_etp / coef_etp_par_heure_reelle
@@ -736,6 +739,7 @@ elif module == "🧮 Simulateur complet":
         st.write(f"- Prime différentielle : **{prime_diff:.2f} €**")
         st.write(f"- Salaire de base conventionnel : **{salaire_base:.2f} €**")
         st.write(f"- Salaire brut total estimé : **{salaire_brut_total:.2f} €**")
+        st.write(f"- Salaire net estimé : **{salaire_net:.2f} €**")
         st.write(f"- Taux horaire brut réel : **{taux_horaire_brut_reel:.2f} €/h**")
 
         # Export PDF
