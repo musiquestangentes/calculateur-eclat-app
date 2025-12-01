@@ -743,6 +743,7 @@ elif module == "🧮 Simulateur complet":
         st.write(f"- Salaire brut total estimé : **{salaire_brut_total:.2f} €**")
         st.write(f"- Salaire net estimé : **{salaire_net:.2f} €**")
         st.write(f"- Taux horaire brut réel : **{taux_horaire_brut_reel:.2f} €/h**")
+        st.write(f":red[Attention : Les profs rattaché·e·s à la mutuelle de Musiques Tangentes et les profs imposables auront un salaire net moins élevé que le montant estimé, puisque ces montants sont déduits du salaire brut total.]")
 
         # Export PDF
         buffer = BytesIO()
