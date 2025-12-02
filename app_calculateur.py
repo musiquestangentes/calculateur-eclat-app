@@ -490,7 +490,8 @@ elif module == "Mensualisation et ETP":
         > « Afin de répondre aux variations inhérentes aux activités (pendant les périodes périscolaires, scolaires, de vacances) de la branche professionnelle, de permettre de satisfaire l'accueil 
         du public et d'éviter le recours excessif aux heures complémentaires, au chômage partiel, un régime de modulation pour les salariés à temps partiel est mis en place concernant les salariés 
         sous CDI. »   
-        *Source :* [*Article 5.7.4.1. de la convention collective ECLAT - Modulation pour les salariés à temps partiel*]({url_mensualisation})
+        > *Source :* [*Article 5.7.4.1. de la convention collective ECLAT - Modulation pour les salariés à temps partiel*]({url_mensualisation})   
+        
         Pour les enseignant·e·s artistiques : 
 
         - **Le contrat est annuel :** La rémunération versée couvre l'ensemble des heures de service, les heures connexes prévues par la convention, ainsi que la rémunération des congés payés et des périodes d'inactivité.
