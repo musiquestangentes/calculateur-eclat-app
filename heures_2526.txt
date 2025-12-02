@@ -1,82 +1,6 @@
 Prénom NOM
 
 Marc-André ALBERGEL
-23-09-2025 total jour : 00:45
-24-09-2025 total jour : 01:45
-30-09-2025 total jour : 00:45
-Total Mois : 3,25 heures  
-07-10-2025 total jour : 00:45
-08-10-2025 total jour : 01:45
-14-10-2025 total jour : 00:45
-15-10-2025 total jour : 01:45
-Total Mois : 5 heures  
-04-11-2025 total jour : 00:45
-05-11-2025 total jour : 01:45
-11-11-2025 total jour : 00:45
-12-11-2025 total jour : 01:45
-18-11-2025 total jour : 00:45
-19-11-2025 total jour : 01:45
-25-11-2025 total jour : 00:45
-Total Mois : 8,25 heures  
-02-12-2025 total jour : 00:45
-03-12-2025 total jour : 01:45
-09-12-2025 total jour : 00:45
-10-12-2025 total jour : 01:45
-16-12-2025 total jour : 00:45
-17-12-2025 total jour : 01:45
-Total Mois : 7,5 heures  
-06-01-2026 total jour : 00:45
-07-01-2026 total jour : 01:45
-13-01-2026 total jour : 00:45
-14-01-2026 total jour : 01:45
-20-01-2026 total jour : 00:45
-21-01-2026 total jour : 01:45
-27-01-2026 total jour : 00:45
-28-01-2026 total jour : 01:45
-Total Mois : 10 heures  
-03-02-2026 total jour : 00:45
-04-02-2026 total jour : 01:45
-10-02-2026 total jour : 00:45
-11-02-2026 total jour : 01:45
-17-02-2026 total jour : 00:45
-18-02-2026 total jour : 01:45
-Total Mois : 7,5 heures  
-10-03-2026 total jour : 00:45
-11-03-2026 total jour : 01:45
-17-03-2026 total jour : 00:45
-18-03-2026 total jour : 01:45
-24-03-2026 total jour : 00:45
-25-03-2026 total jour : 01:45
-31-03-2026 total jour : 00:45
-Total Mois : 8,25 heures  
-01-04-2026 total jour : 01:45
-07-04-2026 total jour : 00:45
-08-04-2026 total jour : 01:45
-13-04-2026 total jour : 05:00
-14-04-2026 total jour : 03:30
-15-04-2026 total jour : 05:00
-16-04-2026 total jour : 05:00
-Total Mois : 22,75 heures  
-05-05-2026 total jour : 00:45
-06-05-2026 total jour : 01:45
-12-05-2026 total jour : 00:45
-13-05-2026 total jour : 01:45
-19-05-2026 total jour : 00:45
-20-05-2026 total jour : 01:45
-26-05-2026 total jour : 00:45
-27-05-2026 total jour : 01:45
-Total Mois : 10 heures  
-02-06-2026 total jour : 00:45
-03-06-2026 total jour : 01:45
-09-06-2026 total jour : 00:45
-10-06-2026 total jour : 01:45
-16-06-2026 total jour : 00:45
-17-06-2026 total jour : 01:45
-23-06-2026 total jour : 00:45
-24-06-2026 total jour : 01:45
-Total Mois : 10 heures  
-01-07-2026
-
 16-09-2025 total jour : 03:30
 23-09-2025 total jour : 04:00
 30-09-2025 total jour : 03:30
@@ -267,7 +191,7 @@ Total Mois : 14 heures
 24-06-2026 total jour : 03:30
 Total Mois : 14 h; Total Période : 106,5 h; 
 
-Percy BEWICKE-COPLEY
+Percy thomas BEWICKE-COPLEY
 16-09-2025 total jour : 02:50
 23-09-2025 total jour : 02:50
 30-09-2025 total jour : 03:20
@@ -325,35 +249,35 @@ Total Mois : 6 heures
 24-11-2025 total jour : 03:30
 Total Mois : 13,5 heures  
 01-12-2025 total jour : 03:30
-08-12-2025 total jour : 03:30
-15-12-2025 total jour : 03:30
-Total Mois : 10,5 heures  
-05-01-2026 total jour : 03:30
-12-01-2026 total jour : 03:30
-19-01-2026 total jour : 03:30
-26-01-2026 total jour : 03:30
-Total Mois : 14 heures  
-02-02-2026 total jour : 03:30
-09-02-2026 total jour : 03:30
-16-02-2026 total jour : 03:30
-Total Mois : 10,5 heures  
-09-03-2026 total jour : 03:30
-16-03-2026 total jour : 03:30
-23-03-2026 total jour : 03:30
-30-03-2026 total jour : 03:30
-Total Mois : 14 heures  
-06-04-2026 total jour : 03:30
-Total Mois : 3,5 heures  
-04-05-2026 total jour : 03:30
-11-05-2026 total jour : 03:30
-18-05-2026 total jour : 03:30
-25-05-2026 total jour : 03:30
-Total Mois : 14 heures  
-01-06-2026 total jour : 03:30
-08-06-2026 total jour : 03:30
-15-06-2026 total jour : 03:30
-22-06-2026 total jour : 03:30
-Total Mois : 14 h; Total Période : 109 h; 
+08-12-2025 total jour : 03:50
+15-12-2025 total jour : 03:50
+Total Mois : 11,17 heures  
+05-01-2026 total jour : 03:50
+12-01-2026 total jour : 03:50
+19-01-2026 total jour : 03:50
+26-01-2026 total jour : 03:50
+Total Mois : 15,33 heures  
+02-02-2026 total jour : 03:50
+09-02-2026 total jour : 03:50
+16-02-2026 total jour : 03:50
+Total Mois : 11,5 heures  
+09-03-2026 total jour : 03:50
+16-03-2026 total jour : 03:50
+23-03-2026 total jour : 03:50
+30-03-2026 total jour : 03:50
+Total Mois : 15,33 heures  
+06-04-2026 total jour : 03:50
+Total Mois : 3,83 heures  
+04-05-2026 total jour : 03:50
+11-05-2026 total jour : 03:50
+18-05-2026 total jour : 03:50
+25-05-2026 total jour : 03:50
+Total Mois : 15,33 heures  
+01-06-2026 total jour : 03:50
+08-06-2026 total jour : 03:50
+15-06-2026 total jour : 03:50
+22-06-2026 total jour : 03:50
+Total Mois : 15,33 h; Total Période : 116,33 h; 
 
 Erick BORELVA
 17-09-2025 total jour : 02:15
