@@ -480,19 +480,19 @@ elif module == "Mensualisation et ETP":
     st.info("La **mensualisation** permet de compenser le creux d'heures pendant les vacances scolaires.")
     with st.expander("**Comprendre la mensualisation de votre salaire**"):
         st.write(f"""
-        La Convention Collective Nationale de l'Animation (ECLAT, IDCC 1518) impose que la rémunération des salarié·e·s en CDI soit versée sous la forme d'une mensualisation obligatoire sur 12 mois.  
-        Concrètement, le calcul de votre salaire est basé sur votre **temps de travail annuel contractuel**, lequel est ensuite **réparti de manière uniforme** sur l'ensemble de l'année civile.  
-        Cela signifie que vous percevez **un salaire de base identique et stable chaque mois, y compris lors des périodes de suspension de l'activité** (vacances scolaires).  
+        La Convention Collective Nationale de l'Animation (ECLAT, IDCC 1518) impose que la rémunération des salarié·e·s en CDI soit versée sous la forme d'une mensualisation obligatoire sur 12 mois.    
+        Concrètement, le calcul de votre salaire est basé sur votre **temps de travail annuel contractuel**, lequel est ensuite **réparti de manière uniforme** sur l'ensemble de l'année civile.    
+        Cela signifie que vous percevez **un salaire de base identique et stable chaque mois, y compris lors des périodes de suspension de l'activité** (vacances scolaires).    
 
         ##### Principes de la mensualisation
 
         La mensualisation est une obligation légale pour tout contrat à durée indéterminée et permet d'assurer une **stabilité financière** aux salarié·e·s. Pour les enseignant·e·s artistiques : 
 
         - **Le contrat est annuel :** La rémunération versée couvre l'ensemble des heures de service, les heures connexes prévues par la convention, ainsi que la rémunération des congés payés et des périodes d'inactivité.
-        - Calcul du montant : Le total des heures annuelles à rémunérer (incluant les 10 % de majoration pour congés payés) est divisé par 12, ce qui donne **le temps de travail mensuel rémunéré**.
+        - **Calcul du montant :** Le total des heures annuelles à rémunérer (incluant les 10 % de majoration pour congés payés) est divisé par 12, ce qui donne **le temps de travail mensuel rémunéré**.
         - **Paiement stable :** Ce temps de travail mensuel rémunéré est appliqué de manière régulière (12 fois par an) pour garantir un revenu stable, même pendant les vacances scolaires.
 
-        La mensualisation ne modifie ni votre volume d'heures de service réel, ni vos droits légaux (ancienneté, congés, etc.), mais elle assure une régularité et une sécurité financière sur l'année.
+        La mensualisation ne modifie ni votre volume d'heures de service réel, ni vos droits légaux (ancienneté, congés) mais elle **assure une régularité et une sécurité financière sur l'année**.
         """)
 
 
