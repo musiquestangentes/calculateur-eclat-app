@@ -455,6 +455,46 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     st.success("Nb : Le coefficient conventionnel de base, indiqué sur les bulletins de paie, est de 305 mais le coefficient réel sur " \
     "lequel est indexé les paies des profs de Musiques Tangentes est de 367,03 (voir \"prime différentielle\"). Il est donc " \
     "plus élevé que le coefficient maximal de la catégorie Techniciens et agents de maîtrise et s'approche de la catégorie Cadres.")
+    st.subheader("Grille de classification ECLAT (CCNA)")
+    st.caption("Aperçu des groupes, coefficients et critères de l'Annexe I de la CCNA 3246.")
+
+    # Création des données du tableau
+    data = {
+        "Groupe": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+        "Coefficient": ["257", "265", "285", "305", "325", "350", "375", "400", "450", "500", "(Cadre Dirigeant)"],
+        "Niveau": ["Employé", "Employé", "Employé", "Agent de Maîtrise", "Agent de Maîtrise", "Agent de Maîtrise", "Cadre", "Cadre", "Cadre", "Cadre", "Cadre Dirigeant"],
+        "Responsabilité Clé": [
+            "Biens/public. Contrôle permanent.", 
+            "Biens/public. Échanges professionnels courants.", 
+            "Budget prescrit. Coordination/conseil possible.", 
+            "Élaboration procédures. Fonctions de coordination/contrôle.", 
+            "Représentation externe. Contrôle ponctuel.", 
+            "Élaboration directives/budget. Responsabilité hiérarchique par délégation. Contrôle a posteriori.", 
+            "Capacité à engager l'organisation. Contrôle a posteriori.", 
+            "Politique économique et/ou Responsabilité hiérarchique/disciplinaire.", 
+            "Détermine et pilote la stratégie de développement.", 
+            "Définition des objectifs et de l'organisation du travail.", 
+            "Répond à la définition légale."
+        ]
+    }
+    df = pd.DataFrame(data)
+    
+    # Affichage du tableau
+    st.dataframe(df, hide_index=True)
+    
+    st.caption(f"[Lien Légifrance - Grille de classification]({url_grille})")
+    st.divider()
+    st.info("""
+    **Valeur du point d'indice** : Valeur fixée par la convention collective ECLAT. 
+    Au 1er janvier 2025, la valeur du point d'indice est de **7,15€**.
+    """)
+    st.caption(f"[Lien Légifrance - Valeur du point d'indice]({url_valpoint})")
+    st.divider()
+    st.info("""
+    Le **salaire de base conventionnel** correspond à la rémunération d’un·e professeur·e à temps plein ECLAT. 
+    Il est calculé en multipliant les heures hebdomadaires contractuelles par la valeur du point d’indice et le coefficient, puis en divisant 
+    le tout par 24 afin de ramener le résultat à la quotité ETP, c’est-à-dire la fraction du temps plein effectuée.
+    """)
     st.caption(f"[Lien Légifrance - Grille de classification]({url_grille})")
     st.divider()
     st.info("""
