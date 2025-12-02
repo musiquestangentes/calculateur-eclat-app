@@ -25,7 +25,7 @@ url_valpoint = "http://legifrance.gouv.fr/conv_coll/article/KALIARTI000050362519
 url_salaire = "https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000046098173/?idConteneur=KALICONT000005635177"
 url_modulation = "https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000027717752?idConteneur=KALICONT000005635177&origin=list"
 url_etp = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043234742?utm_"
-url_snam = "https://www.snam-cgt.org/enseignement/quel-employeur-quels-droits/ecoles-de-musique-associatives/"
+url_mensualisation = "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000027717752#KALIARTI000027717752"
 
 # Navigation principale
 modules = [
@@ -486,7 +486,12 @@ elif module == "Mensualisation et ETP":
 
         ##### Principes de la mensualisation
 
-        La mensualisation est une obligation légale pour tout contrat à durée indéterminée et permet d'assurer une **stabilité financière** aux salarié·e·s. Pour les enseignant·e·s artistiques : 
+        La mensualisation est une obligation légale pour tout contrat à durée indéterminée et permet d'assurer une **stabilité financière** aux salarié·e·s.  
+        > « Afin de répondre aux variations inhérentes aux activités (pendant les périodes périscolaires, scolaires, de vacances) de la branche professionnelle, de permettre de satisfaire l'accueil 
+        du public et d'éviter le recours excessif aux heures complémentaires, au chômage partiel, un régime de modulation pour les salariés à temps partiel est mis en place concernant les salariés 
+        sous CDI. »   
+        *Source :* [*Article 5.7.4.1. de la convention collective ECLAT - Modulation pour les salariés à temps partiel*]({url_mensualisation})
+        Pour les enseignant·e·s artistiques : 
 
         - **Le contrat est annuel :** La rémunération versée couvre l'ensemble des heures de service, les heures connexes prévues par la convention, ainsi que la rémunération des congés payés et des périodes d'inactivité.
         - **Calcul du montant :** Le total des heures annuelles à rémunérer (incluant les 10 % de majoration pour congés payés) est divisé par 12, ce qui donne **le temps de travail mensuel rémunéré**.
