@@ -497,9 +497,16 @@ elif module == "Mensualisation et ETP":
 
 
              
-    with st.expander("Formules"):
-        st.latex("\\text{Heures mensuelles lissées} = \\frac{\\text{Heures annuelles} + 10\\% \\text{ CP}}{12}")
-        st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{\\frac{52}{12}}")
+    with st.expander("Formules de calcul"):
+    	# Formule 1 : Calcul du temps de travail annuel total à rémunérer, réparti sur 12 mois.
+    	st.latex(r"\text{Heures mensuelles rémunérées} = \frac{\text{Heures annuelles} \times 1,10}{12}")
+    
+    	# Formule 2 : Calcul de l'équivalent hebdomadaire de ces heures mensualisées (utile pour comparer avec l'horaire contractuel)
+    	# L'utilisation de \frac{52}{12} est la définition du coefficient de mensualisation légal.
+    	st.latex(r"\text{Coefficient de mensualisation} = \frac{52 \text{ semaines}}{12 \text{ mois}} \approx 4,33 \text{ semaines/mois}")
+    
+    	# Formule 3 : L'équivalent de l'horaire de service contractuel hebdomadaire (vérification)
+    	st.latex(r"\text{Heures hebdomadaires contractuelles} = \frac{\text{Heures mensuelles rémunérées}}{\frac{52}{12}}")
     st.caption(f"[Lien Légifrance - Modulation et annualisation]({url_modulation})")
 
     st.divider()
