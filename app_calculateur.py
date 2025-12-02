@@ -32,7 +32,7 @@ modules = [
     "Accueil",
     "Lire sa fiche de paie",
     "Coefficient, valeur du point d'indice et salaire de base",
-    "Lissage et ETP",
+    "Mensualisation et ETP",
     "Primes",
     "Vérificateur d'heures",
     "🧮 Simulateur complet",
@@ -51,7 +51,7 @@ if module == "Accueil":
     Utilisez le menu à gauche pour naviguer entre les différents modules :
     - Définitions : Coefficient, valeur du point d'indice et salaire de base  
     - Lire sa fiche de paie : schéma interactif  
-    - Lissage et ETP 
+    - Mensualisation et ETP 
     - Primes d'ancienneté et différentielle  
     - Vérification de son nombre d'heures réelles annuelles  
     - Simulateur complet   
@@ -474,29 +474,25 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
 
 # PAGE 3: HEURES LISSEES
 
-elif module == "Lissage et ETP":
+elif module == "Mensualisation et ETP":
     st.title("Calcul des heures lissées et ETP")
 
-    st.info("Le **lissage** permet de compenser le creux d'heures pendant les vacances scolaires.")
-    with st.expander("**Comprendre le lissage de votre salaire**"):
+    st.info("La **mensualisation** permet de compenser le creux d'heures pendant les vacances scolaires.")
+    with st.expander("**Comprendre la mensualisation de votre salaire**"):
         st.write(f"""
-        Certaines écoles associatives de musique, dont Musiques Tangentes, pratiquent un **lissage de la rémunération sur 12 mois**.  
+        La Convention Collective Nationale de l'Animation (ECLAT, IDCC 1518) impose que la rémunération des salarié·e·s en CDI soit versée sous la forme d'une mensualisation obligatoire sur 12 mois.  
+        Concrètement, le calcul de votre salaire est basé sur votre **temps de travail annuel contractuel**, lequel est ensuite **réparti de manière uniforme** sur l'ensemble de l'année civile.  
+        Cela signifie que vous percevez **un salaire de base identique et stable chaque mois, y compris lors des périodes de suspension de l'activité** (vacances scolaires).  
 
-        Concrètement, vos heures réelles sont calculées à l’année, en excluant les périodes de vacances scolaires, puis réparties mensuellement de manière uniforme. Cela signifie que vous percevez le même salaire chaque mois, même lors des mois non travaillés.  
+        ##### Principes de la mensualisation
 
-        ##### Pourquoi ce lissage existe  
+        La mensualisation est une obligation légale pour tout contrat à durée indéterminée et permet d'assurer une **stabilité financière** aux salarié·e·s. Pour les enseignant·e·s artistiques : 
 
-        Le lissage n’est pas une obligation légale pour les enseignant·e·s artistiques dans les écoles associatives régies par la convention collective IDCC 1518 – ECLAT.  
+        - **Le contrat est annuel :** La rémunération versée couvre l'ensemble des heures de service, les heures connexes prévues par la convention, ainsi que la rémunération des congés payés et des périodes d'inactivité.
+        - Calcul du montant : Le total des heures annuelles à rémunérer (incluant les 10 % de majoration pour congés payés) est divisé par 12, ce qui donne **le temps de travail mensuel rémunéré**.
+        - **Paiement stable :** Ce temps de travail mensuel rémunéré est appliqué de manière régulière (12 fois par an) pour garantir un revenu stable, même pendant les vacances scolaires.
 
-        L’école doit payer les heures réellement effectuées chaque mois. Elle peut tout à fait mettre en place un lissage volontaire pour stabiliser le revenu.  
-
-        ##### Comment ça fonctionne  
-
-        - Les heures annuelles sont calculées et majorées de 10 % pour les congés payés  
-        - Ce total est réparti sur 12 mois pour garantir un **revenu stable** même pendant les vacances scolaires  
-        - Le lissage est donc une **pratique interne** visant à simplifier la gestion administrative et sécuriser les revenus des enseignant·e·s.  
-
-        Le lissage ne modifie pas votre temps de travail réel ni vos droits légaux. Vous continuez à être rémunéré·e selon vos heures effectuées, mais de manière régulière pour plus de stabilité financière.
+        La mensualisation ne modifie ni votre volume d'heures de service réel, ni vos droits légaux (ancienneté, congés, etc.), mais elle assure une régularité et une sécurité financière sur l'année.
         """)
 
 
