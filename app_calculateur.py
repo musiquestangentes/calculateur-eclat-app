@@ -488,13 +488,7 @@ elif module == "Lissage et ETP":
 
         Le lissage n’est pas une obligation légale pour les enseignant·e·s artistiques dans les écoles associatives régies par la convention collective IDCC 1518 – ECLAT.  
 
-        Selon les recommandations de la SNAM-CGT :  
-
-        > « La rémunération est due, pour chaque mois et 12 mois sur 12, dès lors que le salarié effectue l’horaire de service contractuel pendant les semaines de fonctionnement de l’activité. En aucun cas le salaire ne peut être annualisé ou lissé sur douze mois. »  
-
-        > *Source :* [*SNAM-CGT – Bulletin de paie et contrats enseignants*]({url_snam})
-
-        Cette phrase décrit la rémunération légale minimale et indique que l’école doit payer les heures réellement effectuées chaque mois. Elle **n’empêche pas** une école associative de mettre en place un lissage volontaire pour stabiliser le revenu.  
+        L’école doit payer les heures réellement effectuées chaque mois. Elle peut tout à fait mettre en place un lissage volontaire pour stabiliser le revenu.  
 
         ##### Comment ça fonctionne  
 
