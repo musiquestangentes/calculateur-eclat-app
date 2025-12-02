@@ -465,17 +465,17 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     st.divider()
     st.info("""
     Le **salaire de base conventionnel** correspond à la rémunération d’un·e professeur·e à temps plein ECLAT.  
-    Il est calculé en multipliant les heures hebdomadaires lissées par la valeur du point d’indice et le coefficient, puis en divisant 
+    Il est calculé en multipliant les heures hebdomadaires contractuelles par la valeur du point d’indice et le coefficient, puis en divisant 
     le tout par 24 afin de ramener le résultat à la quotité ETP, c’est-à-dire la fraction du temps plein effectuée.
     """)
     with st.expander("Formule"):
-        st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
+        st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo contractuelles} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
     st.caption(f"[Lien Légifrance - Salaire conventionnel]({url_salaire})")
 
-# PAGE 3: HEURES LISSEES
+# PAGE 3: HEURES CONTRACTUELLES
 
 elif module == "Mensualisation et ETP":
-    st.title("Calcul des heures lissées et ETP")
+    st.title("Calcul des heures contractuelles et ETP")
 
     st.info("La **mensualisation** permet de compenser le creux d'heures pendant les vacances scolaires.")
     with st.expander("**Comprendre la mensualisation de votre salaire**"):
@@ -512,11 +512,11 @@ elif module == "Mensualisation et ETP":
     st.divider()
     st.info("**L'équivalent temps plein** - ETP - permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
     with st.expander("Formule"):
-        st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo lissées} \\times \\text{151,67}}{24}")
+        st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo contractuelles} \\times \\text{151,67}}{24}")
     st.caption(f"[Lien Légifrance - Temps plein professeur]({url_etp})")
     
     st.divider()
-    st.write("##### Heures annuelles réelles -> Heures lissées et ETP :")
+    st.write("##### Heures annuelles réelles -> Heures contractuelles et ETP :")
     heures_annuelles_reelles = st.number_input(
         "Heures annuelles réellement effectuées (de septembre à août) :", min_value=0.0, step=0.5
     )
@@ -529,8 +529,8 @@ elif module == "Mensualisation et ETP":
 
         st.markdown("###### Résultats")
         st.write(f"- Heures annuelles + 10% CP : **{heures_avec_cp:.2f} h**")
-        st.write(f"- Heures mensuelles lissées : **{heures_mensuelles:.2f} h/mois**")
-        st.write(f"- Heures hebdomadaires lissées : **{heures_hebdo:.2f} h/semaine**")
+        st.write(f"- Heures mensuelles rémunérées : **{heures_mensuelles:.2f} h/mois**")
+        st.write(f"- Heures hebdomadaires contractuelles : **{heures_hebdo:.2f} h/semaine**")
         st.write(f"- Heures mensuelles ETP : **{heures_mensuelles_etp:.2f} h**")
 
     st.write("##### Heures mensuelles ETP -> Heures annuelles réelles :")
@@ -554,15 +554,15 @@ elif module == "Primes":
     st.info("La **prime différentielle** a été mise en place afin que tou·te·s les salarié·e·s soient sur un pied d'égalité en termes de " \
     "rémunération, quelle que soit leur ancienneté.")
     with st.expander("Formules"):
-        st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
-        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62.03 - (}\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
+        st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo contractuelles} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
+        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62.03 - (}\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo contractuelles}}{24}")
     
     st.divider()
     st.write("**Calculateur :**")
     date_entree = st.date_input(
         "Date d'entrée dans l'école :", min_value=date(1980,1,1), max_value=date.today()
     )
-    heures_lissees = st.number_input("Heures hebdomadaires lissées :", min_value=0.0, step=0.5)
+    heures_lissees = st.number_input("Heures hebdomadaires contractuelles :", min_value=0.0, step=0.5)
     valeur_point = 7.15
     st.caption(f"Valeur du point d'indice au 1er janvier 2025 : {valeur_point} €.")
 
@@ -730,8 +730,8 @@ elif module == "🧮 Simulateur complet":
         taux_horaire_brut_reel = salaire_brut_total / heures_mensuelles_reelles
 
         st.markdown("### Résultats")
-        st.write(f"- Heures mensuelles lissées : **{heures_mensuelles:.2f} h/mois**")
-        st.write(f"- Heures hebdomadaires lissées : **{heures_hebdo:.2f} h/semaine**")
+        st.write(f"- Heures mensuelles rémunérées : **{heures_mensuelles:.2f} h/mois**")
+        st.write(f"- Heures hebdomadaires contactuelles : **{heures_hebdo:.2f} h/semaine**")
         st.write(f"- Heures mensuelles ETP : **{heures_mensuelles_etp:.2f} h**")
         st.write(f"- Ancienneté : **{anciennete} ans**")
         st.write(f"- Prime d’ancienneté : **{prime_anciennete:.2f} €**")
@@ -751,8 +751,8 @@ elif module == "🧮 Simulateur complet":
         story.append(Paragraph("Simulation de salaire - Convention ECLAT", styles["Title"]))
         story.append(Spacer(1, 12))
         story.append(Paragraph(f"Heures annuelles réelles : {heures_annuelles:.2f} h", styles["Normal"]))
-        story.append(Paragraph(f"Heures mensuelles lissées : {heures_mensuelles:.2f} h/mois", styles["Normal"]))
-        story.append(Paragraph(f"Heures hebdomadaires lissées : {heures_hebdo:.2f} h/semaine", styles["Normal"]))
+        story.append(Paragraph(f"Heures mensuelles rémunérées : {heures_mensuelles:.2f} h/mois", styles["Normal"]))
+        story.append(Paragraph(f"Heures hebdomadaires contractuelles : {heures_hebdo:.2f} h/semaine", styles["Normal"]))
         story.append(Paragraph(f"Heures mensuelles ETP : {heures_mensuelles_etp:.2f} h", styles["Normal"]))
         story.append(Paragraph(f"Heures mensuelles réelles (équivalentes) : {heures_mensuelles_reelles:.2f} h", styles["Normal"]))
         story.append(Paragraph(f"Ancienneté : {anciennete} ans", styles["Normal"]))
@@ -789,14 +789,14 @@ elif module == "🔗 Liens utiles":
     st.write("### 2. Formules")
 
     with st.expander("Salaire de base"):
-        st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
-    with st.expander("Heures mensuelles lissées"):
-         st.latex("\\text{Heures mensuelles lissées} = \\frac{\\text{Heures annuelles} + 10\\% \\text{ CP}}{12}")
-    with st.expander("Heures hebdomadaires lissées"):
-        st.latex("\\text{Heures hebdomadaires lissées} = \\frac{\\text{Heures mensuelles lissées}}{\\frac{52}{12}}")
+        st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo contractuelles} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
+    with st.expander("Heures mensuelles rémunérées"):
+         st.latex("\\text{Heures mensuelles rémunérées} = \\frac{\\text{Heures annuelles} + 10\\% \\text{ CP}}{12}")
+    with st.expander("Heures hebdomadaires contractuelles"):
+        st.latex("\\text{Heures hebdomadaires contractuelles} = \\frac{\\text{Heures mensuelles rémunérées}}{\\frac{52}{12}}")
     with st.expander("Heures mensuelles ETP"):
-        st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo lissées} \\times \\text{151,67}}{24}")
+        st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo contractuelles} \\times \\text{151,67}}{24}")
     with st.expander("Prime d'ancienneté"): 
-        st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo lissées} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
+        st.latex("\\text{Prime d'ancienneté} = \\frac{\\text{Heures hebdo contractuelles} \\times \\text{valeur du point d'indice} \\times (\\text{ancienneté} \\times 2)}{24}")
     with st.expander("Prime différentielle"):
-        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62.03 - (}\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo lissées}}{24}")
+        st.latex("\\text{Prime différentielle} = \\frac{\\text{valeur max entre 0 et} \\text{(62.03 - (}\\text{ancienneté} \\times 2)) \\times \\text{valeur du point d'indice} \\times \\text{heures hebdo contractuelles}}{24}")
