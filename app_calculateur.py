@@ -807,12 +807,11 @@ elif module == "🔗 Liens utiles":
     st.write("### 2. Formules")
 
     with st.expander("Salaire de base"):
-		st.latex(r"\text{Salaire de base} = \frac{\text{Heures hebdo} \times [ (257 \times V_1) + (\text{Coefficient} - 257) \times V_2 ]}{24}")
-		st.write("---")
-		st.write("Pour un coefficient 305 en 2025 :")
-		st.latex(r"\text{Salaire} = \frac{\text{H}_{\text{hebdo}} \times [ (257 \times 7,15) + (48 \times 6,73) ]}{24}")
-    
-    st.caption("Note : Les points d'ancienneté sont ajoutés séparément et calculés intégralement sur la valeur V1 (7,15 €).")
+         st.latex(r"\text{Salaire de base} = \frac{\text{Heures hebdo} \times [ (257 \times V_1) + (\text{Coefficient} - 257) \times V_2 ]}{24}")
+         st.write("---")
+         st.write("Pour un coefficient 305 en 2025 :")
+         st.latex(r"\text{Salaire} = \frac{\text{H}_{\text{hebdo}} \times [ (257 \times 7,15) + (48 \times 6,73) ]}{24}")
+         st.caption("Note : Les points d'ancienneté sont ajoutés séparément et calculés intégralement sur la valeur V1 (7,15 €).")
     with st.expander("Heures mensuelles rémunérées"):
          st.latex("\\text{Heures mensuelles rémunérées} = \\frac{\\text{Heures annuelles} + 10\\% \\text{ CP}}{12}")
     with st.expander("Heures hebdomadaires contractuelles"):
