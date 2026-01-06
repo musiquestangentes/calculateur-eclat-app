@@ -724,7 +724,7 @@ elif module == "🧮 Simulateur complet":
         prime_diff = max(0, (62.03 - (anciennete * 2))) * 7.15 * heures_hebdo / 24
 
         # Salaire brut
-        salaire_base = (heures_hebdo * valeur_point * 300) / 24
+        salaire_base = (heures_hebdo * valeur_point * 305) / 24
         salaire_brut_total = salaire_base + prime_anciennete + prime_diff
         total_brut_abattu = salaire_brut_total * 0.7
         cotisations_sal = (total_brut_abattu * 0.069) + (total_brut_abattu * 0.004) + (total_brut_abattu * 0.0401) + ((salaire_base * 0.9825) * 0.068) + ((salaire_base * 0.9825) * 0.029)
