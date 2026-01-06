@@ -467,9 +467,18 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     Le **salaire de base conventionnel** correspond à la rémunération d’un·e professeur·e à temps plein ECLAT.  
     Il est calculé en multipliant les heures hebdomadaires contractuelles par la valeur du point d’indice et le coefficient, puis en divisant 
     le tout par 24 afin de ramener le résultat à la quotité ETP, c’est-à-dire la fraction du temps plein effectuée.
+    Il sépare le coefficient en deux tranches pour valoriser différemment le socle de base et les points de responsabilité.
     """)
-    with st.expander("Formule"):
-        st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo contractuelles} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
+    
+    with st.expander("Détail de la formule conventionnelle"):
+    # La formule générale
+    st.latex(r"\text{Salaire de base} = \frac{\text{Heures hebdo} \times [ (257 \times V_1) + (\text{Coefficient} - 257) \times V_2 ]}{24}")
+    st.write("---")
+    # L'application avec les chiffres de 2025
+    st.write("Pour un coefficient 305 en 2025 :")
+    st.latex(r"\text{Salaire} = \frac{\text{H}_{\text{hebdo}} \times [ (257 \times 7,15) + (48 \times 6,73) ]}{24}")
+    
+    st.caption("Note : Les points d'ancienneté sont ajoutés séparément et calculés intégralement sur la valeur V1 (7,15 €).")
     st.caption(f"[Lien Légifrance - Salaire conventionnel]({url_salaire})")
 
 # PAGE 3: HEURES CONTRACTUELLES
@@ -569,15 +578,17 @@ elif module == "Primes":
         "Date d'entrée dans l'école :", min_value=date(1980,1,1), max_value=date.today()
     )
     heures_lissees = st.number_input("Heures hebdomadaires contractuelles :", min_value=0.0, step=0.5)
-    valeur_point = 7.15
-    st.caption(f"Valeur du point d'indice au 1er janvier 2025 : {valeur_point} €.")
+    valeur_point_v1 = 7.15
+    valeur_point_v2 = 6.73
+    st.caption(f"Valeur du point d'indice V1 au 1er janvier 2025 : {valeur_point_v1} €.")
+    st.caption(f"Valeur du point d'indice V2 au 1er janvier 2025 : {valeur_point_v2} €.")
 
     # Ancienneté
     today = datetime.today().date()
     anciennete = today.year - date_entree.year - ((today.month, today.day) < (date_entree.month, date_entree.day))
 
     if heures_lissees > 0:
-        prime_anciennete = heures_lissees * valeur_point * (anciennete * 2) / 24
+        prime_anciennete = heures_lissees * valeur_point_v1 * (anciennete * 2) / 24
         prime_diff = max(0, (62.03 - (anciennete * 2))) * 7.15 * heures_lissees / 24
 
         st.markdown("### Résultats")
@@ -717,14 +728,15 @@ elif module == "🧮 Simulateur complet":
         heures_mensuelles_etp = (heures_hebdo * ((35 * 52)/12)) / 24
 
         # Ancienneté & primes
-        valeur_point = 7.15
+        valeur_point_v1 = 7.15
+		  valeur_point_v2 = 6.73
         today = datetime.today().date()
         anciennete = today.year - date_entree.year - ((today.month, today.day) < (date_entree.month, date_entree.day))
-        prime_anciennete = heures_hebdo * valeur_point * (anciennete * 2) / 24
+        prime_anciennete = heures_hebdo * valeur_point_v1 * (anciennete * 2) / 24
         prime_diff = max(0, (62.03 - (anciennete * 2))) * 7.15 * heures_hebdo / 24
 
         # Salaire brut
-        salaire_base = (heures_hebdo * valeur_point * 305) / 24
+        salaire_base = (heures_hebdo * ((valeur_point_v1 * 257) + (valeur_point_v2 * 48)) / 24
         salaire_brut_total = salaire_base + prime_anciennete + prime_diff
         total_brut_abattu = salaire_brut_total * 0.7
         cotisations_sal = (total_brut_abattu * 0.069) + (total_brut_abattu * 0.004) + (total_brut_abattu * 0.0401) + ((salaire_base * 0.9825) * 0.068) + ((salaire_base * 0.9825) * 0.029)
@@ -795,7 +807,12 @@ elif module == "🔗 Liens utiles":
     st.write("### 2. Formules")
 
     with st.expander("Salaire de base"):
-        st.latex("\\text{Salaire de base} = \\frac{\\text{Heures hebdo contractuelles} \\times \\text{valeur du point d'indice} \\times \\text{coefficient}}{24}")
+        st.latex(r"\text{Salaire de base} = \frac{\text{Heures hebdo} \times [ (257 \times V_1) + (\text{Coefficient} - 257) \times V_2 ]}{24}")
+        st.write("---")
+        st.write("Pour un coefficient 305 en 2025 :")
+        st.latex(r"\text{Salaire} = \frac{\text{H}_{\text{hebdo}} \times [ (257 \times 7,15) + (48 \times 6,73) ]}{24}")
+    
+    st.caption("Note : Les points d'ancienneté sont ajoutés séparément et calculés intégralement sur la valeur V1 (7,15 €).")
     with st.expander("Heures mensuelles rémunérées"):
          st.latex("\\text{Heures mensuelles rémunérées} = \\frac{\\text{Heures annuelles} + 10\\% \\text{ CP}}{12}")
     with st.expander("Heures hebdomadaires contractuelles"):
