@@ -472,7 +472,7 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     
     with st.expander("Détail de la formule conventionnelle"):
     # La formule générale
-    st.latex(r"\text{Salaire de base} = \frac{\text{Heures hebdo} \times [ (257 \times V_1) + (\text{Coefficient} - 257) \times V_2 ]}{24}")
+    st.latex(r"\text{Salaire de base} = \frac{\text{Heures hebdo} \times [ (257 \times valeur_point_v1) + (\text{Coefficient} - 257) \times valeur_point_v2 ]}{24}")
     st.write("---")
     # L'application avec les chiffres de 2025
     st.write("Pour un coefficient 305 en 2025 :")
@@ -514,25 +514,25 @@ elif module == "Mensualisation et ETP":
              
     with st.expander("Formules de calcul"):
     	# Formule 1 : Calcul du temps de travail annuel total à rémunérer, réparti sur 12 mois.
-    	st.latex(r"\text{Heures mensuelles rémunérées} = \frac{\text{Heures annuelles} \times 1,10}{12}")
+		st.latex(r"\text{Heures mensuelles rémunérées} = \frac{\text{Heures annuelles} \times 1,10}{12}")
     
     	# Formule 2 : Calcul de l'équivalent hebdomadaire de ces heures mensualisées (utile pour comparer avec l'horaire contractuel)
     	# L'utilisation de \frac{52}{12} est la définition du coefficient de mensualisation légal.
-    	st.latex(r"\text{Coefficient de mensualisation} = \frac{52 \text{ semaines}}{12 \text{ mois}} \approx 4,33 \text{ semaines/mois}")
+		st.latex(r"\text{Coefficient de mensualisation} = \frac{52 \text{ semaines}}{12 \text{ mois}} \approx 4,33 \text{ semaines/mois}")
     
     	# Formule 3 : L'équivalent de l'horaire de service contractuel hebdomadaire (vérification)
-    	st.latex(r"\text{Heures hebdomadaires contractuelles} = \frac{\text{Heures mensuelles rémunérées}}{\frac{52}{12}}")
-    st.caption(f"[Lien Légifrance - Modulation et annualisation]({url_modulation})")
+		st.latex(r"\text{Heures hebdomadaires contractuelles} = \frac{\text{Heures mensuelles rémunérées}}{\frac{52}{12}}")
+		st.caption(f"[Lien Légifrance - Modulation et annualisation]({url_modulation})")
 
-    st.divider()
-    st.info("**L'équivalent temps plein** - ETP - permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
+		st.divider()
+		st.info("**L'équivalent temps plein** - ETP - permet de comparer les heures des profs (temps plein fixé à 24h/semaine par la convention collective ECLAT) à un temps plein classique (35h/semaine).")
     with st.expander("Formule"):
         st.latex("\\text{Heures mensuelles ETP} = \\frac{\\text{Heures hebdo contractuelles} \\times \\text{151,67}}{24}")
-    st.caption(f"[Lien Légifrance - Temps plein professeur]({url_etp})")
+		st.caption(f"[Lien Légifrance - Temps plein professeur]({url_etp})")
     
-    st.divider()
-    st.write("##### Heures annuelles réelles -> Heures contractuelles et ETP :")
-    heures_annuelles_reelles = st.number_input(
+		st.divider()
+		st.write("##### Heures annuelles réelles -> Heures contractuelles et ETP :")
+		heures_annuelles_reelles = st.number_input(
         "Heures annuelles réellement effectuées (de septembre à août) :", min_value=0.0, step=0.5
     )
 
@@ -807,10 +807,10 @@ elif module == "🔗 Liens utiles":
     st.write("### 2. Formules")
 
     with st.expander("Salaire de base"):
-        st.latex(r"\text{Salaire de base} = \frac{\text{Heures hebdo} \times [ (257 \times V_1) + (\text{Coefficient} - 257) \times V_2 ]}{24}")
-        st.write("---")
-        st.write("Pour un coefficient 305 en 2025 :")
-        st.latex(r"\text{Salaire} = \frac{\text{H}_{\text{hebdo}} \times [ (257 \times 7,15) + (48 \times 6,73) ]}{24}")
+		st.latex(r"\text{Salaire de base} = \frac{\text{Heures hebdo} \times [ (257 \times V_1) + (\text{Coefficient} - 257) \times V_2 ]}{24}")
+		st.write("---")
+		st.write("Pour un coefficient 305 en 2025 :")
+		st.latex(r"\text{Salaire} = \frac{\text{H}_{\text{hebdo}} \times [ (257 \times 7,15) + (48 \times 6,73) ]}{24}")
     
     st.caption("Note : Les points d'ancienneté sont ajoutés séparément et calculés intégralement sur la valeur V1 (7,15 €).")
     with st.expander("Heures mensuelles rémunérées"):
