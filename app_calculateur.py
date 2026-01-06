@@ -448,8 +448,8 @@ elif module == "Coefficient, valeur du point d'indice et salaire de base":
     
     st.info("""
     **Coefficient :** Renvoie à la grille de classification de la convention collective ECLAT.  
-    Les professeur·e·s sont rattaché·e·s par défaut au groupe B de niveau 2, 
-    qui correspond au coefficient 265. Musiques Tangentes rattache ses profs au **groupe D, 
+    Les Animateurs et Techniciens sont rattaché·e·s par défaut au groupe A de niveau 1, 
+    qui correspond au coefficient 257. Musiques Tangentes rattache ses profs au **groupe D, 
     coefficient 305**, dont le salaire de base est plus élevé.
     """)
     st.success("Nb : Le coefficient conventionnel de base, indiqué sur les bulletins de paie, est de 305 mais le coefficient réel sur " \
